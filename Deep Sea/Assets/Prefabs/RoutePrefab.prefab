@@ -51,6 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d5619eaeb96fcd4eac3ce9720bd2dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  _waypoints: []
