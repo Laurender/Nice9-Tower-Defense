@@ -16,10 +16,11 @@ public class Tower : MonoBehaviour {
 	private GameObject projectile;
 
 	//List of enemies within collider
+	[SerializeField]
 	List <GameObject> enemies;
 
 	//List that tells if enemy should be given priority when choosing a target
-	List <bool> enemySide;
+	List <int> enemySide;
 
 	//After which wayPoint enemy is considered to be behind the tower, or gets priority when choosing a target
 	private int pastRouteSpot;
@@ -30,7 +31,7 @@ public class Tower : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		enemies = new List<GameObject> ();
-		enemySide = new List<bool> ();
+		enemySide = new List<int> ();
 		target = -1;
 		shootCounter = 0.0f;
 	}
@@ -43,7 +44,6 @@ public class Tower : MonoBehaviour {
 				shootCounter = 0.0f;
 				GameObject temp;
 				temp = Instantiate (projectile, transform.position, Quaternion.identity);
-				//Add this after making the Projectile script
 				temp.GetComponent<Projectile> ().SetTarget ((Vector2) enemies[target].transform.position);
 			}
 		}
@@ -53,32 +53,34 @@ public class Tower : MonoBehaviour {
 	void NewTarget(){
 		int _newTarget = 0;
 		//Finds the enemy that first entered towers range, prioritised by enemySide
-		/*for (int i = 0; i < enemies.Count; i++) {
-			if (enemySide [i]) {
+		for (int i = 0; i < enemies.Count; i++) {
+			if (enemySide [i] > enemySide[_newTarget]) {
 				_newTarget = i;
-				i = enemies.Count;
 			}
-		}*/
+		}
 
 		target = _newTarget;
 	}
 
 	//When enemy enters range, add to list enemies and check if it should be made target
 	void OnTriggerEnter2D(Collider2D other){
-		Debug.Log ("Triggered");
+		//Debug.Log ("Triggered");
 		if (other.tag == "Enemy") {
 			enemies.Add (other.gameObject);
-			Debug.Log ("Got in");
+			//Debug.Log ("Got in");
 			if (enemies.Count == 1) {
 				target = 0;
 			}
-			//We need a GetTargetIndex-function for Enemy
-			/*if (other.GetComponent<Enemy> ().GetTargetIndex () >= pastRouteSpot) {
-				enemySide.Add (true);
-			} else {
-				enemySide.Add (false);
-			}*/
-			//if enemySide[other] is true and enemySide[target] is false, set other as target
+
+			//save the targetindex of new enemy, that is how far on it's route it is
+			enemySide.Add (other.GetComponent<Enemy> ().GetTargetIndex ());
+
+			enemySide [target] = enemies [target].GetComponent<Enemy> ().GetTargetIndex ();
+
+			//Check if new enemy is ahead of current target
+			if(enemySide[enemies.IndexOf(other.gameObject)] > enemySide[target]){
+				target = enemies.IndexOf (other.gameObject);
+			}
 		}
 	}
 
@@ -86,19 +88,20 @@ public class Tower : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other){
 		if (other.tag == "Enemy") {
 			if (enemies.IndexOf (other.gameObject) == target) {
-				//enemySide.RemoveAt (enemies.IndexOf (other.gameObject));
+				enemySide.RemoveAt (enemies.IndexOf (other.gameObject));
 				enemies.Remove (other.gameObject);
 				if (enemies.Count != 0) {
 					NewTarget ();
 				} else {
 					target = -1;
 				}
+			} else {
+				if (enemies.IndexOf (other.gameObject) < target) {
+					target--;
+				}
+				enemies.Remove (other.gameObject);
 			}
 		}
 	}
 
-	//set pastRouteSpot. Called when tower is built, information comes from the square the tower is built on
-	public void SetPastRouteSpot(int spot){
-		pastRouteSpot = spot;
-	}
 }

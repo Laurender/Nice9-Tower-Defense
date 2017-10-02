@@ -72,4 +72,8 @@ public class Enemy : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
+	public int GetTargetIndex(){
+		return _targetIndex;
+	}
+
 }
