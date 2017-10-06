@@ -8,6 +8,10 @@ public class Enemy : MonoBehaviour {
 	[SerializeField]
 	private float _speed;
 
+	// Hit points for the enemy, set here instead of in a separate component as Enemy is the only thing that has these. The base also takes damage but differently.
+	[SerializeField]
+	private int _hitPoints = 3;
+
 	private Route _route;
 
 	private int _targetIndex;
@@ -75,5 +79,15 @@ public class Enemy : MonoBehaviour {
 	public int GetTargetIndex(){
 		return _targetIndex;
 	}
+
+	// The enemy takes damage here and gets destroyed when hit points drop to zero.
+	public void takeDamage(int damage) {
+
+		_hitPoints -= damage;
+		if (_hitPoints <= 0) {
+			Destroy (gameObject);
+		}
+	}
+
 
 }
