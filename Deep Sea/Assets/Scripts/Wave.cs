@@ -40,9 +40,9 @@ public class Wave : MonoBehaviour
 
 		foreach (GameObject go in _enemies) {
 
-			tempReference = Instantiate(go);
+			tempReference = Instantiate (go);
 
-			(tempReference.GetComponent<Enemy>()).SetRoute(_route.GetComponent<Route>());
+			(tempReference.GetComponent<Enemy> ()).SetRoute (_route.GetComponent<Route> ());
 
 			// Wait until time to spawn next enemy. There will be a redundant wait after last enemy.
 			yield return new WaitForSeconds (_spawnInterval);

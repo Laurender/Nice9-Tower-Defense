@@ -25,11 +25,12 @@ public class Route : MonoBehaviour
 
 	public Vector3 GetPosition (int index)
 	{
-			return _waypoints [index].transform.position;
+		return _waypoints [index].transform.position;
 	
 	}
 
-	public bool IsEnd (int index) {
+	public bool IsEnd (int index)
+	{
 		return (index >= _waypoints.Length);
 	}
 }

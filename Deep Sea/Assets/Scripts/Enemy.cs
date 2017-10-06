@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
 
 	// This field sets the speed for the enemy and should be set at the prefab!
 	[SerializeField]
@@ -12,18 +13,24 @@ public class Enemy : MonoBehaviour {
 	[SerializeField]
 	private int _hitPoints = 3;
 
+	// The damage the enemy does if, it gets to the base.
+	[SerializeField, Tooltip ("The damage the enemy does, if it gets to the base.")]
+	private int _damage = 1;
+
 	private Route _route;
 
 	private int _targetIndex;
 	private Vector3 _target, _direction;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 
 		// Enemy can be moved only if it has a route, ie. was spawned in a wavr.
 		if (_route) {
@@ -32,18 +39,20 @@ public class Enemy : MonoBehaviour {
 
 	}
 
-	public void SetRoute(Route route) {
+	public void SetRoute (Route route)
+	{
 
 		// Stores reference to the route object.
 		_route = route;
 
 		// Gets first point, the spawn point, and places the enemy there.
-		transform.position = _target = _route.GetPosition(0);
+		transform.position = _target = _route.GetPosition (0);
 
 	}
 
 	// Code for moving the enemy along the route.
-	private void MoveEnemy() {
+	private void MoveEnemy ()
+	{
 
 
 		// Check if current target has been reached and update the target if necessary.
@@ -52,7 +61,7 @@ public class Enemy : MonoBehaviour {
 			_targetIndex++;
 
 			// Check if the end of route has been reached and do appropriate action.
-			if (_route.IsEnd(_targetIndex)) {
+			if (_route.IsEnd (_targetIndex)) {
 
 				EndReached ();
 				return;
@@ -70,23 +79,42 @@ public class Enemy : MonoBehaviour {
 	}
 
 	// The code for doing what needs to happen when enemy reaches the base.
-	private void EndReached(){
+	private void EndReached ()
+	{
 
 		// Currently just destroys the enemy.
 		Destroy (gameObject);
 	}
 
-	public int GetTargetIndex(){
+	public int GetTargetIndex ()
+	{
 		return _targetIndex;
 	}
 
 	// The enemy takes damage here and gets destroyed when hit points drop to zero.
-	public void takeDamage(int damage) {
+	public void takeDamage (int damage)
+	{
 
 		_hitPoints -= damage;
 		if (_hitPoints <= 0) {
 			Destroy (gameObject);
 		}
+	}
+
+	// Handles hitting the base.
+	protected void OnTriggerEnter2D (Collider2D target)
+	{
+
+		Base b = target.gameObject.GetComponent<Base> ();
+
+		// If the base was hit, the base takes damage and the enemy is destroyed.
+		if (b != null) {
+			b.takeDamage (_damage);
+			Destroy (gameObject);
+		}
+
+
+
 	}
 
 
