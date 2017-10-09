@@ -117,5 +117,17 @@ public class Enemy : MonoBehaviour
 
 	}
 
+	//When this hits a drop from hatch, it stops for some time
+	public void HatchStop()
+	{
+		StartCoroutine (Stop ());
+	}
 
+	private IEnumerator Stop()
+	{
+		float tempSpeed = _speed;
+		_speed = 0f;
+		yield return new WaitForSeconds (2.0f);
+		_speed = tempSpeed;
+	}
 }

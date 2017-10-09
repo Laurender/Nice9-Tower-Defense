@@ -20,12 +20,14 @@ public class Tower : MonoBehaviour {
 	List <GameObject> enemies;
 
 	//List that tells if enemy should be given priority when choosing a target
+	[SerializeField]
 	List <int> enemySide;
 
 	//After which wayPoint enemy is considered to be behind the tower, or gets priority when choosing a target
 	private int pastRouteSpot;
 
 	//the index of current target enemy on the list enemies
+	[SerializeField]
 	private int target;
 
 	// Use this for initialization
@@ -99,6 +101,7 @@ public class Tower : MonoBehaviour {
 				if (enemies.IndexOf (other.gameObject) < target) {
 					target--;
 				}
+				enemySide.RemoveAt (enemies.IndexOf (other.gameObject));
 				enemies.Remove (other.gameObject);
 			}
 		}
