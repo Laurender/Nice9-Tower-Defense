@@ -108,11 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &9744190 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1324218694721950, guid: 40c0d209bec68ec438ee9a60dd65ee46,
-    type: 2}
-  m_PrefabInternal: {fileID: 689401805}
 --- !u!4 &9744192 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4995531920398590, guid: 40c0d209bec68ec438ee9a60dd65ee46,
@@ -1083,7 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 15
   _spawnInterval: 1
-  _route: {fileID: 9744190}
+  _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1269293395208308, guid: ecb13bc29b9566f439fa96707348bb8b, type: 2}
   - {fileID: 1269293395208308, guid: ecb13bc29b9566f439fa96707348bb8b, type: 2}

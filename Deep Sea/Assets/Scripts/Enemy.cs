@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 
 	// This field sets the speed for the enemy and should be set at the prefab!
 	[SerializeField]
+	private float _maxSpeed;
+
 	private float _speed;
 
 	// Hit points for the enemy, set here instead of in a separate component as Enemy is the only thing that has these. The base also takes damage but differently.
@@ -19,13 +21,15 @@ public class Enemy : MonoBehaviour
 
 	private Route _route;
 
+	private GameObject currentHatch;
+
 	private int _targetIndex;
 	private Vector3 _target, _direction;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
+		_speed = _maxSpeed;
 	}
 	
 	// Update is called once per frame
@@ -56,7 +60,7 @@ public class Enemy : MonoBehaviour
 
 
 		// Check if current target has been reached and update the target if necessary.
-		if (Vector3.Distance (transform.position, _target) < .2f) {
+		if (Vector3.Distance (transform.position, _target) < .02f) {
 
 			_targetIndex++;
 
@@ -118,16 +122,26 @@ public class Enemy : MonoBehaviour
 	}
 
 	//When this hits a drop from hatch, it stops for some time
-	public void HatchStop()
+	public void HatchStop(GameObject hatch, float stopTime)
 	{
-		StartCoroutine (Stop ());
+		currentHatch = hatch;
+		StartCoroutine (Stop (stopTime));
 	}
 
-	private IEnumerator Stop()
+	public void HatchRelease()
 	{
-		float tempSpeed = _speed;
+		_speed = _maxSpeed;
+		currentHatch = null;
+	}
+
+	private IEnumerator Stop(float secs)
+	{
 		_speed = 0f;
-		yield return new WaitForSeconds (2.0f);
-		_speed = tempSpeed;
+		yield return new WaitForSeconds (secs);
+		if (currentHatch != null) {
+			currentHatch.GetComponent<Hatch> ().Remove (this.gameObject);
+			currentHatch = null;
+		}
+		_speed = _maxSpeed;
 	}
 }
