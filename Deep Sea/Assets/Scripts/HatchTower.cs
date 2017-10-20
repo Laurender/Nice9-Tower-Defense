@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class HatchTower : MonoBehaviour {
 
-	/* these will be used later. will tell if hatch can be put on various sides
+	[SerializeField]
 	bool northHasRoad = true;
+
+	[SerializeField]
 	bool eastHasRoad = true;
+
+	[SerializeField]
 	bool southHasRoad = true;
+
+	[SerializeField]
 	bool westHasRoad = true;
-    */
+    
 
 	//these tell if different directions have room for a hatch
 	bool buildNorth = false;
@@ -106,29 +112,44 @@ public class HatchTower : MonoBehaviour {
 
 	//Spawns a hatch to the north of the tower
 	void SpawnNorth(){
-		Vector3 location = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
-		GameObject tHatch = Instantiate (hatch,location,Quaternion.identity);
-		tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "north");
+		if (northHasRoad) {
+			Vector3 location = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
+			GameObject tHatch = Instantiate (hatch, location, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "north");
+		}
 	}
 
 	//Spawns a hatch to the east of the tower
 	void SpawnEast(){
-		Vector3 location = new Vector3 (transform.position.x + 1, transform.position.y, transform.position.z);
-		GameObject tHatch = Instantiate (hatch,location,Quaternion.identity);
-		tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "east");
+		if (eastHasRoad) {
+			Vector3 location = new Vector3 (transform.position.x + 1, transform.position.y, transform.position.z);
+			GameObject tHatch = Instantiate (hatch, location, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "east");
+		}
 	}
 
 	//Spawns a hatch to the south of the tower
 	void SpawnSouth(){
-		Vector3 location = new Vector3 (transform.position.x, transform.position.y - 1, transform.position.z);
-		GameObject tHatch = Instantiate (hatch,location,Quaternion.identity);
-		tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "south");
+		if (southHasRoad) {
+			Vector3 location = new Vector3 (transform.position.x, transform.position.y - 1, transform.position.z);
+			GameObject tHatch = Instantiate (hatch, location, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "south");
+		}
 	}
 
 	//Spawns a hatch to the west of the tower
 	void SpawnWest(){
-		Vector3 location = new Vector3 (transform.position.x - 1, transform.position.y, transform.position.z);
-		GameObject tHatch = Instantiate (hatch,location,Quaternion.identity);
-		tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "west");
+		if (westHasRoad) {
+			Vector3 location = new Vector3 (transform.position.x - 1, transform.position.y, transform.position.z);
+			GameObject tHatch = Instantiate (hatch, location, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "west");
+		}
+	}
+
+	public void SetRoadBools(bool nR, bool eR, bool sR, bool wR){
+		northHasRoad = nR;
+		eastHasRoad = eR;
+		southHasRoad = sR;
+		westHasRoad = wR;
 	}
 }
