@@ -40,7 +40,7 @@ public class Tower : MonoBehaviour {
 
 	//if tower has a target, shoot a projectile at it with frequency based on shootingSpeed
 	void Update () {
-		if (target >= 0) {
+		if (target >= 0 && enemies[target].GetComponent<Enemy>().IsActive()) {
 			shootCounter += Time.deltaTime;
 			if (shootCounter >= shootingSpeed) {
 				shootCounter = 0.0f;
@@ -67,7 +67,7 @@ public class Tower : MonoBehaviour {
 	//When enemy enters range, add to list enemies and check if it should be made target
 	void OnTriggerEnter2D(Collider2D other){
 		//Debug.Log ("Triggered");
-		if (other.tag == "Enemy") {
+		if (other.tag == "Enemy" /*&& other.GetComponent<Enemy>().IsActive()*/) {
 			enemies.Add (other.gameObject);
 			//Debug.Log ("Got in");
 			if (enemies.Count == 1) {

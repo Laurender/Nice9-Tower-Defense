@@ -26,10 +26,20 @@ public class Enemy : MonoBehaviour
 	private int _targetIndex;
 	private Vector3 _target, _direction;
 
+	SpriteRenderer mySR;
+	Color myColor;
+
+	bool isActive = false;
+
+
 	// Use this for initialization
 	void Start ()
 	{
 		_speed = _maxSpeed;
+		mySR = GetComponent<SpriteRenderer> ();
+		myColor = mySR.color;
+		myColor.a = 0.5f;
+		mySR.color = myColor;
 	}
 	
 	// Update is called once per frame
@@ -117,6 +127,12 @@ public class Enemy : MonoBehaviour
 			Destroy (gameObject);
 		}
 
+		if (target.tag == "Start") {
+			myColor.a = 1f;
+			mySR.color = myColor;
+			isActive = true;
+		}
+
 
 
 	}
@@ -143,5 +159,9 @@ public class Enemy : MonoBehaviour
 			currentHatch = null;
 		}
 		_speed = _maxSpeed;
+	}
+
+	public bool IsActive(){
+		return isActive;
 	}
 }
