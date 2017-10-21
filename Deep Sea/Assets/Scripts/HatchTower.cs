@@ -23,6 +23,9 @@ public class HatchTower : MonoBehaviour {
 	bool buildSouth = false;
 	bool buildWest = false;
 
+	//tells if a Hatch is currently moving to it's place, preventing others from spawning
+	bool building = false;
+
 	//the hatch to be dropped
 	[SerializeField]
 	GameObject hatch;
@@ -30,11 +33,16 @@ public class HatchTower : MonoBehaviour {
 	//timers
 	float startTimer = 5f;
 	float timer = 0f;
-	const float maxTimer = 5f;
-	float northTimer = 5f;
-	float eastTimer = 5f;
-	float southTimer = 5f;
-	float westTimer = 5f;
+	//const float maxTimer = 5f;
+	float northTimer = 15f;
+	float eastTimer = 15f;
+	float southTimer = 15f;
+	float westTimer = 15f;
+	float northTimerMax = 15f;
+	float eastTimerMax = 15f;
+	float southTimerMax = 15f;
+	float westTimerMax = 15f;
+	float moveTimer = 1.5f;
 
 	//tells if initial hatches have been spawned
 	bool hasSpawned = false;
@@ -45,35 +53,36 @@ public class HatchTower : MonoBehaviour {
 		if (timer < startTimer) {
 			timer += Time.deltaTime;
 		} else if (!hasSpawned) {
-			SpawnHatches ();
+			StartCoroutine(SpawnHatches ());
+			hasSpawned = true;
 		} else {
 
 			//Spawn new hatches if there is room for them
-			if (northTimer < maxTimer) {
+			if (northTimer < northTimerMax) {
 				northTimer += Time.deltaTime;
-			} else if(buildNorth){
-				SpawnNorth ();
+			} else if(buildNorth && !building){
+				StartCoroutine(SpawnNorth ());
 				buildNorth = false;
 			}
 
-			if (eastTimer < maxTimer) {
+			if (eastTimer < eastTimerMax) {
 				eastTimer += Time.deltaTime;
-			} else if(buildEast){
-				SpawnEast ();
+			} else if(buildEast && !building){
+				StartCoroutine(SpawnEast ());
 				buildEast = false;
 			}
 
-			if (southTimer < maxTimer) {
+			if (southTimer < southTimerMax) {
 				southTimer += Time.deltaTime;
-			} else if(buildSouth){
-				SpawnSouth ();
+			} else if(buildSouth && !building){
+				StartCoroutine(SpawnSouth ());
 				buildSouth = false;
 			}
 
-			if (westTimer < maxTimer) {
+			if (westTimer < westTimerMax) {
 				westTimer += Time.deltaTime;
-			} else if(buildWest){
-				SpawnWest ();
+			} else if(buildWest && !building){
+				StartCoroutine(SpawnWest ());
 				buildWest = false;
 			}
 		}
@@ -81,7 +90,7 @@ public class HatchTower : MonoBehaviour {
 
 	//This spawns the initial hatches.
 	//Needs to be changed when we can tell if neighbouring squares have road on them
-	void SpawnHatches(){
+	/*void SpawnHatches(){
 		SpawnNorth ();
 
 		SpawnEast ();
@@ -91,27 +100,51 @@ public class HatchTower : MonoBehaviour {
 		SpawnWest ();
 
 		hasSpawned = true;
+	}*/
+
+	IEnumerator SpawnHatches(){
+		building = true;
+		StartCoroutine (SpawnNorth());
+		do {
+			yield return new WaitForSeconds (0.1f);
+		} while (building);
+		building = true;
+		StartCoroutine (SpawnEast());
+		do {
+			yield return new WaitForSeconds (0.1f);
+		} while (building);
+		building = true;
+		StartCoroutine (SpawnSouth());
+		do {
+			yield return new WaitForSeconds (0.1f);
+		} while (building);
+		building = true;
+		StartCoroutine (SpawnWest());
 	}
 
 	//A destroyed hatch tells the tower a new hatch can be built
 	public void HatchDestroyed(string direction){
 		if (direction == "north") {
 			northTimer = 0f;
+			northTimerMax = Random.Range (10f, 15f);
 			buildNorth = true;
 		} else if (direction == "east") {
 			eastTimer = 0f;
+			eastTimerMax = Random.Range (10f, 15f);
 			buildEast = true;
 		} else if (direction == "south") {
 			southTimer = 0f;
+			southTimerMax = Random.Range (10f, 15f);
 			buildSouth = true;
 		} else if (direction == "west") {
 			westTimer = 0f;
+			westTimerMax = Random.Range (10f, 15f);
 			buildWest = true;
 		}
 	}
 
 	//Spawns a hatch to the north of the tower
-	void SpawnNorth(){
+	/*void SpawnNorth(){
 		if (northHasRoad) {
 			Vector3 location = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
 			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
@@ -144,6 +177,50 @@ public class HatchTower : MonoBehaviour {
 			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
 			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "west", location);
 		}
+	}*/
+
+	IEnumerator SpawnNorth(){
+		building = true;
+		if (northHasRoad) {
+			Vector3 location = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
+			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "north", location);
+			yield return new WaitForSeconds (moveTimer);
+		}
+		building = false;
+	}
+
+	IEnumerator SpawnEast(){
+		building = true;
+		if (eastHasRoad) {
+			Vector3 location = new Vector3 (transform.position.x + 1, transform.position.y, transform.position.z);
+			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "east", location);
+			yield return new WaitForSeconds (moveTimer);
+		}
+		building = false;
+	}
+
+	IEnumerator SpawnSouth(){
+		building = true;
+		if (southHasRoad) {
+			Vector3 location = new Vector3 (transform.position.x, transform.position.y - 1, transform.position.z);
+			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "south", location);
+			yield return new WaitForSeconds (moveTimer);
+		}
+		building = false;
+	}
+
+	IEnumerator SpawnWest(){
+		building = true;
+		if (westHasRoad) {
+			Vector3 location = new Vector3 (transform.position.x - 1, transform.position.y, transform.position.z);
+			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "west", location);
+			yield return new WaitForSeconds (moveTimer);
+		}
+		building = false;
 	}
 
 	public void SetRoadBools(bool nR, bool eR, bool sR, bool wR){

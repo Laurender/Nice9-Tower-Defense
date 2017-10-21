@@ -58,7 +58,7 @@ public class Hatch : MonoBehaviour {
 		if (other.tag == "Enemy") {
 			TryToCatch (other.gameObject);
 		} else if (other.tag == "Hatch") {
-			if (spawnTime >= other.gameObject.GetComponent<Hatch> ().GetSpawnTime ()) {
+			if (spawnTime <= other.gameObject.GetComponent<Hatch> ().GetSpawnTime ()) {
 				BeDestroyed ();
 			}
 		}
