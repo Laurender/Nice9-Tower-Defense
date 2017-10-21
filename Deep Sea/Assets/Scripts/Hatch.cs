@@ -25,23 +25,42 @@ public class Hatch : MonoBehaviour {
 	//string used to tell the tower in which direction from it this hatch was spawned in
 	string direction;
 
+	//tells when hatch was made. used to destroy older hatch upon collision
+	float spawnTime;
+
+	Vector3 _target;
+
+	Vector2 _direction;
+
+	bool _onTarget = false;
 
 	//start function
 	void Start(){
 		caughtFishes = new List<GameObject>();
+		spawnTime = Time.time;
 	}
 
 	//update function
 	void Update(){
-		if (health <= 0) {
+		/*if (health <= 0) {
 			BeDestroyed ();
+		}*/
+		if (Vector3.Distance (transform.position, _target) < .02f) {
+			transform.position = _target;
+			_onTarget = true;
+		} else if (!_onTarget) {
+			transform.Translate (_direction * Time.deltaTime);
 		}
 	}
 
 	//When enemy tries to enter hatch
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Enemy") {
-			TryToCatch(other.gameObject);
+			TryToCatch (other.gameObject);
+		} else if (other.tag == "Hatch") {
+			if (spawnTime >= other.gameObject.GetComponent<Hatch> ().GetSpawnTime ()) {
+				BeDestroyed ();
+			}
 		}
 	}
 
@@ -82,9 +101,15 @@ public class Hatch : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 
+	public float GetSpawnTime(){
+		return spawnTime;
+	}
+
 	//As this hatch is made, it gets information from the tower that made it
-	public void AsMade(GameObject tow, string dir){
+	public void AsMade(GameObject tow, string dir, Vector2 tar){
 		tower = tow;
 		direction = dir;
+		_target = tar;
+		_direction = (_target - transform.position).normalized;
 	}
 }

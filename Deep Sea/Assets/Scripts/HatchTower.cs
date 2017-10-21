@@ -114,8 +114,8 @@ public class HatchTower : MonoBehaviour {
 	void SpawnNorth(){
 		if (northHasRoad) {
 			Vector3 location = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
-			GameObject tHatch = Instantiate (hatch, location, Quaternion.identity);
-			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "north");
+			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "north", location);
 		}
 	}
 
@@ -123,8 +123,8 @@ public class HatchTower : MonoBehaviour {
 	void SpawnEast(){
 		if (eastHasRoad) {
 			Vector3 location = new Vector3 (transform.position.x + 1, transform.position.y, transform.position.z);
-			GameObject tHatch = Instantiate (hatch, location, Quaternion.identity);
-			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "east");
+			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "east", location);
 		}
 	}
 
@@ -132,8 +132,8 @@ public class HatchTower : MonoBehaviour {
 	void SpawnSouth(){
 		if (southHasRoad) {
 			Vector3 location = new Vector3 (transform.position.x, transform.position.y - 1, transform.position.z);
-			GameObject tHatch = Instantiate (hatch, location, Quaternion.identity);
-			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "south");
+			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "south", location);
 		}
 	}
 
@@ -141,8 +141,8 @@ public class HatchTower : MonoBehaviour {
 	void SpawnWest(){
 		if (westHasRoad) {
 			Vector3 location = new Vector3 (transform.position.x - 1, transform.position.y, transform.position.z);
-			GameObject tHatch = Instantiate (hatch, location, Quaternion.identity);
-			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "west");
+			GameObject tHatch = Instantiate (hatch, transform.position, Quaternion.identity);
+			tHatch.GetComponent<Hatch> ().AsMade (this.gameObject, "west", location);
 		}
 	}
 
