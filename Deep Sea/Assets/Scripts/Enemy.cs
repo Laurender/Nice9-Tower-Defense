@@ -88,7 +88,12 @@ public class Enemy : MonoBehaviour
 
 		// Do actual move.
 
-		transform.Translate (_direction * _speed * Time.deltaTime);
+		transform.Translate (_direction * _speed * Time.deltaTime, Space.World);
+		Vector3 vectorToTarget = _target - transform.position;
+		float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg)+90;
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime*3);
+
 
 	}
 

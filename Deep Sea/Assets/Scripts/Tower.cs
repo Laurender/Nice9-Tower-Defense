@@ -15,6 +15,8 @@ public class Tower : MonoBehaviour {
 	[SerializeField]
 	private GameObject projectile;
 
+	Transform cannon;
+
 	//List of enemies within collider
 	[SerializeField]
 	List <GameObject> enemies;
@@ -36,6 +38,7 @@ public class Tower : MonoBehaviour {
 		enemySide = new List<int> ();
 		target = -1;
 		shootCounter = 0.0f;
+		cannon = transform.GetChild (0);
 	}
 
 	//if tower has a target, shoot a projectile at it with frequency based on shootingSpeed
@@ -48,6 +51,10 @@ public class Tower : MonoBehaviour {
 				temp = Instantiate (projectile, transform.position, Quaternion.identity);
 				temp.GetComponent<Projectile> ().SetTarget ((Vector2) enemies[target].transform.position);
 			}
+			Vector3 vectorToTarget = enemies[target].transform.position - cannon.transform.position;
+			float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
+			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+			cannon.transform.rotation = Quaternion.Slerp(cannon.transform.rotation, q, Time.deltaTime*3);
 		}
 	}
 
