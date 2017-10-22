@@ -25,6 +25,8 @@ public class Grid : MonoBehaviour {
 	//tells if has a tower built on it
 	bool hasTower = false;
 
+    public static bool isActive = true;
+
 	//will have the tower built on this piece of grid
 	GameObject currentTower;
 
@@ -55,19 +57,30 @@ public class Grid : MonoBehaviour {
 	//when user clicks while mouse is over this piece of grid
 	void OnMouseDown(){
 
-		Debug.Log ("Hello");
 		OpenMenu ();
 	}
 
 
 	void OpenMenu(){
+
+        // Grid objects are inactive when the menu is open.
+        if(!isActive)
+        {
+            return;
+        }
+
 		if (!hasTower) {
-			//open buildmenu
-			//build menu needs to get a reference to this piece of grid, and call Grid.SetTower(towerChosen) when a tower is built
-			//build menu should also look at _onLeft to decide on which side of the screen to appear on
-		} else {
-			//open destroymenu
-		}
+            //open buildmenu
+            //build menu needs to get a reference to this piece of grid, and call Grid.SetTower(towerChosen) when a tower is built
+            //build menu should also look at _onLeft to decide on which side of the screen to appear on
+
+            BuildMenu.Open(this, _onLeft);
+            
+        } else {
+            //open destroymenu
+
+            Debug.Log(message: "Destroy menu should open.");
+        }
 	}
 
 	public void SetTower(GameObject tower){
