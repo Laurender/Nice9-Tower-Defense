@@ -26,6 +26,7 @@ public class BuildMenu : MonoBehaviour {
         }
 
         _buildMenu = gameObject;
+
         _buildMenu.SetActive(false);
 	}
 	
