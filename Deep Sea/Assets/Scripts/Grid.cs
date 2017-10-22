@@ -79,7 +79,7 @@ public class Grid : MonoBehaviour {
         } else {
             //open destroymenu
 
-            Debug.Log(message: "Destroy menu should open.");
+            DeleteMenu.Open(this, _onLeft);
         }
 	}
 
@@ -90,4 +90,11 @@ public class Grid : MonoBehaviour {
 		currentTower = tower;
 		hasTower = true;
 	}
+
+    public void RemoveTower()
+    {
+        hasTower = false;
+        Destroy(currentTower);
+        currentTower = null; // Just in case;
+    }
 }
