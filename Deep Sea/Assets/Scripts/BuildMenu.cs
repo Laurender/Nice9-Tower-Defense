@@ -7,8 +7,17 @@ public class BuildMenu : MonoBehaviour {
     // Makes build menu accessible from static context, causes problems if scene has more than one build menu.
     static private GameObject _buildMenu = null;
 
-	// Use this for initialization
-	void Start () {
+    // Using static to get data from the static function.
+    static private Grid _gridTemp;
+
+    [SerializeField, Tooltip("The prefab to use for harpoon tower.")]
+    private GameObject _harpoonPrefab;
+
+    [SerializeField, Tooltip("The prefab to use for hatch tower.")]
+    private GameObject _hatchPrefab;
+
+    // Use this for initialization
+    void Start () {
 
         if(_buildMenu != null)
         {
@@ -18,14 +27,9 @@ public class BuildMenu : MonoBehaviour {
 
         _buildMenu = gameObject;
         _buildMenu.SetActive(false);
-   
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+	
     static public void Open(Grid tile, bool isLeft)
     {
         
@@ -44,6 +48,8 @@ public class BuildMenu : MonoBehaviour {
 
         Grid.isActive = false;
 
+        _gridTemp = tile;
+
         
     }
 
@@ -52,5 +58,22 @@ public class BuildMenu : MonoBehaviour {
     {
         _buildMenu.SetActive(false);
         Grid.isActive = true;
+    }
+
+    public void BuildHarpoonTower()
+    {
+        GameObject temp = Instantiate(_harpoonPrefab);
+        temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
+        _gridTemp.SetTower(temp);
+        DoNothing();
+      
+    }
+
+    public void BuildHatchTower()
+    {
+        GameObject temp = Instantiate(_hatchPrefab);
+        temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
+        _gridTemp.SetTower(temp);
+        DoNothing();
     }
 }
