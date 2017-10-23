@@ -32,11 +32,20 @@ public class Grid : MonoBehaviour {
 
 	Collider2D _myCollider;
 
+	Animator _myAnim;
+
+	[SerializeField]
+	Sprite _mySprite;
+
+	SpriteRenderer _myRend;
+
 	void Start(){
 		if (transform.position.x < 0) {
 			_onLeft = true;
 		}
 		_myCollider = GetComponent<Collider2D> ();
+		_myAnim = GetComponent<Animator> ();
+		_myRend = GetComponent<SpriteRenderer> ();
 	}
 
 	void Update () {
@@ -56,7 +65,7 @@ public class Grid : MonoBehaviour {
 
 	//when user clicks while mouse is over this piece of grid
 	void OnMouseDown(){
-
+		Debug.Log ("Click registered");
 		OpenMenu ();
 	}
 
@@ -89,6 +98,7 @@ public class Grid : MonoBehaviour {
 		}
 		currentTower = tower;
 		hasTower = true;
+		StopAnim ();
 	}
 
     public void RemoveTower()
@@ -97,4 +107,15 @@ public class Grid : MonoBehaviour {
         Destroy(currentTower);
         currentTower = null; // Just in case;
     }
+
+	public void StartAnim()
+	{
+		_myAnim.enabled = true;
+	}
+
+	public void StopAnim()
+	{
+		_myAnim.enabled = false;
+		_myRend.sprite = _mySprite;
+	}
 }

@@ -49,6 +49,8 @@ public class BuildMenu : MonoBehaviour {
 
         Grid.isActive = false;
 
+		tile.StartAnim ();
+
         _gridTemp = tile;
 
         
@@ -59,6 +61,7 @@ public class BuildMenu : MonoBehaviour {
     {
         _buildMenu.SetActive(false);
         Grid.isActive = true;
+		_gridTemp.StopAnim ();
     }
 
     public void BuildHarpoonTower()

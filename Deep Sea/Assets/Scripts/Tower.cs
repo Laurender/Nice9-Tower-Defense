@@ -43,7 +43,7 @@ public class Tower : MonoBehaviour {
 
 	//if tower has a target, shoot a projectile at it with frequency based on shootingSpeed
 	void Update () {
-		if (target >= 0 && enemies[target].GetComponent<Enemy>().IsActive()) {
+		if (target >= 0 && enemies[target] != null && enemies[target].GetComponent<Enemy>().IsActive()) {
 			shootCounter += Time.deltaTime;
 			if (shootCounter >= shootingSpeed) {
 				shootCounter = 0.0f;

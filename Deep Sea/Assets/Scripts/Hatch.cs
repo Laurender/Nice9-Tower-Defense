@@ -97,7 +97,9 @@ public class Hatch : MonoBehaviour {
 			}
 			caughtFishes.RemoveAt (i);
 		}
-		tower.GetComponent<HatchTower> ().HatchDestroyed (direction);
+		if (tower != null) {
+			tower.GetComponent<HatchTower> ().HatchDestroyed (direction);
+		}
 		Destroy (this.gameObject);
 	}
 

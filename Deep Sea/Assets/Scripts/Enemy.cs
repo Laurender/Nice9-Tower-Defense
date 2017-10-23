@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
 
 
 		// Check if current target has been reached and update the target if necessary.
-		if (Vector3.Distance (transform.position, _target) < .02f) {
+		if (Vector3.Distance (transform.position, _target) < .04f) {
 
 			_targetIndex++;
 
