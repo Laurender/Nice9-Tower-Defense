@@ -52,18 +52,20 @@ public class Grid : MonoBehaviour {
 	void Update () {
 		
 		//when user touches on this piece of grid
-		if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+		/*if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
 		{
 			//touch is on this piece of grid
 			Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-			if (Array.IndexOf(Physics2D.OverlapPointAll(wp), _myCollider) > -1)
+
+            
+            if (Array.IndexOf(Physics2D.OverlapPointAll(wp), _myCollider) > -1)
 			{
 				//Open build or destroy menu
 				OpenMenu ();
 			}
-		}
+		}*/
         
-        if (Input.GetMouseButtonDown(0)) {
+        /*if (Input.GetMouseButtonDown(0)) {
 
             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Array.IndexOf(Physics2D.OverlapPointAll(wp),_myCollider)>-1)
@@ -71,7 +73,7 @@ public class Grid : MonoBehaviour {
                 //Open build or destroy menu
                 OpenMenu();
             }
-        }
+        }*/
 	}
 
 	//when user clicks while mouse is over this piece of grid
@@ -81,7 +83,7 @@ public class Grid : MonoBehaviour {
 	}*/
 
 
-	void OpenMenu(){
+	public void OpenMenu(){
 
         // Grid objects are inactive when the menu is open.
         if(!isActive)

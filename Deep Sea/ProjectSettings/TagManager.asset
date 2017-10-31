@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Hatch
   - Start
+  - Grid
   layers:
   - Default
   - TransparentFX
