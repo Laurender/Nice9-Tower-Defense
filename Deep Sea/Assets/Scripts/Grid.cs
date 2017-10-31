@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,19 +56,29 @@ public class Grid : MonoBehaviour {
 		{
 			//touch is on this piece of grid
 			Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-			if (_myCollider == Physics2D.OverlapPoint(wp))
+			if (Array.IndexOf(Physics2D.OverlapPointAll(wp), _myCollider) > -1)
 			{
 				//Open build or destroy menu
 				OpenMenu ();
 			}
 		}
+        
+        if (Input.GetMouseButtonDown(0)) {
+
+            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (Array.IndexOf(Physics2D.OverlapPointAll(wp),_myCollider)>-1)
+            {
+                //Open build or destroy menu
+                OpenMenu();
+            }
+        }
 	}
 
 	//when user clicks while mouse is over this piece of grid
-	void OnMouseDown(){
-		Debug.Log ("Click registered");
+	/*void OnMouseDown(){
+		
 		OpenMenu ();
-	}
+	}*/
 
 
 	void OpenMenu(){
