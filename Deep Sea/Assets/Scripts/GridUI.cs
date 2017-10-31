@@ -2,17 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridUI : MonoBehaviour {
+public class GridUI : MonoBehaviour
+{
 
+    [SerializeField, Tooltip("Maximum number of towers.")]
+    private int _popCap = 6;
 
-  
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    [SerializeField, Tooltip("Energy bar sprites.")]
+    private Sprite[] _energyBarSpites;
+
+    [SerializeField, Tooltip("Energy bar prefab")]
+    private GameObject _energyBarPrefab;
+
+    private GameObject _energyBar;
+    private SpriteRenderer _sprRenderer;
+    private static GridUI _staticReference;
+
+    private int _popCurrent = 0;
+
+    // Use this for initialization
+    void Start()
+    {
+        _energyBar = Instantiate(_energyBarPrefab);
+        _sprRenderer = _energyBar.GetComponent<SpriteRenderer>();
+        _sprRenderer.sprite = _energyBarSpites[_popCap - _popCurrent];
+
+        // Allows using static references without a real singleton.
+        // Acceptable here since objects of this type are only created with Unity editor.
+        _staticReference = this;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         // Check for mouse and touch events.
         CheckForInputEvents();
@@ -37,19 +59,35 @@ public class GridUI : MonoBehaviour {
     private void ProcessTheEvent(Vector3 wp)
     {
 
-        
-
         //iterate thru the array of colliders that overlap the point
-        foreach(Collider2D collider in Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(wp)))
+        foreach (Collider2D collider in Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(wp)))
         {
-                    
+
             Grid grid = collider.gameObject.GetComponent<Grid>();
 
-            if (grid!=null)
+            if (grid != null)
             {
-                grid.OpenMenu();
+                grid.OpenMenu(_popCurrent<_popCap);
             }
         }
-        
+
+    }
+
+    // Redirect static methods to last created actual object.
+    // Acceptable here since objects of this type are only created with Unity editor.
+    // If this assumption is ever broken this code WILL NOT WORK.
+    public static void CountTowerBuild() { _staticReference._CountTowerBuild(); }
+    public static void CountTowerDestroy() { _staticReference._CountTowerDestroy(); }
+
+    private void _CountTowerBuild()
+    {
+        _popCurrent++;
+        _sprRenderer.sprite = _energyBarSpites[_popCap - _popCurrent];
+    }
+
+    private void _CountTowerDestroy()
+    {
+        _popCurrent--;
+        _sprRenderer.sprite = _energyBarSpites[_popCap - _popCurrent];
     }
 }
