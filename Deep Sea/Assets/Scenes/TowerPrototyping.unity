@@ -6006,7 +6006,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfa580111922fa4e9fc8afe7770bdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitPoints: 3
+  _health: 4
+  _healthPrefab: {fileID: 1797363519160742, guid: 49b6bc6a5ec1d6a49be6a1162a4c04ea,
+    type: 2}
+  _healthBarSprites:
+  - {fileID: 21300012, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
+  - {fileID: 21300010, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
+  - {fileID: 21300008, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
+  - {fileID: 21300006, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
+  - {fileID: 21300004, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
+  - {fileID: 21300002, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
+  - {fileID: 21300000, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
 --- !u!50 &838179158
 Rigidbody2D:
   serializedVersion: 4
@@ -13770,6 +13780,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221ecebd6cb8f4d4dbed1e83fffbe37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popCap: 6
+  _energyBarSprites:
+  - {fileID: 21300012, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
+  - {fileID: 21300010, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
+  - {fileID: 21300008, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
+  - {fileID: 21300006, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
+  - {fileID: 21300004, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
+  - {fileID: 21300002, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
+  - {fileID: 21300000, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
+  _energyBarPrefab: {fileID: 1234564420408286, guid: 7b11502bab8bd564781f37bf51dfbe7d,
+    type: 2}
 --- !u!1001 &1918663805
 Prefab:
   m_ObjectHideFlags: 0

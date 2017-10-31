@@ -9,7 +9,7 @@ public class GridUI : MonoBehaviour
     private int _popCap = 6;
 
     [SerializeField, Tooltip("Energy bar sprites.")]
-    private Sprite[] _energyBarSpites;
+    private Sprite[] _energyBarSprites;
 
     [SerializeField, Tooltip("Energy bar prefab")]
     private GameObject _energyBarPrefab;
@@ -25,7 +25,7 @@ public class GridUI : MonoBehaviour
     {
         _energyBar = Instantiate(_energyBarPrefab);
         _sprRenderer = _energyBar.GetComponent<SpriteRenderer>();
-        _sprRenderer.sprite = _energyBarSpites[_popCap - _popCurrent];
+        _sprRenderer.sprite = _energyBarSprites[_popCap - _popCurrent];
 
         // Allows using static references without a real singleton.
         // Acceptable here since objects of this type are only created with Unity editor.
@@ -82,12 +82,12 @@ public class GridUI : MonoBehaviour
     private void _CountTowerBuild()
     {
         _popCurrent++;
-        _sprRenderer.sprite = _energyBarSpites[_popCap - _popCurrent];
+        _sprRenderer.sprite = _energyBarSprites[_popCap - _popCurrent];
     }
 
     private void _CountTowerDestroy()
     {
         _popCurrent--;
-        _sprRenderer.sprite = _energyBarSpites[_popCap - _popCurrent];
+        _sprRenderer.sprite = _energyBarSprites[_popCap - _popCurrent];
     }
 }
