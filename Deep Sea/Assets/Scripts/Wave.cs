@@ -38,6 +38,8 @@ public class Wave : MonoBehaviour
 		// Wait the time until start spawning.
 		yield return new WaitForSeconds (_waveStart);
 
+        gameObject.GetComponent<WaveCounter>().WaveCount();
+
 		foreach (GameObject go in _enemies) {
 
 			tempReference = Instantiate (go);

@@ -10,20 +10,18 @@ public class Base : MonoBehaviour
     private int _health = 4;
 
     [SerializeField]
-    private GameObject _healthPrefab;
+    private GameObject _healthBar;
 
     [SerializeField]
     private Sprite[] _healthBarSprites;
 
-    private GameObject _healthBar;
-    private SpriteRenderer _sprRenderer;
+    private UnityEngine.UI.Image _image;
 
     // Use this for initialization
     void Start()
     {
-        _healthBar = Instantiate(_healthPrefab);
-        _sprRenderer = _healthBar.GetComponent<SpriteRenderer>();
-        _sprRenderer.sprite = _healthBarSprites[_health];
+        _image = _healthBar.GetComponent<UnityEngine.UI.Image>();
+        _image.sprite = _healthBarSprites[_health];
     }
 
     // Update is called once per frame
@@ -41,12 +39,12 @@ public class Base : MonoBehaviour
         {
 
             Destroy(gameObject);
-            Destroy(_healthBar);
+            _healthBar.SetActive(false);
 
             // Should probably exit the game, but doesn't since we have nowhere to go!
         } else
         {
-            _sprRenderer.sprite = _healthBarSprites[_health];
+            _image.sprite = _healthBarSprites[_health];
         }
     }
 }

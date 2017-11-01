@@ -11,11 +11,13 @@ public class GridUI : MonoBehaviour
     [SerializeField, Tooltip("Energy bar sprites.")]
     private Sprite[] _energyBarSprites;
 
-    [SerializeField, Tooltip("Energy bar prefab")]
-    private GameObject _energyBarPrefab;
+    [SerializeField, Tooltip("Energy bar container")]
+    private GameObject _energyBarContainer;
 
+    [SerializeField, Tooltip("Energy bar")]
     private GameObject _energyBar;
-    private SpriteRenderer _sprRenderer;
+
+    private UnityEngine.UI.Image _image;
     private static GridUI _staticReference;
 
     private int _popCurrent = 0;
@@ -23,9 +25,12 @@ public class GridUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        _energyBar = Instantiate(_energyBarPrefab);
-        _sprRenderer = _energyBar.GetComponent<SpriteRenderer>();
-        _sprRenderer.sprite = _energyBarSprites[_popCap - _popCurrent];
+        
+        _image = _energyBar.GetComponent<UnityEngine.UI.Image>();
+        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
+
+        _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 15, 20);
+        _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 150, 20);
 
         // Allows using static references without a real singleton.
         // Acceptable here since objects of this type are only created with Unity editor.
@@ -69,6 +74,8 @@ public class GridUI : MonoBehaviour
             {
                 grid.OpenMenu(_popCurrent<_popCap);
             }
+
+            // TODO : the code for HUD buttons should probably go here?
         }
 
     }
@@ -82,12 +89,12 @@ public class GridUI : MonoBehaviour
     private void _CountTowerBuild()
     {
         _popCurrent++;
-        _sprRenderer.sprite = _energyBarSprites[_popCap - _popCurrent];
+        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
     }
 
     private void _CountTowerDestroy()
     {
         _popCurrent--;
-        _sprRenderer.sprite = _energyBarSprites[_popCap - _popCurrent];
+        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
     }
 }
