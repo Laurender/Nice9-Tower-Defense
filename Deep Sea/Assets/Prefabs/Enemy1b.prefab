@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114934364333407242}
   - component: {fileID: 61475654312042590}
   - component: {fileID: 50603946218703246}
+  - component: {fileID: 60491460945610436}
   m_Layer: 0
   m_Name: Enemy1b
   m_TagString: Enemy
@@ -64,13 +65,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &60491460945610436
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1843854425966342}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.019964762, y: 0.10604977}
+      - {x: -0.12996551, y: -0.01418786}
+      - {x: -0.13876557, y: -0.123111114}
+      - {x: 0.14642821, y: -0.11324846}
+      - {x: 0.118022576, y: -0.012137505}
+      - {x: 0.020114424, y: 0.10604977}
 --- !u!61 &61475654312042590
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1843854425966342}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
