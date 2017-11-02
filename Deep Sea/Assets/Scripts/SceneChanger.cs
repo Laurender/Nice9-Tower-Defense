@@ -18,6 +18,8 @@ public class SceneChanger : MonoBehaviour {
 			SceneManager.LoadScene (1);
 		} else if (Input.GetKey (KeyCode.Alpha3)) {
 			SceneManager.LoadScene (2);
+		} else if (Input.GetKey (KeyCode.Alpha4)) {
+			SceneManager.LoadScene (3);
 		} else if (Input.GetKey (KeyCode.Escape)) {
 			Application.Quit ();
 		}
