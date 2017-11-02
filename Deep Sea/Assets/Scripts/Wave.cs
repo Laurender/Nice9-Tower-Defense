@@ -11,6 +11,9 @@ public class Wave : MonoBehaviour
 	[SerializeField, Tooltip ("Time in seconds between enemies in the wave.")]
 	private float _spawnInterval;
 
+	[SerializeField, Tooltip ("Does the player get more pop cap at the start of this wave.")]
+	private bool _givesPopCap;
+
 	[SerializeField, Tooltip ("A previously defined route. You need to create this as a GameObject in the scene. Use the prefab.")]
 	private GameObject _route;
 
@@ -37,6 +40,10 @@ public class Wave : MonoBehaviour
 
 		// Wait the time until start spawning.
 		yield return new WaitForSeconds (_waveStart);
+
+		if (_givesPopCap) {
+			GridUI.IncreasePopCap ();
+		}
 
         gameObject.GetComponent<WaveCounter>().WaveCount();
 

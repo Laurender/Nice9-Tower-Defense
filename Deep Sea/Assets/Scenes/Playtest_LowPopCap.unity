@@ -7550,7 +7550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 25
   _spawnInterval: 1
-  _givesPopCap: 1
+  _givesPopCap: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -7574,7 +7574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 65
   _spawnInterval: 0.2
-  _givesPopCap: 1
+  _givesPopCap: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}

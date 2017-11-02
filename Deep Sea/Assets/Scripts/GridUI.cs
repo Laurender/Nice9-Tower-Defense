@@ -85,6 +85,7 @@ public class GridUI : MonoBehaviour
     // If this assumption is ever broken this code WILL NOT WORK.
     public static void CountTowerBuild() { _staticReference._CountTowerBuild(); }
     public static void CountTowerDestroy() { _staticReference._CountTowerDestroy(); }
+	public static void IncreasePopCap(){_staticReference._IncreasePopCap ();}
 
     private void _CountTowerBuild()
     {
@@ -97,4 +98,13 @@ public class GridUI : MonoBehaviour
         _popCurrent--;
         _image.sprite = _energyBarSprites[_popCap - _popCurrent];
     }
+
+	//Increases pop cap, allowing the player to build more towers
+	//Does not allow pop cap to be greater than 6
+	private void _IncreasePopCap(){
+		if (_popCap < 6) {
+			_popCap++;
+			_image.sprite = _energyBarSprites[_popCap - _popCurrent];
+		}
+	}
 }
