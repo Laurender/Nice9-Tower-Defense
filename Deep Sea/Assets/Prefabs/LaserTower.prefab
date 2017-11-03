@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerPair: {fileID: 0}
   _gridPair: {fileID: 0}
-  shootingSpeed: 0
-  projectile: {fileID: 0}
+  shootingSpeed: 3
+  projectile: {fileID: 1242115670890302, guid: 9a9b23bba703a454689f71c0ec4c3ecb, type: 2}
   preparingToShoot: 0
   expectingLaser: 0
 --- !u!212 &212389077982722766
