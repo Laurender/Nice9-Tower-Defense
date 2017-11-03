@@ -1,5 +1,6 @@
 Deep Sea/Library/
 Deep Sea/Temp/
+Deep Sea/Builds/
 *.sln
 *.csproj
 Deep Sea/.vs/
