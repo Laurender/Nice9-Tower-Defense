@@ -24,12 +24,17 @@ public class Grid : MonoBehaviour
     //to be used by buildmenu to tell it which side of the screen to appear
     bool _onLeft = false;
 
+	[SerializeField]
+	GameObject[] _pairedGrid;
+
     //tells if has a tower built on it
+	[SerializeField]
     bool hasTower = false;
 
     public static bool isActive = true;
 
     //will have the tower built on this piece of grid
+	[SerializeField]
     GameObject currentTower;
 
     Collider2D _myCollider;
