@@ -23,7 +23,7 @@ public class Grid : MonoBehaviour
 	[SerializeField]
 	GameObject[] _pairedGrid;
 
-    //will have the tower built on this piece of grid
+    // will have the tower built on this piece of grid
 	[SerializeField]
     GameObject currentTower;
 
@@ -53,6 +53,15 @@ public class Grid : MonoBehaviour
         get
         {
             return transform.position.x < 0;
+        }
+    }
+
+    // Can it Laser tower
+    public bool IsPaired
+    {
+        get
+        {
+            return _pairedGrid.Length > 0;
         }
     }
 #endregion properties
