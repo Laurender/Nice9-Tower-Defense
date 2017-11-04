@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ public class GridUI : MonoBehaviour
 
     private int _popCurrent = 0;
     private bool _aMenuIsOpen;
-    private bool _menuOnLeft;
+    private bool _menuOnRight;
     private BuildMenu _buildMenu;
     private DeleteMenu _deleteMenu;
 
@@ -69,23 +70,42 @@ public class GridUI : MonoBehaviour
         }
     }
 
-    private void ProcessTheEvent(Vector3 wp)
+    private void ProcessTheEvent(Vector3 screenPoint)
     {
+        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(screenPoint);
+
+        // Close menu if click is on opposite side.
+        if (_aMenuIsOpen && PointIsOnOppositeSide(worldPoint))
+        {
+            _buildMenu.DoNothing();
+            _deleteMenu.DoNothing();
+
+            // Avoid further processing.
+            return;
+        }
 
         //iterate thru the array of colliders that overlap the point
-        foreach (Collider2D collider in Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(wp)))
+        foreach (Collider2D collider in Physics2D.OverlapPointAll(worldPoint))
         {
 
             Grid grid = collider.gameObject.GetComponent<Grid>();
 
-            if (grid != null)
+            // Open menu if clicked on a tile and one is not already open.
+            if (grid != null && !_aMenuIsOpen)
             {
                 OpenMenu(grid);
             }
 
+            
+
             // TODO : the code for HUD buttons should probably go here?
         }
 
+    }
+
+    private bool PointIsOnOppositeSide(Vector3 worldPoint)
+    {
+        return _menuOnRight?worldPoint.x<0:worldPoint.x>0;
     }
 
     public void CountTowerBuild()
@@ -112,19 +132,6 @@ public class GridUI : MonoBehaviour
     private void OpenMenu(Grid tile)
     {
 
-        // If a menu is already open, do not open another.
-        if (_aMenuIsOpen)
-        {
-            // If click was on the opposite side, close any open menus.
-            if (tile.OnLeft == _menuOnLeft)
-            {
-                _buildMenu.DoNothing();
-                _deleteMenu.DoNothing();
-            }
-
-            return;
-        }
-
         if (!tile.HasTower)
         {
             //open buildmenu, if popCap allows.
@@ -134,7 +141,7 @@ public class GridUI : MonoBehaviour
                 
                 _buildMenu.Open(tile);
                 _aMenuIsOpen = true;
-                _menuOnLeft = tile.OnLeft;
+                _menuOnRight = tile.OnLeft;
  
             }
 
@@ -145,7 +152,7 @@ public class GridUI : MonoBehaviour
 
             _deleteMenu.Open(tile);
             _aMenuIsOpen = true;
-            _menuOnLeft = tile.OnLeft;
+            _menuOnRight = tile.OnLeft;
 
         }
     }
