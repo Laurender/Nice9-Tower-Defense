@@ -42,7 +42,7 @@ public class Wave : MonoBehaviour
 		yield return new WaitForSeconds (_waveStart);
 
 		if (_givesPopCap) {
-			GridUI.IncreasePopCap ();
+			FindObjectOfType<GridUI>().IncreasePopCap ();
 		}
 
         gameObject.GetComponent<WaveCounter>().WaveCount();

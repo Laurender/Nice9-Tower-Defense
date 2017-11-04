@@ -20,24 +20,12 @@ public class Grid : MonoBehaviour
     [SerializeField]
     bool _roadWest;
 
-    //tells if this piece of grid is on the left side of the screen
-    //to be used by buildmenu to tell it which side of the screen to appear
-    bool _onLeft = false;
-
 	[SerializeField]
 	GameObject[] _pairedGrid;
-
-    //tells if has a tower built on it
-	[SerializeField]
-    bool hasTower = false;
-
-    public static bool isActive = true;
 
     //will have the tower built on this piece of grid
 	[SerializeField]
     GameObject currentTower;
-
-    Collider2D _myCollider;
 
     Animator _myAnim;
 
@@ -46,79 +34,38 @@ public class Grid : MonoBehaviour
 
     SpriteRenderer _myRend;
 
+    private GridUI _gridUI;
+
+#region properties
+
+    // If the grip tile has a tower.
+    public bool HasTower
+    {
+        get
+        {
+            return currentTower != null;
+        }       
+    }
+
+    // Which side of the screen the grid is on. Used for menus.
+    public bool OnLeft
+    {
+        get
+        {
+            return transform.position.x < 0;
+        }
+    }
+#endregion properties
+
     void Start()
     {
-        if (transform.position.x < 0)
-        {
-            _onLeft = true;
-        }
-        _myCollider = GetComponent<Collider2D>();
+        
         _myAnim = GetComponent<Animator>();
         _myRend = GetComponent<SpriteRenderer>();
+        _gridUI = FindObjectOfType<GridUI>();
     }
 
-    void Update()
-    {
-
-        //when user touches on this piece of grid
-        /*if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
-		{
-			//touch is on this piece of grid
-			Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-
-            
-            if (Array.IndexOf(Physics2D.OverlapPointAll(wp), _myCollider) > -1)
-			{
-				//Open build or destroy menu
-				OpenMenu ();
-			}
-		}*/
-
-        /*if (Input.GetMouseButtonDown(0)) {
-
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (Array.IndexOf(Physics2D.OverlapPointAll(wp),_myCollider)>-1)
-            {
-                //Open build or destroy menu
-                OpenMenu();
-            }
-        }*/
-    }
-
-    //when user clicks while mouse is over this piece of grid
-    /*void OnMouseDown(){
-		
-		OpenMenu ();
-	}*/
-
-
-    public void OpenMenu(bool canBuild = true)
-    {
-
-        // Grid objects are inactive when the menu is open.
-        if (!isActive)
-        {
-            return;
-        }
-
-        if (!hasTower)
-        {
-            //open buildmenu, if GridUI told it is okay
-
-            if (canBuild)
-            {
-                BuildMenu.Open(this, _onLeft);
-            }
-
-        }
-        else
-        {
-            //open destroymenu
-
-            DeleteMenu.Open(this, _onLeft);
-        }
-    }
-
+    
     public void SetTower(GameObject tower)
     {
         if (tower.GetComponent<HatchTower>() != null)
@@ -127,17 +74,15 @@ public class Grid : MonoBehaviour
         }
 
         currentTower = tower;
-        hasTower = true;
         StopAnim();
-        GridUI.CountTowerBuild();
+        _gridUI.CountTowerBuild();
     }
 
     public void RemoveTower()
     {
-        hasTower = false;
         Destroy(currentTower);
-        currentTower = null; // Just in case;
-        GridUI.CountTowerDestroy();
+        currentTower = null; // Now critical as ;
+        _gridUI.CountTowerDestroy();
     }
 
 

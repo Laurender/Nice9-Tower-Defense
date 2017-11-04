@@ -4,50 +4,38 @@ using UnityEngine;
 
 public class BuildMenu : MonoBehaviour {
 
-    // Makes build menu accessible from static context, causes problems if scene has more than one build menu.
-    static private GameObject _buildMenu = null;
-
-    // Using static to get data from the static function.
-    static private Grid _gridTemp;
-
     [SerializeField, Tooltip("The prefab to use for harpoon tower.")]
     private GameObject _harpoonPrefab;
 
     [SerializeField, Tooltip("The prefab to use for hatch tower.")]
     private GameObject _hatchPrefab;
 
+    private Grid _gridTemp;
+
+    private GridUI _gridUI;
+
     // Use this for initialization
     void Start () {
 
-        if(_buildMenu != null)
-        {
-            // This might actually happen when changing scenes, but currently I am thinking to make menu separately for every level.
-            Debug.LogError("Code is trying to set up a second build menu.");
-        }
-
-        _buildMenu = gameObject;
-
-        _buildMenu.SetActive(false);
+        _gridUI = FindObjectOfType<GridUI>();
 	}
 	
 	
-    static public void Open(Grid tile, bool isLeft)
+    public void Open(Grid tile)
     {
         
-        _buildMenu.SetActive(true);
+        gameObject.SetActive(true);
 
-        if (isLeft)
+        if (tile.OnLeft)
         {
-            _buildMenu.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 50, 150);
+            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 50, 150);
             Debug.Log("Menu open on left.");
         }
         else
         {
-            _buildMenu.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 50, 150);
+            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 50, 150);
             Debug.Log("Menu open on right.");
         }
-
-        Grid.isActive = false;
 
 		tile.StartAnim ();
 
@@ -59,8 +47,8 @@ public class BuildMenu : MonoBehaviour {
     // A complex function that does nothing. Well, it hides the menu.
     public void DoNothing()
     {
-        _buildMenu.SetActive(false);
-        Grid.isActive = true;
+        gameObject.SetActive(false);
+        _gridUI.ActivateGrid();
 		_gridTemp.StopAnim ();
     }
 

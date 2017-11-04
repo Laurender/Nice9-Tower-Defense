@@ -18,9 +18,12 @@ public class GridUI : MonoBehaviour
     private GameObject _energyBar;
 
     private UnityEngine.UI.Image _image;
-    private static GridUI _staticReference;
 
     private int _popCurrent = 0;
+    private bool _aMenuIsOpen;
+    private bool _menuOnLeft;
+    private BuildMenu _buildMenu;
+    private DeleteMenu _deleteMenu;
 
     // Use this for initialization
     void Start()
@@ -32,9 +35,14 @@ public class GridUI : MonoBehaviour
         _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 15, 20);
         _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 150, 20);
 
-        // Allows using static references without a real singleton.
-        // Acceptable here since objects of this type are only created with Unity editor.
-        _staticReference = this;
+        // Find the menus for later reference...
+        _buildMenu = FindObjectOfType<BuildMenu>();
+        _deleteMenu = FindObjectOfType<DeleteMenu>();
+
+        // ...and hide them until needed.
+        _buildMenu.gameObject.SetActive(false);
+        _deleteMenu.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -72,7 +80,7 @@ public class GridUI : MonoBehaviour
 
             if (grid != null)
             {
-                grid.OpenMenu(_popCurrent<_popCap);
+                OpenMenu(grid);
             }
 
             // TODO : the code for HUD buttons should probably go here?
@@ -80,20 +88,13 @@ public class GridUI : MonoBehaviour
 
     }
 
-    // Redirect static methods to last created actual object.
-    // Acceptable here since objects of this type are only created with Unity editor.
-    // If this assumption is ever broken this code WILL NOT WORK.
-    public static void CountTowerBuild() { _staticReference._CountTowerBuild(); }
-    public static void CountTowerDestroy() { _staticReference._CountTowerDestroy(); }
-	public static void IncreasePopCap(){_staticReference._IncreasePopCap ();}
-
-    private void _CountTowerBuild()
+    public void CountTowerBuild()
     {
         _popCurrent++;
         _image.sprite = _energyBarSprites[_popCap - _popCurrent];
     }
 
-    private void _CountTowerDestroy()
+    public void CountTowerDestroy()
     {
         _popCurrent--;
         _image.sprite = _energyBarSprites[_popCap - _popCurrent];
@@ -101,10 +102,57 @@ public class GridUI : MonoBehaviour
 
 	//Increases pop cap, allowing the player to build more towers
 	//Does not allow pop cap to be greater than 6
-	private void _IncreasePopCap(){
+	public void IncreasePopCap(){
 		if (_popCap < 6) {
 			_popCap++;
 			_image.sprite = _energyBarSprites[_popCap - _popCurrent];
 		}
 	}
+
+    private void OpenMenu(Grid tile)
+    {
+
+        // If a menu is already open, do not open another.
+        if (_aMenuIsOpen)
+        {
+            // If click was on the opposite side, close any open menus.
+            if (tile.OnLeft == _menuOnLeft)
+            {
+                _buildMenu.DoNothing();
+                _deleteMenu.DoNothing();
+            }
+
+            return;
+        }
+
+        if (!tile.HasTower)
+        {
+            //open buildmenu, if popCap allows.
+
+            if (_popCurrent < _popCap)
+            {
+                
+                _buildMenu.Open(tile);
+                _aMenuIsOpen = true;
+                _menuOnLeft = tile.OnLeft;
+ 
+            }
+
+        }
+        else
+        {
+            //open destroymenu
+
+            _deleteMenu.Open(tile);
+            _aMenuIsOpen = true;
+            _menuOnLeft = tile.OnLeft;
+
+        }
+    }
+
+    public void ActivateGrid()
+    {
+        _aMenuIsOpen = false;
+    }
+
 }
