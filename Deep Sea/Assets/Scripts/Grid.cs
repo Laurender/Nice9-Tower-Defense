@@ -61,7 +61,12 @@ public class Grid : MonoBehaviour
     {
         get
         {
-            return _pairedGrid.Length > 0;
+            int count=0;
+            foreach(GameObject go in _pairedGrid)
+            {
+                if (!go.GetComponent<Grid>().HasTower) return true;
+            }
+            return false;
         }
     }
 
@@ -112,7 +117,7 @@ public class Grid : MonoBehaviour
 #region Tile animation methods
     public void StartAnim()
     {
-        _myAnim.enabled = true;
+        if(!HasTower) _myAnim.enabled = true;
     }
 
     public void StopAnim()
