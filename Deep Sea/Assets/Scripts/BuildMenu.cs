@@ -145,7 +145,7 @@ public class BuildMenu : MonoBehaviour {
     // Use stored state to reset back to normal.
     public void AbortPair()
     {
-        _firstGrid.RemoveTower();
+        _firstGrid.RemoveTower(false);
         _firstGrid.DeAnimatePairs();
 
         _gridUI.ActivateGrid();
