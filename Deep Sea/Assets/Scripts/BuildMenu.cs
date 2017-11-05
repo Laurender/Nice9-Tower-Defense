@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class BuildMenu : MonoBehaviour {
 
+#region Serialized fields
     [SerializeField, Tooltip("The prefab to use for harpoon tower.")]
     private GameObject _harpoonPrefab;
 
     [SerializeField, Tooltip("The prefab to use for hatch tower.")]
     private GameObject _hatchPrefab;
 
+    [SerializeField, Tooltip("The prefab to use for laser tower.")]
+    private GameObject _laserPrefab;
+
+    [SerializeField, Tooltip("The prefab to use for Tesla tower.")]
+    private GameObject _teslaPrefab;
+
     [SerializeField, Tooltip("If advanced towers are enabled.")]
     private bool _enableAdvancedTowers;
+    #endregion
 
+#region Paired tower state
+    // Extra state needed for the paired towers.
+    private GameObject _firstTower;
+    private Grid _firstGrid;
+#endregion
 
     private Grid _gridTemp;
 
     private GridUI _gridUI;
+
 
     // These are needed to enable and disable.
     private UnityEngine.UI.Button _laserButton, _teslaButton;
@@ -57,7 +71,7 @@ public class BuildMenu : MonoBehaviour {
 		tile.StartAnim ();
 
         // Control whether the button to build laser towers is active.
-        if(tile.IsPaired && _enableAdvancedTowers)
+        if(tile.IsPaired && _enableAdvancedTowers && _gridUI.HasTwoEnergy)
         {
             _laserButton.interactable = true;
         } else
@@ -65,7 +79,9 @@ public class BuildMenu : MonoBehaviour {
             _laserButton.interactable = false;
         }
 
+
         _gridTemp = tile;
+
 
         
     }
@@ -93,5 +109,52 @@ public class BuildMenu : MonoBehaviour {
         temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
         _gridTemp.SetTower(temp);
         DoNothing();
+    }
+
+    public void BuildLaserTower()
+    {
+        Debug.Log("Building laser tower.");
+        // Store state for first of pair.
+        _firstTower = Instantiate(_laserPrefab);
+        _firstGrid = _gridTemp;
+
+        _firstTower.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
+        _gridTemp.SetTower(_firstTower);
+
+        // Set up to get the pair.
+        gameObject.SetActive(false);
+        _gridUI.GetPair(_gridTemp);
+        _gridTemp.StopAnim();
+        _gridTemp.AnimatePairs();
+
+    }
+
+    public void CompletePair(Grid tile)
+    {
+        GameObject temp = Instantiate(_laserPrefab);
+        temp.GetComponent<Transform>().position = tile.GetComponent<Transform>().position;
+        tile.SetTower(temp);
+
+        _firstTower.GetComponent<PairedTower>().WhenBuilt(false, temp, tile.gameObject);
+        temp.GetComponent<PairedTower>().WhenBuilt(true, _firstTower, _firstGrid.gameObject);
+
+        _gridUI.ActivateGrid();
+
+    }
+
+    // Use stored state to reset back to normal.
+    public void AbortPair()
+    {
+        _firstGrid.RemoveTower();
+        _firstGrid.DeAnimatePairs();
+
+        _gridUI.ActivateGrid();
+    }
+
+ 
+
+    public void BuildTeslaTower()
+    {
+
     }
 }

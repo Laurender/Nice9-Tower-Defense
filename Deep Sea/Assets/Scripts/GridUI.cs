@@ -21,10 +21,21 @@ public class GridUI : MonoBehaviour
     private UnityEngine.UI.Image _image;
 
     private int _popCurrent = 0;
-    private bool _aMenuIsOpen;
-    private bool _menuOnRight;
+
+    // State flags.
+    private bool _aMenuIsOpen, _menuOnRight, _waitingForPair;
+    
     private BuildMenu _buildMenu;
     private DeleteMenu _deleteMenu;
+
+
+    public bool HasTwoEnergy
+    {
+        get
+        {
+            return _popCap - _popCurrent >= 2;
+        }
+    }
 
     // Use this for initialization
     void Start()
@@ -81,6 +92,7 @@ public class GridUI : MonoBehaviour
             _deleteMenu.DoNothing();
 
             // Avoid further processing.
+            // TODO : Might want to allow open menu for the tile with same tap.
             return;
         }
 
@@ -88,12 +100,30 @@ public class GridUI : MonoBehaviour
         foreach (Collider2D collider in Physics2D.OverlapPointAll(worldPoint))
         {
 
-            Grid grid = collider.gameObject.GetComponent<Grid>();
+            Grid tile = collider.gameObject.GetComponent<Grid>();
 
             // Open menu if clicked on a tile and one is not already open.
-            if (grid != null && !_aMenuIsOpen)
+            if (tile != null && !_aMenuIsOpen)
             {
-                OpenMenu(grid);
+                
+                if (_waitingForPair)
+                {
+                    // Check if completes the pair otherwise abort pair forming.
+                    // Tiles that complete the pair should be animated.
+                    if(tile.IsAnimated)
+                    {
+                        _buildMenu.CompletePair(tile);
+                    }
+                    else
+                    {
+                        _buildMenu.AbortPair();
+                    }
+                }
+                else               
+                {
+                    // Open menu for tile, if not waiting for pair and menu is not open.
+                    OpenMenu(tile);
+                }
             }
 
             
@@ -160,6 +190,13 @@ public class GridUI : MonoBehaviour
     public void ActivateGrid()
     {
         _aMenuIsOpen = false;
+        _waitingForPair = false;
     }
 
+    public void GetPair(Grid first)
+    {
+        _aMenuIsOpen = false;
+        _waitingForPair = true;
+
+    }
 }

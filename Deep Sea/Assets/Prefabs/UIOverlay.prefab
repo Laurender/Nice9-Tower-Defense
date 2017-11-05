@@ -471,6 +471,10 @@ MonoBehaviour:
     type: 2}
   _hatchPrefab: {fileID: 1239418709456410, guid: 48c3854479ebeb741b0d15b5f3d078c8,
     type: 2}
+  _laserPrefab: {fileID: 1823883985229748, guid: 667c4dcff952c8a4c91e81db345f0570,
+    type: 2}
+  _teslaPrefab: {fileID: 0}
+  _enableAdvancedTowers: 1
 --- !u!114 &114085255862296770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -511,7 +515,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114011300202540864}
-        m_MethodName: BuildHarpoonTower
+        m_MethodName: BuildLaserTower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -645,7 +649,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114011300202540864}
-        m_MethodName: BuildHarpoonTower
+        m_MethodName: BuildTeslaTower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

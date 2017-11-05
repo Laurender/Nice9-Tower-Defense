@@ -64,7 +64,16 @@ public class Grid : MonoBehaviour
             return _pairedGrid.Length > 0;
         }
     }
-#endregion properties
+
+    public bool IsAnimated
+    {
+        get
+        {
+            return _myAnim.enabled;
+        }
+    }
+
+    #endregion properties
 
     void Start()
     {
@@ -74,7 +83,7 @@ public class Grid : MonoBehaviour
         _gridUI = FindObjectOfType<GridUI>();
     }
 
-    
+#region Set and remove tower    
     public void SetTower(GameObject tower)
     {
         if (tower.GetComponent<HatchTower>() != null)
@@ -87,14 +96,20 @@ public class Grid : MonoBehaviour
         _gridUI.CountTowerBuild();
     }
 
-    public void RemoveTower()
+    public void RemoveTower(bool getPair = true)
     {
+        if(getPair && currentTower.GetComponent<PairedTower>() != null)
+        {
+            currentTower.GetComponent<PairedTower>().PairedTile.RemoveTower(false);
+        }
+
         Destroy(currentTower);
         currentTower = null; // Now critical as ;
         _gridUI.CountTowerDestroy();
     }
+#endregion
 
-
+#region Tile animation methods
     public void StartAnim()
     {
         _myAnim.enabled = true;
@@ -105,4 +120,24 @@ public class Grid : MonoBehaviour
         _myAnim.enabled = false;
         _myRend.sprite = _mySprite;
     }
+ 
+#endregion
+
+#region Pair animation methods
+    public void AnimatePairs()
+    {
+        foreach(GameObject go in _pairedGrid)
+        {
+            go.GetComponent<Grid>().StartAnim();
+        }
+    }
+
+    public void DeAnimatePairs()
+    {
+        foreach (GameObject go in _pairedGrid)
+        {
+            go.GetComponent<Grid>().StopAnim();
+        }
+    }
+#endregion
 }

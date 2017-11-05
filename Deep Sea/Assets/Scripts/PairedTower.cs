@@ -68,4 +68,12 @@ public class PairedTower : MonoBehaviour {
 		preparingToShoot = startsFiring;
 		expectingLaser = !startsFiring;
 	}
+
+    public Grid PairedTile
+    {
+        get
+        {
+            return _gridPair.GetComponent<Grid>();
+        }
+    }
 }

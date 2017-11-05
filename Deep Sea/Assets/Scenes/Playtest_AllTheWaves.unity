@@ -1446,8 +1446,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114011300202540864, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
-      propertyPath: _enableAdvancedTowers
-      value: 1
+      propertyPath: _laserPrefab
+      value: 
+      objectReference: {fileID: 1823883985229748, guid: 667c4dcff952c8a4c91e81db345f0570,
+        type: 2}
+    - target: {fileID: 114011300202540864, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+        type: 2}
+      propertyPath: _teslaPrefab
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
@@ -2990,6 +2996,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1033023613081414, guid: e8a680d3b64e5ab46b5fe9e1b064f80a,
     type: 2}
   m_PrefabInternal: {fileID: 453107478}
+--- !u!1 &465173556 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1055365611376830, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+    type: 2}
+  m_PrefabInternal: {fileID: 217814760}
 --- !u!1 &473305736
 GameObject:
   m_ObjectHideFlags: 0
@@ -5730,6 +5741,11 @@ Transform:
   m_Father: {fileID: 1711209875}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &786071421 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1817042780259120, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+    type: 2}
+  m_PrefabInternal: {fileID: 217814760}
 --- !u!1001 &786546436
 Prefab:
   m_ObjectHideFlags: 0
@@ -6151,7 +6167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 4
-  _healthBar: {fileID: 0}
+  _healthBar: {fileID: 465173556}
   _healthBarSprites:
   - {fileID: 21300012, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
   - {fileID: 21300010, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
@@ -7532,8 +7548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da2d51864a53164890ad494d7e21f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textObject: {fileID: 0}
-  _container: {fileID: 0}
+  _textObject: {fileID: 1917388975}
+  _container: {fileID: 786071421}
 --- !u!114 &1003896187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14162,6 +14178,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4439430832757838, guid: e8a680d3b64e5ab46b5fe9e1b064f80a,
     type: 2}
   m_PrefabInternal: {fileID: 294188701}
+--- !u!1 &1917388975 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1748757913929712, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+    type: 2}
+  m_PrefabInternal: {fileID: 217814760}
 --- !u!1001 &1918663805
 Prefab:
   m_ObjectHideFlags: 0
