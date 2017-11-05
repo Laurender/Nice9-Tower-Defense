@@ -155,6 +155,9 @@ public class BuildMenu : MonoBehaviour {
 
     public void BuildTeslaTower()
     {
-
+		GameObject temp = Instantiate(_teslaPrefab);
+		temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
+		_gridTemp.SetTower(temp);
+		DoNothing();
     }
 }

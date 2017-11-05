@@ -1454,6 +1454,12 @@ Prefab:
         type: 2}
       propertyPath: _teslaPrefab
       value: 
+      objectReference: {fileID: 1726387895434954, guid: 464eea8d70d924444a6860486137568a,
+        type: 2}
+    - target: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+        type: 2}
+      propertyPath: _popCap
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
@@ -10448,6 +10454,11 @@ Prefab:
       propertyPath: _pairedGrid.Array.data[0]
       value: 
       objectReference: {fileID: 691590737}
+    - target: {fileID: 114292711673997260, guid: e8a680d3b64e5ab46b5fe9e1b064f80a,
+        type: 2}
+      propertyPath: currentTower
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8a680d3b64e5ab46b5fe9e1b064f80a, type: 2}
   m_IsPrefabParent: 0
@@ -11058,6 +11069,11 @@ Prefab:
       propertyPath: _pairedGrid.Array.data[2]
       value: 
       objectReference: {fileID: 1634022185}
+    - target: {fileID: 114292711673997260, guid: e8a680d3b64e5ab46b5fe9e1b064f80a,
+        type: 2}
+      propertyPath: currentTower
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8a680d3b64e5ab46b5fe9e1b064f80a, type: 2}
   m_IsPrefabParent: 0
