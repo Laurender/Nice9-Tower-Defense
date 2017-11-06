@@ -138,6 +138,7 @@ public class BuildMenu : MonoBehaviour {
         _firstTower.GetComponent<PairedTower>().WhenBuilt(false, temp, tile.gameObject);
         temp.GetComponent<PairedTower>().WhenBuilt(true, _firstTower, _firstGrid.gameObject);
 
+        _firstGrid.DeAnimatePairs();
         _gridUI.ActivateGrid();
 
     }
