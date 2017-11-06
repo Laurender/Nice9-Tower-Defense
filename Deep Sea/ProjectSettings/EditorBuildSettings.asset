@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Playtest_IncreasingPopCap.unity
     guid: fdb6d2ce1d925d041b1611bc73e3fc83
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Playtest_LowPopCap.unity
     guid: 5b8260ca164ae6141a1b9cd8892e5ce5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Playtest_StrongEnemiesStrongDefence.unity
     guid: a2f28d2153fa0494d843e00bef1194dc
   - enabled: 1

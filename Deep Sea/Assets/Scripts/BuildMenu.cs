@@ -96,19 +96,15 @@ public class BuildMenu : MonoBehaviour {
 
     public void BuildHarpoonTower()
     {
-        GameObject temp = Instantiate(_harpoonPrefab);
-        temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
-        _gridTemp.SetTower(temp);
-        DoNothing();
+        BasicTowerBuild(_harpoonPrefab);
+ 
       
     }
 
     public void BuildHatchTower()
     {
-        GameObject temp = Instantiate(_hatchPrefab);
-        temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
-        _gridTemp.SetTower(temp);
-        DoNothing();
+        BasicTowerBuild(_hatchPrefab);
+ 
     }
 
     public void BuildLaserTower()
@@ -156,9 +152,19 @@ public class BuildMenu : MonoBehaviour {
 
     public void BuildTeslaTower()
     {
-		GameObject temp = Instantiate(_teslaPrefab);
-		temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
-		_gridTemp.SetTower(temp);
-		DoNothing();
+        // This tower consumes extra energy.
+        _gridUI.CountTowerBuild();
+
+        BasicTowerBuild(_teslaPrefab);       
+
+    }
+
+    private void BasicTowerBuild(GameObject preFab)
+    {
+        GameObject temp = Instantiate(preFab);
+        temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
+        _gridTemp.SetTower(temp);
+
+        DoNothing();
     }
 }

@@ -61,7 +61,6 @@ public class Grid : MonoBehaviour
     {
         get
         {
-            int count=0;
             foreach(GameObject go in _pairedGrid)
             {
                 if (!go.GetComponent<Grid>().HasTower) return true;
