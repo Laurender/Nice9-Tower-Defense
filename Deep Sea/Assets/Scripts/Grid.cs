@@ -107,6 +107,10 @@ public class Grid : MonoBehaviour
             currentTower.GetComponent<PairedTower>().PairedTile.RemoveTower(false);
         }
 
+		if (currentTower.GetComponent<TeslaTower> () != null) {
+			_gridUI.CountTowerDestroy();
+		}
+
         Destroy(currentTower);
         currentTower = null; // Now critical as ;
         _gridUI.CountTowerDestroy();
