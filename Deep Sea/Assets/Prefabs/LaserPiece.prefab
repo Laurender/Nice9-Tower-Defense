@@ -9,73 +9,52 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1823883985229748}
+  m_RootGameObject: {fileID: 1470556015484866}
   m_IsPrefabParent: 1
---- !u!1 &1823883985229748
+--- !u!1 &1470556015484866
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4689198954156896}
-  - component: {fileID: 212389077982722766}
-  - component: {fileID: 50953247984993782}
-  - component: {fileID: 114420458407788390}
-  - component: {fileID: 61776941972614810}
+  - component: {fileID: 4744063407811128}
+  - component: {fileID: 212482069410098524}
+  - component: {fileID: 61057565046404062}
+  - component: {fileID: 114824777795961032}
   m_Layer: 0
-  m_Name: LaserTower
-  m_TagString: Untagged
+  m_Name: LaserPiece
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4689198954156896
+--- !u!4 &4744063407811128
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823883985229748}
+  m_GameObject: {fileID: 1470556015484866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 2.5, z: 0}
-  m_LocalScale: {x: 5.8779225, y: 5.877926, z: 1.8652042}
+  m_LocalPosition: {x: -2.5, y: 2.5, z: 0}
+  m_LocalScale: {x: 6.976535, y: 1.7441342, z: 1.7441342}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50953247984993782
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823883985229748}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &61776941972614810
+--- !u!61 &61057565046404062
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823883985229748}
+  m_GameObject: {fileID: 1470556015484866}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0006340444, y: 0.000000059604645}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -86,31 +65,27 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.14351493, y: 0.13971066}
   m_EdgeRadius: 0
---- !u!114 &114420458407788390
+--- !u!114 &114824777795961032
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823883985229748}
+  m_GameObject: {fileID: 1470556015484866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c8a856af1b67594ea76a45bf35f3082, type: 3}
+  m_Script: {fileID: 11500000, guid: 8adecdd5ce34e27488d103ee56e17b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towerPair: {fileID: 0}
-  _gridPair: {fileID: 0}
-  shootingSpeed: 3
-  projectile: {fileID: 1470556015484866, guid: 379d164b45394444b866deb83535a0e6, type: 2}
-  preparingToShoot: 0
-  expectingLaser: 0
---- !u!212 &212389077982722766
+  _damage: 1
+  _lifetime: 0.2
+--- !u!212 &212482069410098524
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823883985229748}
+  m_GameObject: {fileID: 1470556015484866}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -136,9 +111,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -31,6 +31,13 @@ public class PairedTower : MonoBehaviour {
 	//Needed so the tower doesn't destroy the laser it itself shot
 	[SerializeField]
 	bool expectingLaser = false;
+
+	//to which direction the paired tower is. N, E, S or W.
+	//used to make laser
+	string pairDirection;
+
+	//distance to paired tower. used to make laser.
+	float pairDistance;
 	
 	// Update is called once per frame. Contains the shooting of a laser
 	void Update () {
@@ -38,27 +45,62 @@ public class PairedTower : MonoBehaviour {
 			shootCounter += Time.deltaTime;
 			if (shootCounter >= shootingSpeed) {
 				shootCounter = 0.0f;
-				GameObject temp;
+				/*GameObject temp;
 				temp = Instantiate (projectile, transform.position, Quaternion.identity);
-				temp.GetComponent<LaserProjectile> ().SetTarget ((Vector2)_towerPair.transform.position);
+				temp.GetComponent<LaserProjectile> ().SetTarget ((Vector2)_towerPair.transform.position);*/
+				Shoot ();
 				preparingToShoot = false;
+				_towerPair.SendMessage ("ExpectLaser");
+			}
+		}
+	}
+
+	void Shoot(){
+		if (pairDirection == "N") {
+			for (int i = 0; i < pairDistance; i++) {
+				Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y + 0.5f + ((float)i), transform.position.z);
+				GameObject temp;
+				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+				temp.GetComponent<LaserPiece> ().Direction (false);
+			}
+		} else if (pairDirection == "E") {
+			for (int i = 0; i < pairDistance; i++) {
+				Vector3 laserPosition = new Vector3 (transform.position.x + 0.5f + ((float)i), transform.position.y, transform.position.z);
+				GameObject temp;
+				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+				temp.GetComponent<LaserPiece> ().Direction (true);
+			}
+		} else if (pairDirection == "S") {
+			for (int i = 0; i < pairDistance; i++) {
+				Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y - 0.5f - ((float)i), transform.position.z);
+				GameObject temp;
+				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+				temp.GetComponent<LaserPiece> ().Direction (false);
+			}
+		} else if (pairDirection == "W") {
+			for (int i = 0; i < pairDistance; i++) {
+				Vector3 laserPosition = new Vector3 (transform.position.x - 0.5f - ((float)i), transform.position.y, transform.position.z);
+				GameObject temp;
+				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+				temp.GetComponent<LaserPiece> ().Direction (true);
 			}
 		}
 	}
 
 	//when laser hits this tower and was not shot by this tower, prepare to shoot a laser
-	void OnTriggerEnter2D(Collider2D other){
+	/*void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Laser" && expectingLaser) {
 			expectingLaser = false;
 			_towerPair.SendMessage ("ExpectLaser");
 			other.gameObject.SendMessage ("HitTargetTower");
 			preparingToShoot = true;
 		}
-	}
+	}*/
 
 	//for the paired tower to tell this one to expect a laser soon
 	public void ExpectLaser(){
 		expectingLaser = true;
+		preparingToShoot = true;
 	}
 
 	//called when tower is built by buildmenu. set everything important
@@ -67,6 +109,24 @@ public class PairedTower : MonoBehaviour {
 		_gridPair = pairGrid;
 		preparingToShoot = startsFiring;
 		expectingLaser = !startsFiring;
+
+		if (transform.position.x - 0.1f < _towerPair.transform.position.x && transform.position.x + 0.1f > _towerPair.transform.position.x) {
+			if (transform.position.y > _towerPair.transform.position.y) {
+				pairDirection = "S";
+				pairDistance = transform.position.y - _towerPair.transform.position.y;
+			} else {
+				pairDirection = "N";
+				pairDistance = _towerPair.transform.position.y - transform.position.y;
+			}
+		} else {
+			if (transform.position.x > _towerPair.transform.position.x) {
+				pairDirection = "W";
+				pairDistance = transform.position.x - _towerPair.transform.position.x;
+			} else {
+				pairDirection = "E";
+				pairDistance = _towerPair.transform.position.x - transform.position.x;
+			}
+		}
 	}
 
     public Grid PairedTile
