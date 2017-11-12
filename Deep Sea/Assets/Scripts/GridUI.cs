@@ -28,6 +28,8 @@ public class GridUI : MonoBehaviour
     private BuildMenu _buildMenu;
     private DeleteMenu _deleteMenu;
 
+    private bool _isPaused, _isAccelerated;
+
 
     public bool HasTwoEnergy
     {
@@ -55,6 +57,9 @@ public class GridUI : MonoBehaviour
         _buildMenu.gameObject.SetActive(false);
         _deleteMenu.gameObject.SetActive(false);
 
+        // start paused
+        _isPaused = true;
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -198,5 +203,36 @@ public class GridUI : MonoBehaviour
         _aMenuIsOpen = false;
         _waitingForPair = true;
 
+    }
+
+    public void PauseButton()
+    {
+        _isPaused = _isPaused ? false : true;
+        SetSpeed();
+        //TODO: Graphics feedback.
+    }
+
+    public void SpeedButton()
+    {
+        _isAccelerated = _isAccelerated ? false : true;
+        SetSpeed();
+        //TODO: Graphics feedback.
+    }
+
+    public void SetSpeed()
+    {
+        if(_isPaused)
+        {
+            Time.timeScale = 0;
+        } else
+        {
+            if(_isAccelerated)
+            {
+                Time.timeScale = 3;
+            } else
+            {
+                Time.timeScale = 1;
+            }
+        }
     }
 }
