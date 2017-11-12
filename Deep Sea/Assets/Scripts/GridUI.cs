@@ -28,8 +28,8 @@ public class GridUI : MonoBehaviour
     private BuildMenu _buildMenu;
     private DeleteMenu _deleteMenu;
 
-    private bool _isPaused, _isAccelerated;
-
+    private bool _isPaused, _isAccelerated, _gameOver, _pauseMenuOpen;
+    private GameObject _placeHolder;
 
     public bool HasTwoEnergy
     {
@@ -52,10 +52,12 @@ public class GridUI : MonoBehaviour
         // Find the menus for later reference...
         _buildMenu = FindObjectOfType<BuildMenu>();
         _deleteMenu = FindObjectOfType<DeleteMenu>();
+        _placeHolder = GameObject.Find("GenericPlaceHolder");
 
         // ...and hide them until needed.
         _buildMenu.gameObject.SetActive(false);
         _deleteMenu.gameObject.SetActive(false);
+        _placeHolder.SetActive(false);
 
         // start paused
         _isPaused = true;
@@ -73,6 +75,10 @@ public class GridUI : MonoBehaviour
 
     private void CheckForInputEvents()
     {
+
+        // Most UI does nothing if the game is over or pause menu is open.
+        if (_gameOver || _pauseMenuOpen) return;
+
         //check for touch event
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -173,11 +179,11 @@ public class GridUI : MonoBehaviour
 
             if (_popCurrent < _popCap)
             {
-                
+
                 _buildMenu.Open(tile);
                 _aMenuIsOpen = true;
                 _menuOnRight = tile.OnLeft;
- 
+
             }
 
         }
@@ -207,8 +213,24 @@ public class GridUI : MonoBehaviour
 
     public void PauseButton()
     {
-        _isPaused = _isPaused ? false : true;
+        // Most UI does nothing if the game is over.
+        if (_gameOver) return;
+
+        if (_isPaused)
+        {
+            _pauseMenuOpen = false;
+            _isPaused = false;
+            _placeHolder.SetActive(false);
+        } else
+        {
+            _pauseMenuOpen = true;
+            _isPaused = true;
+            _placeHolder.SetActive(true);
+        }
+        
         SetSpeed();
+
+        
         //TODO: Graphics feedback.
     }
 
@@ -234,5 +256,21 @@ public class GridUI : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+    }
+
+    // Allows exiting the game from placeholder button.
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void GameOver()
+    {
+        _gameOver = true;
+        _isPaused = true;
+        SetSpeed();
+
+        _placeHolder.SetActive(true);
+
     }
 }

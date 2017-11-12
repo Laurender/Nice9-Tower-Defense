@@ -41,7 +41,8 @@ public class Base : MonoBehaviour
             Destroy(gameObject);
             _healthBar.SetActive(false);
 
-            // Should probably exit the game, but doesn't since we have nowhere to go!
+            FindObjectOfType<GridUI>().GameOver();
+
         } else
         {
             _image.sprite = _healthBarSprites[_health];
