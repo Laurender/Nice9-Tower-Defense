@@ -57,33 +57,73 @@ public class PairedTower : MonoBehaviour {
 
 	void Shoot(){
 		if (pairDirection == "N") {
-			for (int i = 0; i < pairDistance; i++) {
-				Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y + 0.5f + ((float)i), transform.position.z);
-				GameObject temp;
+			
+			Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+			GameObject temp;
+			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "S", 0.0f);
+
+			for (int i = 0; i < pairDistance -1; i++) {
+				laserPosition = new Vector3 (transform.position.x, transform.position.y + 1.0f + ((float)i), transform.position.z);
 				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
-				temp.GetComponent<LaserPiece> ().Direction (false);
+				temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "M", (1 / 7) * (i % 8));
 			}
+
+			laserPosition = new Vector3 (transform.position.x, _towerPair.transform.position.y, transform.position.z);
+			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "E", 0.0f);
+
 		} else if (pairDirection == "E") {
-			for (int i = 0; i < pairDistance; i++) {
-				Vector3 laserPosition = new Vector3 (transform.position.x + 0.5f + ((float)i), transform.position.y, transform.position.z);
-				GameObject temp;
+			
+			Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+			GameObject temp;
+			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "S", 0.0f);
+
+			for (int i = 0; i < pairDistance - 1; i++) {
+				laserPosition = new Vector3 (transform.position.x + 1.0f + ((float)i), transform.position.y, transform.position.z);
 				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
-				temp.GetComponent<LaserPiece> ().Direction (true);
+				temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "M", (1 / 7) * (i % 8));
 			}
+
+			laserPosition = new Vector3 (_towerPair.transform.position.x, transform.position.y, transform.position.z);
+			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "E", 0.0f);
+
 		} else if (pairDirection == "S") {
-			for (int i = 0; i < pairDistance; i++) {
-				Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y - 0.5f - ((float)i), transform.position.z);
-				GameObject temp;
+
+			Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+			GameObject temp;
+			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "S", 0.0f);
+
+			for (int i = 0; i < pairDistance - 1; i++) {
+				laserPosition = new Vector3 (transform.position.x, transform.position.y - 1.0f - ((float)i), transform.position.z);
 				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
-				temp.GetComponent<LaserPiece> ().Direction (false);
+				temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "M", (1 / 7) * (i % 8));
 			}
+
+			laserPosition = new Vector3 (transform.position.x, _towerPair.transform.position.y, transform.position.z);
+			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "E", 0.0f);
+
 		} else if (pairDirection == "W") {
-			for (int i = 0; i < pairDistance; i++) {
-				Vector3 laserPosition = new Vector3 (transform.position.x - 0.5f - ((float)i), transform.position.y, transform.position.z);
-				GameObject temp;
+
+			Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+			GameObject temp;
+			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "S", 0.0f);
+
+			for (int i = 0; i < pairDistance - 1; i++) {
+				laserPosition = new Vector3 (transform.position.x - 1.0f - ((float)i), transform.position.y, transform.position.z);
 				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
-				temp.GetComponent<LaserPiece> ().Direction (true);
+				temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "M", (1 / 7) * (i % 8));
 			}
+
+			laserPosition = new Vector3 (_towerPair.transform.position.x, transform.position.y, transform.position.z);
+			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
+			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "E", 0.0f);
+
 		}
 	}
 

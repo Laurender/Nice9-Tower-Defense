@@ -12,8 +12,20 @@ public class LaserPiece : MonoBehaviour {
 	[SerializeField]
 	float _lifetime = 0.2f;
 
+	[SerializeField]
+	RuntimeAnimatorController _animLaserEnd;
+
+	[SerializeField]
+	RuntimeAnimatorController _animLaserMid;
+
+	Animator _myAnimator;
+
 	float lifeCounter = 0.0f;
-	
+
+	void Awake(){
+		_myAnimator = GetComponent<Animator> ();
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (lifeCounter < _lifetime) {
@@ -23,11 +35,28 @@ public class LaserPiece : MonoBehaviour {
 		}
 	}
 
-	public void Direction(bool isHorizontal){
-		if (isHorizontal) {
+	public void AsMade(string direction, string startMidEnd, float startPoint){
+		if (direction == "E") {
 			transform.eulerAngles = new Vector3 (0.0f, 0.0f, 0.0f);
-		} else {
+		} else if (direction == "N") {
 			transform.eulerAngles = new Vector3 (0.0f, 0.0f, 90.0f);
+		} else if (direction == "W") {
+			transform.eulerAngles = new Vector3 (0.0f, 0.0f, 180.0f);
+		} else {
+			transform.eulerAngles = new Vector3 (0.0f, 0.0f, 270.0f);
+		}
+		if (startMidEnd == "S" || startMidEnd == "E") {
+			_myAnimator.runtimeAnimatorController = _animLaserEnd;
+			if (startMidEnd == "E") {
+				Vector3 newEuler = transform.eulerAngles;
+				newEuler.z -= 180.0f;
+				transform.eulerAngles = newEuler;
+			}
+			_myAnimator.Play ("Laser_end", -1, 0.0f);
+		} else {
+			_myAnimator.runtimeAnimatorController = _animLaserMid;
+
+			_myAnimator.Play ("Laser", -1, startPoint);
 		}
 	}
 
