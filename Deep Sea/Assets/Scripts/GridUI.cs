@@ -82,7 +82,9 @@ public class GridUI : MonoBehaviour
         //check for touch event
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            ProcessTheEvent(Input.GetTouch(0).position);
+			Vector3 touchposition = (Vector3)Input.GetTouch (0).position;
+			Vector3 worldposition = Camera.main.ScreenToWorldPoint (touchposition);
+			ProcessTheEvent(worldposition);
         }
 
         //check for a click, can be removed on Android builds.

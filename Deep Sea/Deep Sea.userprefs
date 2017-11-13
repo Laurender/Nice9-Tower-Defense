@@ -15,13 +15,13 @@
       <File FileName="Assets\Scripts\BuildMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\WaveCounter.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Base.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GridUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GridUI.cs" Line="87" Column="33" />
       <File FileName="Assets\Scripts\SceneChanger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PairedTower.cs" Line="117" Column="40" />
+      <File FileName="Assets\Scripts\PairedTower.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LaserProjectile.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TeslaTower.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\DeleteMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LaserPiece.cs" Line="55" Column="45" />
+      <File FileName="Assets\Scripts\LaserPiece.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
