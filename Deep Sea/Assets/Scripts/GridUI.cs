@@ -45,6 +45,9 @@ public class GridUI : MonoBehaviour
     [SerializeField]
     private Sprite _playSprite;
 
+    [SerializeField]
+    private GameObject _pausePlayGO;
+
 
     public bool HasTwoEnergy
     {
@@ -76,7 +79,7 @@ public class GridUI : MonoBehaviour
 
         // start paused
         _isPaused = true;
-        Time.timeScale = 0;
+        SetSpeed();
     }
 
     // Update is called once per frame
@@ -265,9 +268,13 @@ public class GridUI : MonoBehaviour
         if(_isPaused)
         {
             Time.timeScale = 0;
+            _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _playSprite;
+
         } else
         {
-            if(_isAccelerated)
+            _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _pauseSprite;
+
+            if (_isAccelerated)
             {
                 Time.timeScale = 3;
             } else

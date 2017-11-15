@@ -996,6 +996,7 @@ MonoBehaviour:
   _sellMenuObject: {fileID: 1712262708936926}
   _pauseSprite: {fileID: 21300010, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _playSprite: {fileID: 21300008, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
+  _pausePlayGO: {fileID: 1358455829803304}
 --- !u!114 &114159700816906058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2751,8 +2752,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -25}
-  m_SizeDelta: {x: 32, y: 32}
+  m_AnchoredPosition: {x: 230, y: -25}
+  m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224132157056964962
 RectTransform:
@@ -2844,7 +2845,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 170, y: -25}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224210080099424402
 RectTransform:
