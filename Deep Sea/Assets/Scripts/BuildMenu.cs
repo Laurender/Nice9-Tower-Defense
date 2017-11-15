@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,13 @@ public class BuildMenu : MonoBehaviour {
     [SerializeField, Tooltip("Tesla tower button.")]
     private UnityEngine.UI.Button _teslaTowerButton;
 
+    [SerializeField, Tooltip("Locked tower sprite")]
+    private Sprite _lockedSprite;
+
+    [SerializeField, Tooltip("Insuffient Energy Sprite")]
+    private GameObject _not2Energy;
+
+
     #endregion
 
     #region Paired tower state
@@ -50,7 +58,7 @@ public class BuildMenu : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        _gridUI = FindObjectOfType<GridUI>();
+        
 
         // Disable buttons for advanced towers unless they are enabled.
         _hatchTowerButton.interactable = _enableHatchTowers;
@@ -58,27 +66,39 @@ public class BuildMenu : MonoBehaviour {
         _teslaTowerButton.interactable = _enableTeslaTowers;
 
 
-
+        SetLocked("TowerText2", _enableHatchTowers);
+        SetLocked("TowerText3", _enableLaserTowers);
+        SetLocked("TowerText4", _enableTeslaTowers);
 
 
 
     }
-	
-	
+
+    private void SetLocked(string textName, bool ifEnabled)
+    {
+        if (ifEnabled) return;
+
+        gameObject.transform.Find(textName).GetComponent<UnityEngine.UI.Image>().sprite = _lockedSprite;
+    }
+
     public void Open(Grid tile)
     {
         
         gameObject.SetActive(true);
 
+        if(_gridUI == null)
+        {
+            _gridUI = FindObjectOfType<GridUI>();
+        }
 
         if (tile.OnLeft)
         {
-            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 50, 260);
+            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 50, 256);
             Debug.Log("Menu open on left.");
         }
         else
         {
-            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 50, 260);
+            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 50, 256);
             Debug.Log("Menu open on right.");
         }
 
@@ -101,6 +121,9 @@ public class BuildMenu : MonoBehaviour {
         {
             _teslaTowerButton.interactable = false;
         }
+
+        // Insufficient energy overlay
+        _not2Energy.SetActive(!_gridUI.HasTwoEnergy);
 
         _gridTemp = tile;
 

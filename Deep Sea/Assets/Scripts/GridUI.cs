@@ -39,6 +39,13 @@ public class GridUI : MonoBehaviour
     [SerializeField, Tooltip("Sell menu object")]
     private GameObject _sellMenuObject;
 
+    [SerializeField]
+    private Sprite _pauseSprite;
+
+    [SerializeField]
+    private Sprite _playSprite;
+
+
     public bool HasTwoEnergy
     {
         get
