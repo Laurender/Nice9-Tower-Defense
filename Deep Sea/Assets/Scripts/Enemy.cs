@@ -25,26 +25,14 @@ public class Enemy : MonoBehaviour
 
 	private int _targetIndex;
 	private Vector3 _target, _direction;
+    private WaveCounter _waveCounter;
 
 	SpriteRenderer mySR;
 	Color myColor;
 
 	bool isActive = false;
 
-    private static int _enemyCount;
-
-    public static int EnemyCount
-    {
-        get
-        {
-            return _enemyCount;
-        }
-
-        set
-        {
-            _enemyCount = value;
-        }
-    }
+    
 
     // Use this for initialization
     void Start ()
@@ -54,8 +42,8 @@ public class Enemy : MonoBehaviour
 		myColor = mySR.color;
 		myColor.a = 0.5f;
 		mySR.color = myColor;
-        EnemyCount++;
-	}
+        _waveCounter = FindObjectOfType<WaveCounter>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -186,12 +174,9 @@ public class Enemy : MonoBehaviour
 		return isActive;
 	}
 
-    //private void OnDestroy()
-    //{
-    //    EnemyCount--;
-    //    if(EnemyCount==0 && WaveCounter.AllWaves)
-    //    {
-    //        FindObjectOfType<GridUI>().GameOver();
-    //    }
-    //}
+    private void OnDestroy()
+    {
+        _waveCounter.EnemyDied();
+        
+    }
 }
