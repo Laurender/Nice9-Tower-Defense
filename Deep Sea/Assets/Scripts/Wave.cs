@@ -38,14 +38,17 @@ public class Wave : MonoBehaviour
 		//used to refer to the instantiated object within the loop.
 		GameObject tempReference;
 
-		// Wait the time until start spawning.
-		yield return new WaitForSeconds (_waveStart);
+        //wavecounter reference;
+        WaveCounter waveCounter = gameObject.GetComponent<WaveCounter>();
+
+        // Wait the time until start spawning.
+        yield return new WaitForSeconds (_waveStart);
 
 		if (_givesPopCap) {
 			FindObjectOfType<GridUI>().IncreasePopCap ();
 		}
 
-        gameObject.GetComponent<WaveCounter>().WaveCount();
+        waveCounter.WaveCount();
 
 		foreach (GameObject go in _enemies) {
 
@@ -56,6 +59,8 @@ public class Wave : MonoBehaviour
 			// Wait until time to spawn next enemy. There will be a redundant wait after last enemy.
 			yield return new WaitForSeconds (_spawnInterval);
 		}
-	}
+
+        waveCounter.WaveEnd();
+    }
 
 }

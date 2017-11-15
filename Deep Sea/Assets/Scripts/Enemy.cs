@@ -31,15 +31,30 @@ public class Enemy : MonoBehaviour
 
 	bool isActive = false;
 
+    private static int _enemyCount;
 
-	// Use this for initialization
-	void Start ()
+    public static int EnemyCount
+    {
+        get
+        {
+            return _enemyCount;
+        }
+
+        set
+        {
+            _enemyCount = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start ()
 	{
 		_speed = _maxSpeed;
 		mySR = GetComponent<SpriteRenderer> ();
 		myColor = mySR.color;
 		myColor.a = 0.5f;
 		mySR.color = myColor;
+        EnemyCount++;
 	}
 	
 	// Update is called once per frame
@@ -103,6 +118,7 @@ public class Enemy : MonoBehaviour
 
 		// Currently just destroys the enemy.
 		Destroy (gameObject);
+
 	}
 
 	public int GetTargetIndex ()
@@ -169,4 +185,13 @@ public class Enemy : MonoBehaviour
 	public bool IsActive(){
 		return isActive;
 	}
+
+    //private void OnDestroy()
+    //{
+    //    EnemyCount--;
+    //    if(EnemyCount==0 && WaveCounter.AllWaves)
+    //    {
+    //        FindObjectOfType<GridUI>().GameOver();
+    //    }
+    //}
 }

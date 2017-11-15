@@ -10,9 +10,20 @@ public class WaveCounter : MonoBehaviour {
     [SerializeField, Tooltip("Wave counter container")]
     private GameObject _container;
 
-    private int _currentCount, _totalCount;
+    private int _currentCount, _totalCount, _endedCount;
     private UnityEngine.UI.Text _text;
-    
+    private static bool _allWaves;
+
+    public static bool AllWaves
+    {
+        get
+        {
+            return _allWaves;
+        }
+
+      
+    }
+
 
     // Use this for initialization
     void Start () {
@@ -37,6 +48,14 @@ public class WaveCounter : MonoBehaviour {
 
         _text.text = _currentCount + "/" + _totalCount;
 
+    }
+
+    public void WaveEnd() {
+        _endedCount++;
+        if(_endedCount==_totalCount)
+        {
+            _allWaves = true;
+        }
     }
 
    
