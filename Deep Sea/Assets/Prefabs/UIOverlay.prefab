@@ -997,6 +997,9 @@ MonoBehaviour:
   _pauseSprite: {fileID: 21300010, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _playSprite: {fileID: 21300008, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _pausePlayGO: {fileID: 1358455829803304}
+  _speed1Sprite: {fileID: 21300094, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
+  _speed2Sprite: {fileID: 21300034, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
+  _speedyGO: {fileID: 1664070904904166}
 --- !u!114 &114159700816906058
 MonoBehaviour:
   m_ObjectHideFlags: 1

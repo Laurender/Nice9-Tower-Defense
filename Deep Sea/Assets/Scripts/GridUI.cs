@@ -48,6 +48,15 @@ public class GridUI : MonoBehaviour
     [SerializeField]
     private GameObject _pausePlayGO;
 
+    [SerializeField]
+    private Sprite _speed1Sprite;
+
+    [SerializeField]
+    private Sprite _speed2Sprite;
+
+    [SerializeField]
+    private GameObject _speedyGO;
+
 
     public bool HasTwoEnergy
     {
@@ -260,27 +269,31 @@ public class GridUI : MonoBehaviour
     {
         _isAccelerated = _isAccelerated ? false : true;
         SetSpeed();
-        //TODO: Graphics feedback.
+        
     }
 
     public void SetSpeed()
     {
-        if(_isPaused)
+        if (_isAccelerated)
+        {
+            Time.timeScale = 3;
+            _speedyGO.GetComponent<UnityEngine.UI.Image>().sprite = _speed1Sprite;
+
+        }
+        else
+        {
+            Time.timeScale = 1;
+            _speedyGO.GetComponent<UnityEngine.UI.Image>().sprite = _speed2Sprite;
+        }
+
+        if (_isPaused)
         {
             Time.timeScale = 0;
             _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _playSprite;
 
         } else
         {
-            _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _pauseSprite;
-
-            if (_isAccelerated)
-            {
-                Time.timeScale = 3;
-            } else
-            {
-                Time.timeScale = 1;
-            }
+            _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _pauseSprite;            
         }
     }
 
