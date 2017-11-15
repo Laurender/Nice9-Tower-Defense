@@ -24,12 +24,20 @@ public class GridUI : MonoBehaviour
 
     // State flags.
     private bool _aMenuIsOpen, _menuOnRight, _waitingForPair;
+
     
     private BuildMenu _buildMenu;
+    
     private DeleteMenu _deleteMenu;
 
     private bool _isPaused, _isAccelerated, _gameOver, _pauseMenuOpen;
+
+    [SerializeField, Tooltip("Placeholder object")]
     private GameObject _placeHolder;
+    [SerializeField, Tooltip("Build menu object")]
+    private GameObject _buildMenuObject;
+    [SerializeField, Tooltip("Sell menu object")]
+    private GameObject _sellMenuObject;
 
     public bool HasTwoEnergy
     {
@@ -50,13 +58,13 @@ public class GridUI : MonoBehaviour
         _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 150, 20);
 
         // Find the menus for later reference...
-        _buildMenu = FindObjectOfType<BuildMenu>();
-        _deleteMenu = FindObjectOfType<DeleteMenu>();
-        _placeHolder = GameObject.Find("GenericPlaceHolder");
+        _buildMenu = _buildMenuObject.GetComponent<BuildMenu>();
+        _deleteMenu = _sellMenuObject.GetComponent<DeleteMenu>();
+        
 
         // ...and hide them until needed.
-        _buildMenu.gameObject.SetActive(false);
-        _deleteMenu.gameObject.SetActive(false);
+        _buildMenuObject.SetActive(false);
+        _sellMenuObject.SetActive(false);
         _placeHolder.SetActive(false);
 
         // start paused
@@ -82,9 +90,11 @@ public class GridUI : MonoBehaviour
         //check for touch event
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-			Vector3 touchposition = (Vector3)Input.GetTouch (0).position;
-			Vector3 worldposition = Camera.main.ScreenToWorldPoint (touchposition);
-			ProcessTheEvent(worldposition);
+            //Vector3 touchposition = (Vector3)Input.GetTouch (0).position;
+            //Vector3 worldposition = Camera.main.ScreenToWorldPoint (touchposition);
+            //ProcessTheEvent(worldposition);
+
+            ProcessTheEvent(Input.GetTouch(0).position);
         }
 
         //check for a click, can be removed on Android builds.

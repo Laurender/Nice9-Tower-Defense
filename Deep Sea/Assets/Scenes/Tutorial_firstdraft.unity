@@ -9689,11 +9689,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114223586265441886, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224978736436757862, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -9783,31 +9778,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114223586265441886, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1320822275}
-    - target: {fileID: 114223586265441886, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114223586265441886, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114223586265441886, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Exit
-      objectReference: {fileID: 0}
-    - target: {fileID: 114223586265441886, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
@@ -11393,12 +11363,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &1320822275 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-    type: 2}
-  m_PrefabInternal: {fileID: 1117558698}
-  m_Script: {fileID: 11500000, guid: 221ecebd6cb8f4d4dbed1e83fffbe37c, type: 3}
 --- !u!1 &1328949301
 GameObject:
   m_ObjectHideFlags: 0
