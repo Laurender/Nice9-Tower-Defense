@@ -276,7 +276,7 @@ public class GridUI : MonoBehaviour
     {
         if (_isAccelerated)
         {
-            Time.timeScale = 2;
+            Time.timeScale = 3;
             _speedyGO.GetComponent<UnityEngine.UI.Image>().sprite = _speed1Sprite;
 
         }

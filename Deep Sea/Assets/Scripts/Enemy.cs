@@ -58,6 +58,12 @@ public class Enemy : MonoBehaviour
 
 	public void SetRoute (Route route)
 	{
+        // Check if the route is long enough to use.
+        if(route.IsEnd(0))
+        {
+            EndReached();
+            return;
+        }
 
 		// Stores reference to the route object.
 		_route = route;
@@ -65,33 +71,57 @@ public class Enemy : MonoBehaviour
 		// Gets first point, the spawn point, and places the enemy there.
 		transform.position = _target = _route.GetPosition (0);
 
-	}
+        // Sets the target for movement, old code did this automatically.
+        _targetIndex = 1;
+        _target = _route.GetPosition(_targetIndex);
+        _direction = (_target - transform.position).normalized;
+
+
+    }
 
 	// Code for moving the enemy along the route.
 	private void MoveEnemy ()
 	{
 
+        float distanceBefore = Vector3.Distance(transform.position, _target);
+        transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
+        if(Vector3.Distance(transform.position, _target)>distanceBefore)
+        {
+            _targetIndex++;
+            transform.position = _target;
 
-		// Check if current target has been reached and update the target if necessary.
-		if (Vector3.Distance (transform.position, _target) < .1f) {
+            // Check if the end of route has been reached and do appropriate action.
+            if (_route.IsEnd(_targetIndex))
+            {
 
-			_targetIndex++;
+                EndReached();
+                return;
+            }
 
-			// Check if the end of route has been reached and do appropriate action.
-			if (_route.IsEnd (_targetIndex)) {
+            _target = _route.GetPosition(_targetIndex);
+            _direction = (_target - transform.position).normalized;
+        }
 
-				EndReached ();
-				return;
-			}
+  //      // Check if current target has been reached and update the target if necessary.
+  //      if (Vector3.Distance (transform.position, _target) < .1f) {
 
-			_target = _route.GetPosition (_targetIndex);
-			_direction = (_target - transform.position).normalized;
+		//	_targetIndex++;
 
-		}
+		//	// Check if the end of route has been reached and do appropriate action.
+		//	if (_route.IsEnd (_targetIndex)) {
 
-		// Do actual move.
+		//		EndReached ();
+		//		return;
+		//	}
 
-		transform.Translate (_direction * _speed * Time.deltaTime, Space.World);
+		//	_target = _route.GetPosition (_targetIndex);
+		//	_direction = (_target - transform.position).normalized;
+
+		//}
+
+		//// Do actual move.
+
+		//transform.Translate (_direction * _speed * Time.deltaTime, Space.World);
 		Vector3 vectorToTarget = _target - transform.position;
 		float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg)+90;
 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
