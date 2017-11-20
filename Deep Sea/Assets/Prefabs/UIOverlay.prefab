@@ -778,7 +778,7 @@ MonoBehaviour:
   _teslaPrefab: {fileID: 1726387895434954, guid: 464eea8d70d924444a6860486137568a,
     type: 2}
   _enableHatchTowers: 1
-  _enableLaserTowers: 0
+  _enableLaserTowers: 1
   _enableTeslaTowers: 1
   _hatchTowerButton: {fileID: 114761830094348156}
   _laserTowerButton: {fileID: 114085255862296770}
@@ -997,6 +997,9 @@ MonoBehaviour:
   _pauseSprite: {fileID: 21300010, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _playSprite: {fileID: 21300008, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _pausePlayGO: {fileID: 1358455829803304}
+  _speed1Sprite: {fileID: 21300094, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
+  _speed2Sprite: {fileID: 21300034, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
+  _speedyGO: {fileID: 1664070904904166}
 --- !u!114 &114159700816906058
 MonoBehaviour:
   m_ObjectHideFlags: 1

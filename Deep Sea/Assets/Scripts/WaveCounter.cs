@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,14 +11,21 @@ public class WaveCounter : MonoBehaviour {
     [SerializeField, Tooltip("Wave counter container")]
     private GameObject _container;
 
-    private int _currentCount, _totalCount;
+    private int _currentCount, _totalCount, _endedCount;
     private UnityEngine.UI.Text _text;
+    private int _enemyCount;
+    private Wave[] waves;
+
     
+    public void EnemyCount(int enemies)
+    {
+        _enemyCount = enemies;
+    }
 
     // Use this for initialization
     void Start () {
 
-        Wave[] waves = gameObject.GetComponents<Wave>();
+        waves = gameObject.GetComponents<Wave>();
         _totalCount = waves.Length;
 
         _text = _textObject.GetComponent<UnityEngine.UI.Text>();
@@ -29,6 +37,9 @@ public class WaveCounter : MonoBehaviour {
 
         _container.SetActive(true);
 
+        // Trigger first wave;
+        waves[0].Trigger();
+
     }
 
     public void WaveCount()
@@ -39,5 +50,19 @@ public class WaveCounter : MonoBehaviour {
 
     }
 
-   
+    public void EnemyDied()
+    {
+        _enemyCount--;
+        Debug.Log(_enemyCount);
+        if(_enemyCount==0)
+        {
+            if(_currentCount<_totalCount)
+            {
+                waves[_currentCount].Trigger();
+            } else
+            {
+                FindObjectOfType<GridUI>().GameOver();
+            }
+        }
+    }
 }

@@ -20,14 +20,21 @@ public class Wave : MonoBehaviour
 	[SerializeField, Tooltip ("The prefabs to use as enemies, in order.")]
 	private GameObject[] _enemies;
 
+    
+
 	// Use this for initialization
 	void Start ()
 	{
-		StartCoroutine (Spawner ());
+		//StartCoroutine (Spawner ());
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    public void Trigger(){
+        StartCoroutine(Spawner());
+        
+    }
+
+    // Update is called once per frame
+    void Update ()
 	{
 		
 	}
@@ -38,14 +45,18 @@ public class Wave : MonoBehaviour
 		//used to refer to the instantiated object within the loop.
 		GameObject tempReference;
 
-		// Wait the time until start spawning.
-		yield return new WaitForSeconds (_waveStart);
+        //wavecounter reference;
+        WaveCounter waveCounter = gameObject.GetComponent<WaveCounter>();
+
+        // Wait the time until start spawning.
+        //yield return new WaitForSeconds (_waveStart);
 
 		if (_givesPopCap) {
 			FindObjectOfType<GridUI>().IncreasePopCap ();
 		}
 
-        gameObject.GetComponent<WaveCounter>().WaveCount();
+        waveCounter.WaveCount();
+        waveCounter.EnemyCount(_enemies.Length);
 
 		foreach (GameObject go in _enemies) {
 
@@ -53,9 +64,11 @@ public class Wave : MonoBehaviour
 
 			(tempReference.GetComponent<Enemy> ()).SetRoute (_route.GetComponent<Route> ());
 
-			// Wait until time to spawn next enemy. There will be a redundant wait after last enemy.
-			yield return new WaitForSeconds (_spawnInterval);
+            // Wait until time to spawn next enemy. There will be a redundant wait after last enemy.
+            yield return new WaitForSeconds (_spawnInterval);
 		}
-	}
+
+      
+    }
 
 }

@@ -42,15 +42,24 @@ public class Hatch : MonoBehaviour {
 
 	//update function
 	void Update(){
-		/*if (health <= 0) {
+        /*if (health <= 0) {
 			BeDestroyed ();
 		}*/
-		if (Vector3.Distance (transform.position, _target) < .02f) {
-			transform.position = _target;
-			_onTarget = true;
-		} else if (!_onTarget) {
-			transform.Translate (_direction * Time.deltaTime);
-		}
+
+        float distanceBefore = Vector3.Distance(transform.position, _target);
+        transform.Translate(_direction * Time.deltaTime);
+        if(Vector3.Distance(transform.position, _target)>distanceBefore)
+        {
+            transform.position = _target;
+            _onTarget = true;
+        }
+
+  //      if (Vector3.Distance (transform.position, _target) < .02f) {
+		//	transform.position = _target;
+		//	_onTarget = true;
+		//} else if (!_onTarget) {
+		//	transform.Translate (_direction * Time.deltaTime);
+		//}
 	}
 
 	//When enemy tries to enter hatch

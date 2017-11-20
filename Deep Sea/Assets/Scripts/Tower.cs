@@ -95,6 +95,7 @@ public class Tower : MonoBehaviour {
 
 	//When enemy leaves range, remove it from list enemies. If it was the target, find new one, unless no enemies in list enemies
 	void OnTriggerExit2D(Collider2D other){
+        if (other.gameObject == null) return;
 		if (other.tag == "Enemy") {
 			if (enemies.IndexOf (other.gameObject) == target) {
 				enemySide.RemoveAt (enemies.IndexOf (other.gameObject));
