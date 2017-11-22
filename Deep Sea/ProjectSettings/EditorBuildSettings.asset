@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Playtest_StrongEnemiesStrongDefence.unity
     guid: a2f28d2153fa0494d843e00bef1194dc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Playtest_AllTheWaves.unity
     guid: ec68e0a2e5166ee42b92cc5b54b35fd9
+  - enabled: 1
+    path: Assets/Scenes/Playtest_EasishIncreasingPopCap.unity
+    guid: ebe1951e14bbc204089459e431019900
