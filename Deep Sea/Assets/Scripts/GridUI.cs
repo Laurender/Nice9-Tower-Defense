@@ -32,10 +32,14 @@ public class GridUI : MonoBehaviour
 
     private bool _isPaused, _isAccelerated, _gameOver, _pauseMenuOpen;
 
+#region Serialized objects
+
     [SerializeField, Tooltip("Placeholder object")]
     private GameObject _placeHolder;
     [SerializeField, Tooltip("Pause menu object")]
     private GameObject _pauseMenu;
+    [SerializeField, Tooltip("Game over display object")]
+    private GameObject _gameOverDisplay;
     [SerializeField, Tooltip("Build menu object")]
     private GameObject _buildMenuObject;
     [SerializeField, Tooltip("Sell menu object")]
@@ -59,6 +63,7 @@ public class GridUI : MonoBehaviour
     [SerializeField]
     private GameObject _speedyGO;
 
+#endregion Serialized objects
 
     public bool HasTwoEnergy
     {
@@ -83,11 +88,12 @@ public class GridUI : MonoBehaviour
         _deleteMenu = _sellMenuObject.GetComponent<DeleteMenu>();
         
 
-        // ...and hide them until needed.
+        // ...and hide most UI objects until needed. Most of these are unnecessary.
         _buildMenuObject.SetActive(false);
         _sellMenuObject.SetActive(false);
         _placeHolder.SetActive(false);
         _pauseMenu.SetActive(false);
+        _gameOverDisplay.SetActive(false);
 
         // start paused
         _isPaused = true;
@@ -307,6 +313,16 @@ public class GridUI : MonoBehaviour
     }
 
     public void GameOver()
+    {
+        _gameOver = true;
+        _isPaused = true;
+        SetSpeed();
+
+        _gameOverDisplay.SetActive(true);
+
+    }
+
+    public void LevelPass()
     {
         _gameOver = true;
         _isPaused = true;

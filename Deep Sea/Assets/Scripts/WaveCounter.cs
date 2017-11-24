@@ -61,7 +61,7 @@ public class WaveCounter : MonoBehaviour {
                 waves[_currentCount].Trigger();
             } else
             {
-                FindObjectOfType<GridUI>().GameOver();
+                FindObjectOfType<GridUI>().LevelPass();
             }
         }
     }
