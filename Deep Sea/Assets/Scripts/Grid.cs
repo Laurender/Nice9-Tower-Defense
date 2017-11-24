@@ -99,6 +99,7 @@ public class Grid : MonoBehaviour
         
         _myAnim = GetComponent<Animator>();
         _myRend = GetComponent<SpriteRenderer>();
+        _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, 0.15f);
         _gridUI = FindObjectOfType<GridUI>();
     }
 
@@ -136,12 +137,16 @@ public class Grid : MonoBehaviour
     public void StartAnim()
     {
         if(!HasTower) _myAnim.enabled = true;
+        // Alpha to 1
+        _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, 1f);
     }
 
     public void StopAnim()
     {
         _myAnim.enabled = false;
         _myRend.sprite = _mySprite;
+        // Alpha to 25/225
+        _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, 0.15f);
     }
  
 #endregion
