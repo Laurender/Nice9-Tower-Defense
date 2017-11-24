@@ -34,6 +34,8 @@ public class GridUI : MonoBehaviour
 
     [SerializeField, Tooltip("Placeholder object")]
     private GameObject _placeHolder;
+    [SerializeField, Tooltip("Pause menu object")]
+    private GameObject _pauseMenu;
     [SerializeField, Tooltip("Build menu object")]
     private GameObject _buildMenuObject;
     [SerializeField, Tooltip("Sell menu object")]
@@ -85,6 +87,7 @@ public class GridUI : MonoBehaviour
         _buildMenuObject.SetActive(false);
         _sellMenuObject.SetActive(false);
         _placeHolder.SetActive(false);
+        _pauseMenu.SetActive(false);
 
         // start paused
         _isPaused = true;
@@ -251,12 +254,12 @@ public class GridUI : MonoBehaviour
         {
             _pauseMenuOpen = false;
             _isPaused = false;
-            _placeHolder.SetActive(false);
+            _pauseMenu.SetActive(false);
         } else
         {
             _pauseMenuOpen = true;
             _isPaused = true;
-            _placeHolder.SetActive(true);
+            _pauseMenu.SetActive(true);
         }
         
         SetSpeed();
