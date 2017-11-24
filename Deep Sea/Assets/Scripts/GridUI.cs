@@ -40,6 +40,8 @@ public class GridUI : MonoBehaviour
     private GameObject _pauseMenu;
     [SerializeField, Tooltip("Game over display object")]
     private GameObject _gameOverDisplay;
+    [SerializeField, Tooltip("Level pass display object")]
+    private GameObject _levelPassDisplay;
     [SerializeField, Tooltip("Build menu object")]
     private GameObject _buildMenuObject;
     [SerializeField, Tooltip("Sell menu object")]
@@ -62,6 +64,7 @@ public class GridUI : MonoBehaviour
 
     [SerializeField]
     private GameObject _speedyGO;
+ 
 
 #endregion Serialized objects
 
@@ -94,6 +97,7 @@ public class GridUI : MonoBehaviour
         _placeHolder.SetActive(false);
         _pauseMenu.SetActive(false);
         _gameOverDisplay.SetActive(false);
+        _levelPassDisplay.SetActive(false);
 
         // start paused
         _isPaused = true;
@@ -328,7 +332,7 @@ public class GridUI : MonoBehaviour
         _isPaused = true;
         SetSpeed();
 
-        _placeHolder.SetActive(true);
+        _levelPassDisplay.SetActive(true);
 
     }
 }
