@@ -77,6 +77,21 @@ public class Grid : MonoBehaviour
         }
     }
 
+    public enum TowerTypes { Empty, HarpoonTower, HatchTower, LaserTower, TeslaTower, Unknown};
+
+    public TowerTypes CurrenTowerType
+    {
+        get
+        {
+            if (currentTower == null) return TowerTypes.Empty;
+            if (currentTower.GetComponent<Tower>() != null) return TowerTypes.HarpoonTower;
+            if (currentTower.GetComponent<HatchTower>() != null) return TowerTypes.HatchTower;
+            if (currentTower.GetComponent<PairedTower>() != null) return TowerTypes.LaserTower;
+            if (currentTower.GetComponent<TeslaTower>() != null) return TowerTypes.TeslaTower;
+            return TowerTypes.Unknown;
+        }
+    }
+
     #endregion properties
 
     void Start()
