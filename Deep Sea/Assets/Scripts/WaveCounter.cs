@@ -53,7 +53,7 @@ public class WaveCounter : MonoBehaviour {
     public void EnemyDied()
     {
         _enemyCount--;
-        Debug.Log(_enemyCount);
+        //Debug.Log(_enemyCount);
         if(_enemyCount==0)
         {
             if(_currentCount<_totalCount)

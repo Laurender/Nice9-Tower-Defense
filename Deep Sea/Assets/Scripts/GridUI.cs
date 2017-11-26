@@ -120,14 +120,16 @@ public class GridUI : MonoBehaviour
         if (_gameOver || _pauseMenuOpen) return;
 
         //check for touch event
-        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        /*if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            //Vector3 touchposition = (Vector3)Input.GetTouch (0).position;
-            //Vector3 worldposition = Camera.main.ScreenToWorldPoint (touchposition);
-            //ProcessTheEvent(worldposition);
+            Vector3 touchposition = (Vector3)Input.GetTouch (0).position;
+            Vector3 worldposition = Camera.main.ScreenToWorldPoint (touchposition);
+			Debug.Log ("touchposition: " + touchposition.x + " , " + touchposition.y);
+			Debug.Log ("worldposition: " + worldposition.x + " , " + worldposition.y);
+            ProcessTheEvent(worldposition);
 
-            ProcessTheEvent(Input.GetTouch(0).position);
-        }
+            //ProcessTheEvent(Input.GetTouch(0).position);
+        }*/
 
         //check for a click, can be removed on Android builds.
         if (Input.GetMouseButtonDown(0))
@@ -139,6 +141,8 @@ public class GridUI : MonoBehaviour
     private void ProcessTheEvent(Vector3 screenPoint)
     {
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(screenPoint);
+
+		Debug.Log ("worldPoint: " + worldPoint.x + " , " + worldPoint.y);
 
         // Close menu if click is on opposite side.
         if (_aMenuIsOpen && PointIsOnOppositeSide(worldPoint))
