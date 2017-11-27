@@ -156,7 +156,7 @@ public class GridUI : MonoBehaviour
     {
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(screenPoint);
 
-		Debug.Log ("worldPoint: " + worldPoint.x + " , " + worldPoint.y);
+		//Debug.Log ("worldPoint: " + worldPoint.x + " , " + worldPoint.y);
 
         // Close menu if click is on opposite side.
         if (_aMenuIsOpen && PointIsOnOppositeSide(worldPoint))

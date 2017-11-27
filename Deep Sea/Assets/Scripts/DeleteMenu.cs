@@ -96,6 +96,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _harpoonIcon;
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _harpoonText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell1;
+					tile.GetTower ().GetComponent<Tower> ().ShowRange (true);
                     break;
                 }
             case Grid.TowerTypes.HatchTower:
@@ -126,6 +127,10 @@ public class DeleteMenu : MonoBehaviour
     // A complex function that does nothing. Well, it hides the menu.
     public void DoNothing()
     {
+		if (_gridTemp.GetTower () != null && _gridTemp.CurrenTowerType == Grid.TowerTypes.HarpoonTower) 
+		{
+			_gridTemp.GetTower ().GetComponent<Tower> ().ShowRange (false);
+		}
         gameObject.SetActive(false);
         _gridUI.ActivateGrid();
     }

@@ -105,7 +105,7 @@ public class Grid : MonoBehaviour
         _gridUI = FindObjectOfType<GridUI>();
     }
 
-#region Set and remove tower    
+#region Set, get and remove tower    
     public void SetTower(GameObject tower)
     {
         if (tower.GetComponent<HatchTower>() != null)
@@ -117,6 +117,11 @@ public class Grid : MonoBehaviour
         StopAnim();
         _gridUI.CountTowerBuild();
     }
+
+	public GameObject GetTower()
+	{
+		return currentTower;
+	}
 
     public void RemoveTower(bool getPair = true)
     {
