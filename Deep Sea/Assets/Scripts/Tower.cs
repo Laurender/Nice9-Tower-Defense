@@ -71,6 +71,10 @@ public class Tower : MonoBehaviour {
 		target = _newTarget;
 	}
 
+	public void ShowRange(bool doShow){
+		transform.GetChild (1).gameObject.SetActive(doShow);
+	}
+
 	//When enemy enters range, add to list enemies and check if it should be made target
 	void OnTriggerEnter2D(Collider2D other){
 		//Debug.Log ("Triggered");
