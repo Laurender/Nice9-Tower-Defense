@@ -33,11 +33,7 @@ public class Wave : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update ()
-	{
-		
-	}
+    
 
 	// The coroutine that spawns the enemies on time.
 	private IEnumerator Spawner ()
