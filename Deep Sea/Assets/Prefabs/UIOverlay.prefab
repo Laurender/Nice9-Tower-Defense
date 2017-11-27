@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1521,6 +1521,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
   _energyBarContainer: {fileID: 1235620940967072}
   _energyBar: {fileID: 1032913665731750}
+  _waveCounterObject: {fileID: 0}
   _placeHolder: {fileID: 1079106466528314}
   _pauseMenu: {fileID: 1720637191315596}
   _gameOverDisplay: {fileID: 1885834240919834}
@@ -1529,10 +1530,10 @@ MonoBehaviour:
   _sellMenuObject: {fileID: 1712262708936926}
   _pauseSprite: {fileID: 21300010, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _playSprite: {fileID: 21300008, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
-  _pausePlayGO: {fileID: 1358455829803304}
+  _pausePlayGO: {fileID: 1428237801009402}
   _speed1Sprite: {fileID: 21300094, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _speed2Sprite: {fileID: 21300034, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
-  _speedyGO: {fileID: 1664070904904166}
+  _speedyGO: {fileID: 1538180594637964}
 --- !u!114 &114159353427996340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2468,7 +2469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
