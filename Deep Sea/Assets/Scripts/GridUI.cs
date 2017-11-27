@@ -18,6 +18,9 @@ public class GridUI : MonoBehaviour
     [SerializeField, Tooltip("Energy bar")]
     private GameObject _energyBar;
 
+    
+    private WaveCounter _waveCounter;
+
     private UnityEngine.UI.Image _image;
 
     private int _popCurrent = 0;
@@ -30,7 +33,7 @@ public class GridUI : MonoBehaviour
     
     private DeleteMenu _deleteMenu;
 
-    private bool _isPaused, _isAccelerated, _gameOver, _pauseMenuOpen;
+    private bool _isPaused, _isAccelerated, _gameOver, _pauseMenuOpen, _hasStarted;
 
 #region Serialized objects
 
@@ -86,9 +89,10 @@ public class GridUI : MonoBehaviour
         _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 15, 20);
         _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 150, 20);
 
-        // Find the menus for later reference...
+        // Find the menus and wave counter for later reference...
         _buildMenu = _buildMenuObject.GetComponent<BuildMenu>();
         _deleteMenu = _sellMenuObject.GetComponent<DeleteMenu>();
+        _waveCounter = FindObjectOfType<WaveCounter>();
         
 
         // ...and hide most UI objects until needed. Most of these are unnecessary.
@@ -266,6 +270,12 @@ public class GridUI : MonoBehaviour
 
         if (_isPaused)
         {
+            if(!_hasStarted)
+            {
+                _hasStarted = true;
+                _waveCounter.StartWaves();
+                Debug.Log("has started");
+            }
             _pauseMenuOpen = false;
             _isPaused = false;
             _pauseMenu.SetActive(false);
@@ -311,6 +321,11 @@ public class GridUI : MonoBehaviour
         } else
         {
             _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _pauseSprite;            
+        }
+
+        if (!_hasStarted)
+        {
+            Time.timeScale = .5f;
         }
     }
 

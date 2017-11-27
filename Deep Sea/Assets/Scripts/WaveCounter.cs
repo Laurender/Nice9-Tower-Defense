@@ -38,7 +38,7 @@ public class WaveCounter : MonoBehaviour {
         _container.SetActive(true);
 
         // Trigger first wave;
-        waves[0].Trigger();
+        //waves[0].Trigger();
 
     }
 
@@ -64,5 +64,11 @@ public class WaveCounter : MonoBehaviour {
                 FindObjectOfType<GridUI>().LevelPass();
             }
         }
+    }
+
+    // This method allows delaying the first wave until the game is first unpaused.
+    public void StartWaves()
+    {
+        waves[0].Trigger();
     }
 }
