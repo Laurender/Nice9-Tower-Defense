@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Smoke : MonoBehaviour {
 
-    float _destroyTime = 2.50f;
+    float _destroyTime = 1.00f;
+
     [SerializeField]
     Vector3 _direction;
 
-    [SerializeField]
-    float _speed;
+    float _speed = 1.00f;
 
 	// Use this for initialization
 	void Start () {
