@@ -18,7 +18,9 @@ public class GridUI : MonoBehaviour
     [SerializeField, Tooltip("Energy bar")]
     private GameObject _energyBar;
 
-    
+    [SerializeField]
+    private GameObject _smokeEffectPrefab;
+
     private WaveCounter _waveCounter;
 
     private UnityEngine.UI.Image _image;
@@ -76,6 +78,14 @@ public class GridUI : MonoBehaviour
         get
         {
             return _popCap - _popCurrent >= 2;
+        }
+    }
+
+    public GameObject SmokeEffectPrefab
+    {
+        get
+        {
+            return _smokeEffectPrefab;
         }
     }
 

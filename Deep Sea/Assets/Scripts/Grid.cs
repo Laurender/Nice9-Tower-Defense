@@ -27,6 +27,8 @@ public class Grid : MonoBehaviour
 	[SerializeField]
     GameObject currentTower;
 
+    
+
     Animator _myAnim;
 
     [SerializeField]
@@ -130,6 +132,7 @@ public class Grid : MonoBehaviour
         Destroy(currentTower);
         currentTower = null; // Now critical as ;
         _gridUI.CountTowerDestroy();
+        Instantiate(_gridUI.SmokeEffectPrefab, transform);
     }
 #endregion
 

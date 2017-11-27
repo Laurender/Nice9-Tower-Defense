@@ -1521,7 +1521,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
   _energyBarContainer: {fileID: 1235620940967072}
   _energyBar: {fileID: 1032913665731750}
-  _waveCounterObject: {fileID: 0}
+  _smokeEffectPrefab: {fileID: 1614185584207746, guid: ceae93f430187d8479be1e0ad26a422a,
+    type: 2}
   _placeHolder: {fileID: 1079106466528314}
   _pauseMenu: {fileID: 1720637191315596}
   _gameOverDisplay: {fileID: 1885834240919834}
