@@ -364,4 +364,9 @@ public class GridUI : MonoBehaviour
         _levelPassDisplay.SetActive(true);
 
     }
+
+    public void ReloadScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
 }
