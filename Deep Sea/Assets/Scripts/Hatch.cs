@@ -9,7 +9,7 @@ public class Hatch : MonoBehaviour {
 	int health = 5;
 
 	//chance to catch/stop enemy
-	float catchChance = 0.25f;
+	float catchChance = 0.40f;
 
 	//amount of seconds caught enemy is stopped for
 	float stopTime = 2.0f;
