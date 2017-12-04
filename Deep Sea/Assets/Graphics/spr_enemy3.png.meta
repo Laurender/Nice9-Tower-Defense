@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: 288bb528a11f0437ca4c114cb0413c88
-timeCreated: 1512387708
+guid: 094ddf9ae38e94487912cb6a8e66f478
+timeCreated: 1512387789
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_enemy1_death_0
-    21300002: spr_enemy1_death_1
-    21300004: spr_enemy1_death_2
-    21300006: spr_enemy1_death_3
-    21300008: spr_enemy1_death_4
+    21300000: spr_enemy3_0
+    21300002: spr_enemy3_1
+    21300004: spr_enemy3_2
+    21300006: spr_enemy3_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -88,7 +87,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_enemy1_death_0
+      name: spr_enemy3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -102,7 +101,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy1_death_1
+      name: spr_enemy3_1
       rect:
         serializedVersion: 2
         x: 32
@@ -116,7 +115,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy1_death_2
+      name: spr_enemy3_2
       rect:
         serializedVersion: 2
         x: 64
@@ -130,24 +129,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy1_death_3
+      name: spr_enemy3_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spr_enemy1_death_4
-      rect:
-        serializedVersion: 2
-        x: 128
         y: 0
         width: 32
         height: 32

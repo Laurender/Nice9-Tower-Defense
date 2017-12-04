@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 346effe1f91ebd840b6a467f47335ef7
-timeCreated: 1510564361
+guid: 0ab26b96a1f4942be93d06a92c41356b
+timeCreated: 1512387607
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_enemy2_death_0
-    21300002: spr_enemy2_death_1
-    21300004: spr_enemy2_death_2
-    21300006: spr_enemy2_death_3
-    21300008: spr_enemy2_death_4
+    21300000: spr_enemy2_death 1_0
+    21300002: spr_enemy2_death 1_1
+    21300004: spr_enemy2_death 1_2
+    21300006: spr_enemy2_death 1_3
+    21300008: spr_enemy2_death 1_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -50,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -84,27 +84,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_enemy2_death_0
+      name: spr_enemy2_death 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +102,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy2_death_1
+      name: spr_enemy2_death 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -132,7 +116,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy2_death_2
+      name: spr_enemy2_death 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -146,7 +130,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy2_death_3
+      name: spr_enemy2_death 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -160,7 +144,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy2_death_4
+      name: spr_enemy2_death 1_4
       rect:
         serializedVersion: 2
         x: 128
