@@ -3611,6 +3611,11 @@ Prefab:
       propertyPath: _popCap
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114845139126802254, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
   m_IsPrefabParent: 0
