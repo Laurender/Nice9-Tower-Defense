@@ -34,9 +34,12 @@ public class Grid : MonoBehaviour
     [SerializeField]
     Sprite _mySprite;
 
+    
     SpriteRenderer _myRend;
 
     private GridUI _gridUI;
+
+    private float _startAnimationTime = 0;
 
 #region properties
 
@@ -101,11 +104,20 @@ public class Grid : MonoBehaviour
         
         _myAnim = GetComponent<Animator>();
         _myRend = GetComponent<SpriteRenderer>();
-        _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, 0.15f);
+        
         _gridUI = FindObjectOfType<GridUI>();
     }
 
-#region Set, get and remove tower    
+    void Update()
+    {
+        if (_startAnimationTime > 1f) return;
+
+        _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, Mathf.Sin(_startAnimationTime*3));
+        _startAnimationTime += Time.deltaTime;
+
+    }
+
+    #region Set, get and remove tower    
     public void SetTower(GameObject tower)
     {
         if (tower.GetComponent<HatchTower>() != null)
