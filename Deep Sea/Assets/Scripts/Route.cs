@@ -16,11 +16,7 @@ public class Route : MonoBehaviour
 		}
 	}
 	
-	// Update is called once per frame
-	void Update ()
-	{
-		
-	}
+	
 
 
 	public Vector3 GetPosition (int index)
