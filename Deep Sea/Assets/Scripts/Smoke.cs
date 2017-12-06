@@ -28,7 +28,7 @@ public class Smoke : MonoBehaviour {
 
         //transform.position = new Vector3(transform.position.x + _direction.x*Time.deltaTime, transform.position.y + _direction.y*Time.deltaTime);
 
-        _destroyTime -= 0.01f;
+        _destroyTime -= Time.deltaTime;
 
         if (_destroyTime <= 0.01) {
             Destroy(this.gameObject);

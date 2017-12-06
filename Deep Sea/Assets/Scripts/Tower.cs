@@ -88,6 +88,17 @@ public class Tower : MonoBehaviour {
 			//save the targetindex of new enemy, that is how far on it's route it is
 			enemySide.Add (other.GetComponent<Enemy> ().GetTargetIndex ());
 
+			for (int i = 0; i < enemies.Count; i++) {
+				if (enemies [i] == null) {
+					enemies.RemoveAt (i);
+					enemySide.RemoveAt (i);
+					if ( i < target) {
+						target--;
+					}
+					i--;
+				}
+			}
+
 			enemySide [target] = enemies [target].GetComponent<Enemy> ().GetTargetIndex ();
 
 			//Check if new enemy is ahead of current target
@@ -99,8 +110,20 @@ public class Tower : MonoBehaviour {
 
 	//When enemy leaves range, remove it from list enemies. If it was the target, find new one, unless no enemies in list enemies
 	void OnTriggerExit2D(Collider2D other){
-        if (other.gameObject == null) return;
-		if (other.tag == "Enemy") {
+		if (other.gameObject == null) {
+			for (int i = 0; i < enemies.Count; i++) {
+				if (enemies [i] == null) {
+					enemies.RemoveAt (i);
+					enemySide.RemoveAt (i);
+					if ( i < target) {
+						target--;
+					}
+					i--;
+				}
+			}
+			return;
+		}
+		if (other.tag == "Enemy" && enemies.IndexOf(other.gameObject) != -1) {
 			if (enemies.IndexOf (other.gameObject) == target) {
 				enemySide.RemoveAt (enemies.IndexOf (other.gameObject));
 				enemies.Remove (other.gameObject);

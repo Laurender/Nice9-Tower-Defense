@@ -1,14 +1,18 @@
 fileFormatVersion: 2
-guid: 288bb528a11f0437ca4c114cb0413c88
-timeCreated: 1512387708
+guid: 925c4890f8431404c94b4aef5a13346d
+timeCreated: 1512387648
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_enemy1_death_0
-    21300002: spr_enemy1_death_1
-    21300004: spr_enemy1_death_2
-    21300006: spr_enemy1_death_3
-    21300008: spr_enemy1_death_4
+    21300000: spr_enemy2_halfhealth_0
+    21300002: spr_enemy2_halfhealth_1
+    21300004: spr_enemy2_halfhealth_2
+    21300006: spr_enemy2_halfhealth_3
+    21300008: spr_enemy2_halfhealth_4
+    21300010: spr_enemy2_halfhealth_5
+    21300012: spr_enemy2_halfhealth_6
+    21300014: spr_enemy2_halfhealth_7
+    21300016: spr_enemy2_halfhealth_8
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -88,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_enemy1_death_0
+      name: spr_enemy2_halfhealth_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,13 +106,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy1_death_1
+      name: spr_enemy2_halfhealth_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,13 +120,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy1_death_2
+      name: spr_enemy2_halfhealth_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
-        height: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,13 +134,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy1_death_3
+      name: spr_enemy2_halfhealth_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
-        height: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,13 +148,69 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_enemy1_death_4
+      name: spr_enemy2_halfhealth_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 32
-        height: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_enemy2_halfhealth_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_enemy2_halfhealth_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_enemy2_halfhealth_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_enemy2_halfhealth_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
