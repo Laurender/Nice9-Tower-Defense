@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221ecebd6cb8f4d4dbed1e83fffbe37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _popCap: 2
+  _popCap: 4
   _energyBarSprites:
   - {fileID: 21300012, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
   - {fileID: 21300010, guid: 2273c0d4a6169c14a8b721a3c9d006f3, type: 3}
@@ -5238,7 +5238,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 23.999954, y: -24.000042}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224635939465982178
 RectTransform:
@@ -5569,7 +5569,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 24.000046, y: -24.000042}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224867696903624788
 RectTransform:
