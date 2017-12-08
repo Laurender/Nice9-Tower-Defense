@@ -129,7 +129,7 @@ public class Grid : MonoBehaviour
         else
         {
             _ready = true;
-            _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, .5f);
+            _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, .1f);
 
         }
 

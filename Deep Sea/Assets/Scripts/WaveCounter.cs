@@ -30,7 +30,7 @@ public class WaveCounter : MonoBehaviour {
 
         _text = _textObject.GetComponent<UnityEngine.UI.Text>();
 
-        _text.text = _currentCount + "/" + _totalCount;
+        _text.text = "WAVE : "+_currentCount + "/" + _totalCount;
 
         //_container.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 15, 20);
         //_container.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 75, 20);
