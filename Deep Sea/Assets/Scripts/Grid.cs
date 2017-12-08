@@ -20,28 +20,32 @@ public class Grid : MonoBehaviour
     [SerializeField]
     bool _roadWest;
 
-	[SerializeField]
-	GameObject[] _pairedGrid;
+    [SerializeField]
+    GameObject[] _pairedGrid;
 
     // will have the tower built on this piece of grid
-	[SerializeField]
+    [SerializeField]
     GameObject currentTower;
 
-    
+
 
     Animator _myAnim;
 
     [SerializeField]
     Sprite _mySprite;
 
-    
+
     SpriteRenderer _myRend;
 
     private GridUI _gridUI;
 
     private float _startAnimationTime = 0;
 
-#region properties
+    private static bool _emphasize = true;
+
+    private bool _ready;
+
+    #region properties
 
     // If the grip tile has a tower.
     public bool HasTower
@@ -49,7 +53,7 @@ public class Grid : MonoBehaviour
         get
         {
             return currentTower != null;
-        }       
+        }
     }
 
     // Which side of the screen the grid is on. Used for menus.
@@ -66,7 +70,7 @@ public class Grid : MonoBehaviour
     {
         get
         {
-            foreach(GameObject go in _pairedGrid)
+            foreach (GameObject go in _pairedGrid)
             {
                 if (!go.GetComponent<Grid>().HasTower) return true;
             }
@@ -82,7 +86,7 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public enum TowerTypes { Empty, HarpoonTower, HatchTower, LaserTower, TeslaTower, Unknown};
+    public enum TowerTypes { Empty, HarpoonTower, HatchTower, LaserTower, TeslaTower, Unknown };
 
     public TowerTypes CurrenTowerType
     {
@@ -101,19 +105,45 @@ public class Grid : MonoBehaviour
 
     void Start()
     {
-        
+
         _myAnim = GetComponent<Animator>();
         _myRend = GetComponent<SpriteRenderer>();
-        
+
         _gridUI = FindObjectOfType<GridUI>();
     }
 
     void Update()
     {
-        if (_startAnimationTime > 1f) return;
 
-        _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, Mathf.Sin(_startAnimationTime*3));
-        _startAnimationTime += Time.deltaTime;
+        if (_ready) return;
+
+        if (_emphasize)
+        {
+            _startAnimationTime += Time.deltaTime;
+
+            if (_startAnimationTime > 1.95f) _startAnimationTime = 0;
+
+            _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, Mathf.Abs(_startAnimationTime-1));
+
+        }
+        else
+        {
+            _ready = true;
+            _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, .5f);
+
+        }
+
+
+
+
+
+
+    }
+
+    public static void StopEmphasis()
+    {
+        Debug.Log("Stop emphasis.");
+        _emphasize = false;
 
     }
 
@@ -130,33 +160,34 @@ public class Grid : MonoBehaviour
         _gridUI.CountTowerBuild();
     }
 
-	public GameObject GetTower()
-	{
-		return currentTower;
-	}
+    public GameObject GetTower()
+    {
+        return currentTower;
+    }
 
     public void RemoveTower(bool getPair = true)
     {
-        if(getPair && currentTower.GetComponent<PairedTower>() != null)
+        if (getPair && currentTower.GetComponent<PairedTower>() != null)
         {
             currentTower.GetComponent<PairedTower>().PairedTile.RemoveTower(false);
         }
 
-		if (currentTower.GetComponent<TeslaTower> () != null) {
-			_gridUI.CountTowerDestroy();
-		}
+        if (currentTower.GetComponent<TeslaTower>() != null)
+        {
+            _gridUI.CountTowerDestroy();
+        }
 
         Destroy(currentTower);
         currentTower = null; // Now critical as ;
         _gridUI.CountTowerDestroy();
         Instantiate(_gridUI.SmokeEffectPrefab, transform);
     }
-#endregion
+    #endregion
 
-#region Tile animation methods
+    #region Tile animation methods
     public void StartAnim()
     {
-        if(!HasTower) _myAnim.enabled = true;
+        if (!HasTower) _myAnim.enabled = true;
         // Alpha to 1
         _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, 1f);
     }
@@ -168,13 +199,13 @@ public class Grid : MonoBehaviour
         // Alpha to 25/225
         _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, 0.15f);
     }
- 
-#endregion
 
-#region Pair animation methods
+    #endregion
+
+    #region Pair animation methods
     public void AnimatePairs()
     {
-        foreach(GameObject go in _pairedGrid)
+        foreach (GameObject go in _pairedGrid)
         {
             go.GetComponent<Grid>().StartAnim();
         }
@@ -187,5 +218,5 @@ public class Grid : MonoBehaviour
             go.GetComponent<Grid>().StopAnim();
         }
     }
-#endregion
+    #endregion
 }

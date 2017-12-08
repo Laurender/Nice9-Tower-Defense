@@ -127,6 +127,7 @@ public class DeleteMenu : MonoBehaviour
     // A complex function that does nothing. Well, it hides the menu.
     public void DoNothing()
     {
+        if (!gameObject.activeSelf) return;
 		if (_gridTemp.GetTower () != null && _gridTemp.CurrenTowerType == Grid.TowerTypes.HarpoonTower) 
 		{
 			_gridTemp.GetTower ().GetComponent<Tower> ().ShowRange (false);

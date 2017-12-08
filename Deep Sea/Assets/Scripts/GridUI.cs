@@ -133,30 +133,20 @@ public class GridUI : MonoBehaviour
         // Most UI does nothing if the game is over or pause menu is open.
         if (_gameOver || _pauseMenuOpen) return;
 
-        //check for touch event
-        /*if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            Vector3 touchposition = (Vector3)Input.GetTouch (0).position;
-            Vector3 worldposition = Camera.main.ScreenToWorldPoint (touchposition);
-			Debug.Log ("touchposition: " + touchposition.x + " , " + touchposition.y);
-			Debug.Log ("worldposition: " + worldposition.x + " , " + worldposition.y);
-            ProcessTheEvent(worldposition);
-
-            //ProcessTheEvent(Input.GetTouch(0).position);
-        }*/
-
-        //check for a click, can be removed on Android builds.
+        
         if (Input.GetMouseButtonDown(0))
         {
             ProcessTheEvent(Input.mousePosition);
+
+            // If an input is detected stop emphasizing the grid.
+            Grid.StopEmphasis();
         }
     }
 
     private void ProcessTheEvent(Vector3 screenPoint)
     {
+        // Convert to world coordinates.
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(screenPoint);
-
-		//Debug.Log ("worldPoint: " + worldPoint.x + " , " + worldPoint.y);
 
         // Close menu if click is on opposite side.
         if (_aMenuIsOpen && PointIsOnOppositeSide(worldPoint))
@@ -165,7 +155,6 @@ public class GridUI : MonoBehaviour
             _deleteMenu.DoNothing();
 
             // Avoid further processing.
-            // TODO : Might want to allow open menu for the tile with same tap.
             return;
         }
 
@@ -199,9 +188,7 @@ public class GridUI : MonoBehaviour
                 }
             }
 
-            
-
-            // TODO : the code for HUD buttons should probably go here?
+           
         }
 
     }
@@ -283,6 +270,7 @@ public class GridUI : MonoBehaviour
             if(!_hasStarted)
             {
                 _hasStarted = true;
+               
                 _waveCounter.StartWaves();
                 Debug.Log("has started");
             }
