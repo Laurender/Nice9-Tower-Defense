@@ -134,6 +134,7 @@ public class BuildMenu : MonoBehaviour {
     // A complex function that does nothing. Well, it hides the menu.
     public void DoNothing()
     {
+        if (!gameObject.activeSelf) return;
         gameObject.SetActive(false);
         _gridUI.ActivateGrid();
 		_gridTemp.StopAnim ();
