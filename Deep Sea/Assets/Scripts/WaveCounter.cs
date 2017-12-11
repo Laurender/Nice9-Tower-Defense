@@ -41,7 +41,7 @@ public class WaveCounter : MonoBehaviour {
         //_container.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 75, 20);
 
         _container.SetActive(true);
-        _position = _textObject.transform.position;
+        _position = _textObject.transform.localPosition;
         _destination = _position;
         _slideOut = _position + Vector3.up * 40;
 
@@ -84,7 +84,7 @@ public class WaveCounter : MonoBehaviour {
     void Update()
     {
         // If the object is not at the target destination
-        if (_destination != _textObject.transform.position)
+        if (_destination != _textObject.transform.localPosition)
         {
             // Move towards the destination each frame until the object reaches it
             IncrementPosition();
@@ -103,10 +103,10 @@ public class WaveCounter : MonoBehaviour {
     {
         // Calculate the next position
         float delta = 40f * Time.deltaTime;
-        Vector3 currentPosition = _textObject.transform.position;
+        Vector3 currentPosition = _textObject.transform.localPosition;
         Vector3 nextPosition = Vector3.MoveTowards(currentPosition, _destination, delta);
 
         // Move the object to the next position
-        _textObject.transform.position = nextPosition;
+        _textObject.transform.localPosition = nextPosition;
     }
 }

@@ -64,6 +64,10 @@ public class GridUI : MonoBehaviour
     private GameObject _pausePlayGO;
 
     [SerializeField]
+    private GameObject _pausePlayGlowGO;
+
+
+    [SerializeField]
     private Sprite _speed1Sprite;
 
     [SerializeField]
@@ -272,7 +276,7 @@ public class GridUI : MonoBehaviour
             if(!_hasStarted)
             {
                 _hasStarted = true;
-                GameObject.Find("PlayButtonGlow").SetActive(false);
+                _pausePlayGlowGO.SetActive(false);
                 _waveCounter.StartWaves();
                 Debug.Log("has started");
             }
