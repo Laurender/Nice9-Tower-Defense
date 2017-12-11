@@ -270,7 +270,7 @@ public class GridUI : MonoBehaviour
             if(!_hasStarted)
             {
                 _hasStarted = true;
-               
+                GameObject.Find("PlayButtonGlow").SetActive(false);
                 _waveCounter.StartWaves();
                 Debug.Log("has started");
             }
