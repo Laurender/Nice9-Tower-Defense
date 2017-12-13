@@ -131,8 +131,6 @@ public class GridUI : MonoBehaviour
         // Check for mouse and touch events.
         CheckForInputEvents();
 
-        if (Time.timeScale == .001f) Time.timeScale = 0;
-
     }
 
     private void CheckForInputEvents()
@@ -331,7 +329,7 @@ public class GridUI : MonoBehaviour
 
         if (_isPaused)
         {
-            Time.timeScale = 0.001f;
+            Time.timeScale = 0;
             _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _playSprite;
 
         } else
