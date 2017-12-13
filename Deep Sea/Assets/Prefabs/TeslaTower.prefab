@@ -401,7 +401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114300329591469062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -414,7 +413,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114487498546380630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,7 +425,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114531181728253402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1bd006d9abfb6143afc295b26191244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingSpeed: 3
+  shootingSpeed: 1.5
   shootingTime: 0.505
   damageTime: 0.5
 --- !u!114 &114584296051599456
@@ -454,7 +451,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114970961775648920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -467,7 +463,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!212 &212278583291847082
 SpriteRenderer:
   m_ObjectHideFlags: 1

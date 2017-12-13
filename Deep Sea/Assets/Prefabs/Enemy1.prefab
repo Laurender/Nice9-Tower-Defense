@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 1
-  _hitPoints: 2
+  _hitPoints: 3
   _damage: 1
 --- !u!212 &212364750517914418
 SpriteRenderer:
