@@ -2,93 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class WikiTabsController : MonoBehaviour {
 
-    GameObject _currentTab;
+    int _currentTab;
 
     [SerializeField]
-    GameObject _tower1Tab;
+    private GameObject[] _tab;
 
     [SerializeField]
-    GameObject _tower2Tab;
+    private GameObject[] _icon;
 
     [SerializeField]
-    GameObject _tower3Tab;
+    private Sprite[] _selectedImage;
 
     [SerializeField]
-    GameObject _tower4Tab;
+    private Sprite[] _deselectedImage;
 
-    [SerializeField]
-    GameObject _enemy1Tab;
-
-    [SerializeField]
-    GameObject _enemy2Tab;
-
-
-    [SerializeField]
-    GameObject _enemy3Tab;
-
-    [SerializeField]
-    GameObject _enemy4Tab;
-
-
-
-
+  
     // Use this for initialization
     void Start () {
 
         // The default tab is the first, harpoon, tower.
-        _currentTab = _tower1Tab;
-        _currentTab.SetActive(true);
+        _currentTab = 0;
+        Select(_currentTab);
+       
 
     }
 
-    public void ChangeCurrentTab(GameObject tab)
+    private void Select(int tab)
     {
-        _currentTab.SetActive(false);
+        
+        _tab[tab].SetActive(true);
+        _icon[tab].GetComponent<UnityEngine.UI.Image>().sprite = _selectedImage[tab];
+    }
+
+    private void Deselect(int tab)
+    {
+        _tab[tab].SetActive(false);
+        _icon[tab].GetComponent<UnityEngine.UI.Image>().sprite = _deselectedImage[tab];
+    }
+    public void ChangeCurrentTab(int tab)
+    {
+        Deselect(_currentTab);
         _currentTab = tab;
-        _currentTab.SetActive(true);
-    }
+        Select(_currentTab);
 
-    public void Tower1()
-    {
-        ChangeCurrentTab(_tower1Tab);
     }
-
-    public void Tower2()
-    {
-        ChangeCurrentTab(_tower2Tab);
-    }
-
-    public void Tower3()
-    {
-        ChangeCurrentTab(_tower3Tab);
-    }
-
-    public void Tower4()
-    {
-        ChangeCurrentTab(_tower4Tab);
-    }
-
-    public void Enemy1()
-    {
-        ChangeCurrentTab(_enemy1Tab);
-    }
-
-    public void Enemy2()
-    {
-        ChangeCurrentTab(_enemy2Tab);
-    }
-
-    public void Enemy3()
-    {
-        ChangeCurrentTab(_enemy3Tab);
-    }
-
-    public void Enemy4()
-    {
-        ChangeCurrentTab(_enemy4Tab);
-    }
-
 
 }
