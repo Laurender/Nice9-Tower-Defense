@@ -204,9 +204,9 @@ public class GridUI : MonoBehaviour
         return _menuOnRight?worldPoint.x<0:worldPoint.x>0;
     }
 
-    public void CountTowerBuild()
+    public void CountTowerBuild(int price = 1)
     {
-        _popCurrent++;
+        _popCurrent+=price;
         _image.sprite = _energyBarSprites[_popCap - _popCurrent];
     }
 
@@ -224,6 +224,15 @@ public class GridUI : MonoBehaviour
 			_image.sprite = _energyBarSprites[_popCap - _popCurrent];
 		}
 	}
+
+    public void AddMoney(int money) {
+        _popCap += money;
+    }
+
+    public int GetCurrentMoney()
+    {
+        return _popCap - _popCurrent;
+    }
 
     private void OpenMenu(Grid tile)
     {
