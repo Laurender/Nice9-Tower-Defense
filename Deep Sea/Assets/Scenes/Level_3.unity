@@ -8879,8 +8879,8 @@ MonoBehaviour:
   _givesPopCap: 0
   _route: {fileID: 1711209873}
   _enemies:
-  - {fileID: 1743905117219794, guid: f9024c2539167014c931c3e60588b7d5, type: 2}
-  - {fileID: 1071014549263354, guid: 5d0a58db6ffc31d44af28bd2afc57b10, type: 2}
+  - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
+  - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}

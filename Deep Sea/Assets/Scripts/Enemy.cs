@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
 	private Vector3 _target, _direction;
     private WaveCounter _waveCounter;
 
+	private Animator _animator;
+
 	SpriteRenderer mySR;
 	Color myColor;
 
@@ -43,6 +45,8 @@ public class Enemy : MonoBehaviour
 		myColor.a = 0.5f;
 		mySR.color = myColor;
         _waveCounter = FindObjectOfType<WaveCounter>();
+		_animator = GetComponent<Animator> ();
+		_animator.SetInteger ("Health", _hitPoints);
     }
 	
 	// Update is called once per frame
@@ -149,9 +153,15 @@ public class Enemy : MonoBehaviour
 	{
 
 		_hitPoints -= damage;
+		_animator.SetInteger ("Health", _hitPoints);
 		if (_hitPoints <= 0) {
-			Destroy (gameObject);
+			StartCoroutine (BeDestroyed());
 		}
+	}
+
+	IEnumerator BeDestroyed(){
+		yield return new WaitForSeconds (0.625f);
+		Destroy (gameObject);
 	}
 
 	// Handles hitting the base.
