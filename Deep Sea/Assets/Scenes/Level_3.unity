@@ -729,7 +729,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300014, guid: 776c718889f0d2446967682881e3186a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -747,8 +747,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 88865225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 5.6227, z: 0}
-  m_LocalScale: {x: 1, y: 1.2453575, z: 1}
+  m_LocalPosition: {x: -6.5, y: 4.749, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 483570516}
   m_RootOrder: 0
@@ -3621,9 +3621,37 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+        type: 2}
+      propertyPath: _pausePlayGlowGO
+      value: 
+      objectReference: {fileID: 473200396}
+    - target: {fileID: 1945720295075164, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712375595325906, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224669602098386352, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224669602098386352, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &473200396 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1712375595325906, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+    type: 2}
+  m_PrefabInternal: {fileID: 473200395}
 --- !u!1 &473305736
 GameObject:
   m_ObjectHideFlags: 0
