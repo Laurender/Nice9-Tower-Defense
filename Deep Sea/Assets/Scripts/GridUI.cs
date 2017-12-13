@@ -131,6 +131,8 @@ public class GridUI : MonoBehaviour
         // Check for mouse and touch events.
         CheckForInputEvents();
 
+        if (Time.timeScale == .001f) Time.timeScale = 0;
+
     }
 
     private void CheckForInputEvents()
@@ -329,7 +331,7 @@ public class GridUI : MonoBehaviour
 
         if (_isPaused)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0.001f;
             _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _playSprite;
 
         } else
@@ -351,6 +353,9 @@ public class GridUI : MonoBehaviour
 
     public void GameOver()
     {
+
+        MusicController.ChangeMusic(3);
+
         _gameOver = true;
         _isPaused = true;
         SetSpeed();
@@ -361,6 +366,8 @@ public class GridUI : MonoBehaviour
 
     public void LevelPass()
     {
+        MusicController.ChangeMusic(2);
+
         _gameOver = true;
         _isPaused = true;
         SetSpeed();
