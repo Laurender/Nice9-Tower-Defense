@@ -51,6 +51,8 @@ public class GridUI : MonoBehaviour
     private GameObject _buildMenuObject;
     [SerializeField, Tooltip("Sell menu object")]
     private GameObject _sellMenuObject;
+    [SerializeField, Tooltip("Wiki screen object")]
+    private GameObject _wikiScreen;
 
     [SerializeField]
     private Sprite _pauseSprite;
@@ -60,6 +62,10 @@ public class GridUI : MonoBehaviour
 
     [SerializeField]
     private GameObject _pausePlayGO;
+
+    [SerializeField]
+    private GameObject _pausePlayGlowGO;
+
 
     [SerializeField]
     private Sprite _speed1Sprite;
@@ -270,13 +276,14 @@ public class GridUI : MonoBehaviour
             if(!_hasStarted)
             {
                 _hasStarted = true;
-               
+                _pausePlayGlowGO.SetActive(false);
                 _waveCounter.StartWaves();
                 Debug.Log("has started");
             }
             _pauseMenuOpen = false;
             _isPaused = false;
             _pauseMenu.SetActive(false);
+            _wikiScreen.SetActive(false); 
         } else
         {
             _pauseMenuOpen = true;
@@ -356,5 +363,22 @@ public class GridUI : MonoBehaviour
     public void ReloadScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+
+    // The wiki opens from and closes to pause menu?
+    public void OpenWiki()
+    {
+
+        
+        _pauseMenu.SetActive(false);
+        _wikiScreen.SetActive(true);
+    }
+
+    public void CloseWiki()
+    {
+
+   
+        _pauseMenu.SetActive(true);
+        _wikiScreen.SetActive(false);
     }
 }
