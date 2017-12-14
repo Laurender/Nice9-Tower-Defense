@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f6a9a93f439e0de418670997cc852d71
-timeCreated: 1512819666
+timeCreated: 1513254027
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -66,6 +66,8 @@ TextureImporter:
     21300118: buttons_32px_59
     21300120: buttons_32px_60
     21300122: buttons_32px_61
+    21300124: buttons_32px_62
+    21300126: buttons_32px_63
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -598,8 +600,8 @@ TextureImporter:
       name: buttons_32px_31
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 992
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -612,7 +614,7 @@ TextureImporter:
       name: buttons_32px_32
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -626,7 +628,7 @@ TextureImporter:
       name: buttons_32px_33
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 0
         width: 32
         height: 32
@@ -640,7 +642,7 @@ TextureImporter:
       name: buttons_32px_34
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -654,7 +656,7 @@ TextureImporter:
       name: buttons_32px_35
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 0
         width: 32
         height: 32
@@ -668,7 +670,7 @@ TextureImporter:
       name: buttons_32px_36
       rect:
         serializedVersion: 2
-        x: 160
+        x: 128
         y: 0
         width: 32
         height: 32
@@ -682,7 +684,7 @@ TextureImporter:
       name: buttons_32px_37
       rect:
         serializedVersion: 2
-        x: 192
+        x: 160
         y: 0
         width: 32
         height: 32
@@ -696,7 +698,7 @@ TextureImporter:
       name: buttons_32px_38
       rect:
         serializedVersion: 2
-        x: 224
+        x: 192
         y: 0
         width: 32
         height: 32
@@ -710,7 +712,7 @@ TextureImporter:
       name: buttons_32px_39
       rect:
         serializedVersion: 2
-        x: 256
+        x: 224
         y: 0
         width: 32
         height: 32
@@ -724,7 +726,7 @@ TextureImporter:
       name: buttons_32px_40
       rect:
         serializedVersion: 2
-        x: 288
+        x: 256
         y: 0
         width: 32
         height: 32
@@ -738,7 +740,7 @@ TextureImporter:
       name: buttons_32px_41
       rect:
         serializedVersion: 2
-        x: 320
+        x: 288
         y: 0
         width: 32
         height: 32
@@ -752,7 +754,7 @@ TextureImporter:
       name: buttons_32px_42
       rect:
         serializedVersion: 2
-        x: 352
+        x: 320
         y: 0
         width: 32
         height: 32
@@ -766,7 +768,7 @@ TextureImporter:
       name: buttons_32px_43
       rect:
         serializedVersion: 2
-        x: 384
+        x: 352
         y: 0
         width: 32
         height: 32
@@ -780,7 +782,7 @@ TextureImporter:
       name: buttons_32px_44
       rect:
         serializedVersion: 2
-        x: 416
+        x: 384
         y: 0
         width: 32
         height: 32
@@ -794,7 +796,7 @@ TextureImporter:
       name: buttons_32px_45
       rect:
         serializedVersion: 2
-        x: 448
+        x: 416
         y: 0
         width: 32
         height: 32
@@ -808,7 +810,7 @@ TextureImporter:
       name: buttons_32px_46
       rect:
         serializedVersion: 2
-        x: 480
+        x: 448
         y: 0
         width: 32
         height: 32
@@ -822,7 +824,7 @@ TextureImporter:
       name: buttons_32px_47
       rect:
         serializedVersion: 2
-        x: 512
+        x: 480
         y: 0
         width: 32
         height: 32
@@ -836,7 +838,7 @@ TextureImporter:
       name: buttons_32px_48
       rect:
         serializedVersion: 2
-        x: 544
+        x: 512
         y: 0
         width: 32
         height: 32
@@ -850,7 +852,7 @@ TextureImporter:
       name: buttons_32px_49
       rect:
         serializedVersion: 2
-        x: 576
+        x: 544
         y: 0
         width: 32
         height: 32
@@ -864,7 +866,7 @@ TextureImporter:
       name: buttons_32px_50
       rect:
         serializedVersion: 2
-        x: 608
+        x: 576
         y: 0
         width: 32
         height: 32
@@ -878,7 +880,7 @@ TextureImporter:
       name: buttons_32px_51
       rect:
         serializedVersion: 2
-        x: 640
+        x: 608
         y: 0
         width: 32
         height: 32
@@ -892,7 +894,7 @@ TextureImporter:
       name: buttons_32px_52
       rect:
         serializedVersion: 2
-        x: 672
+        x: 640
         y: 0
         width: 32
         height: 32
@@ -906,7 +908,7 @@ TextureImporter:
       name: buttons_32px_53
       rect:
         serializedVersion: 2
-        x: 704
+        x: 672
         y: 0
         width: 32
         height: 32
@@ -920,7 +922,7 @@ TextureImporter:
       name: buttons_32px_54
       rect:
         serializedVersion: 2
-        x: 736
+        x: 704
         y: 0
         width: 32
         height: 32
@@ -934,7 +936,7 @@ TextureImporter:
       name: buttons_32px_55
       rect:
         serializedVersion: 2
-        x: 768
+        x: 736
         y: 0
         width: 32
         height: 32
@@ -948,7 +950,7 @@ TextureImporter:
       name: buttons_32px_56
       rect:
         serializedVersion: 2
-        x: 800
+        x: 768
         y: 0
         width: 32
         height: 32
@@ -962,7 +964,7 @@ TextureImporter:
       name: buttons_32px_57
       rect:
         serializedVersion: 2
-        x: 832
+        x: 800
         y: 0
         width: 32
         height: 32
@@ -976,7 +978,7 @@ TextureImporter:
       name: buttons_32px_58
       rect:
         serializedVersion: 2
-        x: 864
+        x: 832
         y: 0
         width: 32
         height: 32
@@ -990,7 +992,7 @@ TextureImporter:
       name: buttons_32px_59
       rect:
         serializedVersion: 2
-        x: 896
+        x: 864
         y: 0
         width: 32
         height: 32
@@ -1004,7 +1006,7 @@ TextureImporter:
       name: buttons_32px_60
       rect:
         serializedVersion: 2
-        x: 928
+        x: 896
         y: 0
         width: 32
         height: 32
@@ -1018,7 +1020,35 @@ TextureImporter:
       name: buttons_32px_61
       rect:
         serializedVersion: 2
+        x: 928
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_32px_62
+      rect:
+        serializedVersion: 2
         x: 960
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_32px_63
+      rect:
+        serializedVersion: 2
+        x: 992
         y: 0
         width: 32
         height: 32
