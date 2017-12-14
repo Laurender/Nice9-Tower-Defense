@@ -237,6 +237,8 @@ public class GridUI : MonoBehaviour
     private void OpenMenu(Grid tile)
     {
 
+        MusicController.PlaySound(0);
+
         if (!tile.HasTower)
         {
             //open buildmenu, if popCap allows.
