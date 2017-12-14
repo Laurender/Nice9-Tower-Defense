@@ -150,11 +150,13 @@ public class Grid : MonoBehaviour
     #region Set, get and remove tower    
     public void SetTower(GameObject tower)
     {
+
         if (tower.GetComponent<HatchTower>() != null)
         {
             tower.GetComponent<HatchTower>().SetRoadBools(_roadNorth, _roadEast, _roadSouth, _roadWest);
         }
 
+        MusicController.PlaySound(2);
         currentTower = tower;
         StopAnim();
         _gridUI.CountTowerBuild();
@@ -165,17 +167,20 @@ public class Grid : MonoBehaviour
         return currentTower;
     }
 
-    public void RemoveTower(bool getPair = true)
+    public void RemoveTower(bool getPair = false)
     {
-        if (getPair && currentTower.GetComponent<PairedTower>() != null)
+        if (!getPair && currentTower.GetComponent<PairedTower>() != null)
         {
-            currentTower.GetComponent<PairedTower>().PairedTile.RemoveTower(false);
+            currentTower.GetComponent<PairedTower>().PairedTile.RemoveTower(true);
         }
 
         if (currentTower.GetComponent<TeslaTower>() != null)
         {
             _gridUI.CountTowerDestroy();
         }
+
+        // Play sound only once.
+        if(!getPair) MusicController.PlaySound(2);
 
         Destroy(currentTower);
         currentTower = null; // Now critical as ;
