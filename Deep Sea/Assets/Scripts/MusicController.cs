@@ -11,6 +11,15 @@ public class MusicController : MonoBehaviour
     [SerializeField]
     private AudioSource[] _sounds;
 
+    [SerializeField]
+    private AudioClip[] _effects;
+
+    [SerializeField]
+    private AudioSource _electricNoise;
+
+    [SerializeField]
+    private AudioSource _solarNoise;
+
     private int _currentMusic;
 
     private bool _playMusic, _playSFX;
@@ -102,6 +111,14 @@ public class MusicController : MonoBehaviour
         if (!_instance._playSFX) return;
 
         _instance._sounds[sound].Play();
+    }
+
+    public static void PlayEffect(int effect)
+    {
+        if (!_instance._playSFX) return;
+
+        AudioSource.PlayClipAtPoint(_instance._effects[effect], Vector3.zero);
+
     }
 
 
