@@ -46,6 +46,16 @@ public class Base : MonoBehaviour
         } else
         {
             _image.sprite = _healthBarSprites[_health];
+
+            if(_health > 1)
+            {
+                MusicController.PlaySound(3);
+            }
+            else
+            {
+
+                MusicController.PlaySound(4);
+            }
         }
     }
 }

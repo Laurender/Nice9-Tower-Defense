@@ -9,7 +9,7 @@ public class MusicController : MonoBehaviour
     private AudioSource[] _music;
 
     [SerializeField]
-    private AudioSource[] _SFX;
+    private AudioSource[] _sounds;
 
     private int _currentMusic;
 
@@ -101,7 +101,7 @@ public class MusicController : MonoBehaviour
 
         if (!_instance._playSFX) return;
 
-        _instance._SFX[sound].Play();
+        _instance._sounds[sound].Play();
     }
 
 
