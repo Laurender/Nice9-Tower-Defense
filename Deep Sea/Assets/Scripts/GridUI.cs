@@ -157,8 +157,8 @@ public class GridUI : MonoBehaviour
         // Close menu if click is on opposite side.
         if (_aMenuIsOpen && PointIsOnOppositeSide(worldPoint))
         {
-            _buildMenu.DoNothing();
-            _deleteMenu.DoNothing();
+            _buildMenu.CleanUp();
+            _deleteMenu.CleanUp();
 
             // Avoid further processing.
             return;
@@ -237,15 +237,13 @@ public class GridUI : MonoBehaviour
     private void OpenMenu(Grid tile)
     {
 
-        MusicController.PlaySound(0);
-
         if (!tile.HasTower)
         {
             //open buildmenu, if popCap allows.
 
             if (_popCurrent < _popCap)
             {
-
+                MusicController.PlaySound(0);
                 _buildMenu.Open(tile);
                 _aMenuIsOpen = true;
                 _menuOnRight = tile.OnLeft;
@@ -256,7 +254,7 @@ public class GridUI : MonoBehaviour
         else
         {
             //open destroymenu
-
+            MusicController.PlaySound(0);
             _deleteMenu.Open(tile);
             _aMenuIsOpen = true;
             _menuOnRight = tile.OnLeft;
@@ -284,7 +282,8 @@ public class GridUI : MonoBehaviour
 
         if (_isPaused)
         {
-            if(!_hasStarted)
+            MusicController.PlaySound(1);
+            if (!_hasStarted)
             {
                 _hasStarted = true;
                 _pausePlayGlowGO.SetActive(false);
@@ -297,6 +296,7 @@ public class GridUI : MonoBehaviour
             _wikiScreen.SetActive(false); 
         } else
         {
+            MusicController.PlaySound(0);
             _pauseMenuOpen = true;
             _isPaused = true;
             _pauseMenu.SetActive(true);
@@ -310,6 +310,7 @@ public class GridUI : MonoBehaviour
 
     public void SpeedButton()
     {
+        MusicController.PlaySound(1);
         _isAccelerated = _isAccelerated ? false : true;
         SetSpeed();
         
@@ -348,6 +349,7 @@ public class GridUI : MonoBehaviour
     // Allows exiting the game from placeholder button.
     public void Exit()
     {
+        MusicController.PlaySound(1);
         Application.Quit();
     }
 
@@ -359,6 +361,12 @@ public class GridUI : MonoBehaviour
         _gameOver = true;
         _isPaused = true;
         SetSpeed();
+
+        if (_aMenuIsOpen)
+        {
+            _buildMenu.CleanUp();
+            _deleteMenu.CleanUp();
+        }
 
         _gameOverDisplay.SetActive(true);
 
@@ -372,28 +380,33 @@ public class GridUI : MonoBehaviour
         _isPaused = true;
         SetSpeed();
 
+        if (_aMenuIsOpen)
+        {
+            _buildMenu.CleanUp();
+            _deleteMenu.CleanUp();
+        }
+
         _levelPassDisplay.SetActive(true);
 
     }
 
     public void ReloadScene()
     {
+        MusicController.PlaySound(1);
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
     // The wiki opens from and closes to pause menu?
     public void OpenWiki()
     {
-
-        
+        MusicController.PlaySound(0);
         _pauseMenu.SetActive(false);
         _wikiScreen.SetActive(true);
     }
 
     public void CloseWiki()
     {
-
-   
+        MusicController.PlaySound(0);
         _pauseMenu.SetActive(true);
         _wikiScreen.SetActive(false);
     }

@@ -132,12 +132,19 @@ public class BuildMenu : MonoBehaviour {
     }
 
     // A complex function that does nothing. Well, it hides the menu.
-    public void DoNothing()
+    public void CleanUp()
     {
         if (!gameObject.activeSelf) return;
+
         gameObject.SetActive(false);
         _gridUI.ActivateGrid();
 		_gridTemp.StopAnim ();
+    }
+
+    public void Exit()
+    {
+        MusicController.PlaySound(1);
+        CleanUp();
     }
 
     public void BuildHarpoonTower()
@@ -211,6 +218,6 @@ public class BuildMenu : MonoBehaviour {
         temp.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
         _gridTemp.SetTower(temp);
 
-        DoNothing();
+        CleanUp();
     }
 }
