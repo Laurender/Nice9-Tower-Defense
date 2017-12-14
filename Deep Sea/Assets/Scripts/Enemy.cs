@@ -160,6 +160,7 @@ public class Enemy : MonoBehaviour
 	}
 
 	IEnumerator BeDestroyed(){
+        
 		yield return new WaitForSeconds (0.625f);
 		Destroy (gameObject);
 	}
@@ -216,6 +217,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
+        MusicController.PlayEffect(1);
         _waveCounter.EnemyDied();
         
     }

@@ -38,6 +38,7 @@ public class Hatch : MonoBehaviour {
 	void Start(){
 		caughtFishes = new List<GameObject>();
 		spawnTime = Time.time;
+        MusicController.PlayEffect(2);
 	}
 
 	//update function
@@ -46,21 +47,25 @@ public class Hatch : MonoBehaviour {
 			BeDestroyed ();
 		}*/
 
-        float distanceBefore = Vector3.Distance(transform.position, _target);
-        transform.Translate(_direction * Time.deltaTime);
-        if(Vector3.Distance(transform.position, _target)>distanceBefore)
+        
+        if (!_onTarget)
         {
-            transform.position = _target;
-            _onTarget = true;
-        }
+            float distanceBefore = Vector3.Distance(transform.position, _target);
+            transform.Translate(_direction * Time.deltaTime);
+            if (Vector3.Distance(transform.position, _target) > distanceBefore)
+            {
+                transform.position = _target;
+                _onTarget = true;
+                MusicController.PlayEffect(3);
 
-  //      if (Vector3.Distance (transform.position, _target) < .02f) {
-		//	transform.position = _target;
-		//	_onTarget = true;
-		//} else if (!_onTarget) {
-		//	transform.Translate (_direction * Time.deltaTime);
-		//}
-	}
+            }
+        }
+        
+
+        
+
+       
+    }
 
 	//When enemy tries to enter hatch
 	void OnTriggerEnter2D(Collider2D other){
@@ -100,7 +105,9 @@ public class Hatch : MonoBehaviour {
 
 	//When out of health, release all caught enemies and tell tower it can build new hatch
 	void BeDestroyed(){
-		for (int i = caughtFishes.Count - 1; i >= 0; i--) {
+
+        
+        for (int i = caughtFishes.Count - 1; i >= 0; i--) {
 			if (caughtFishes [i] != null) {
 				caughtFishes [i].GetComponent<Enemy> ().HatchRelease ();
 			}

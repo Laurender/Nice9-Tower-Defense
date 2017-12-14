@@ -4033,6 +4033,9 @@ MonoBehaviour:
   - {fileID: 82317480619790094}
   _effects:
   - {fileID: 8300000, guid: 0f6ca95ee75bc4541a91ea24bb1faf04, type: 3}
+  - {fileID: 8300000, guid: 014b470812061934fbb1f544fc2e2444, type: 3}
+  - {fileID: 8300000, guid: 434ca54f9591cc24cb4bacb63cc8a2df, type: 3}
+  - {fileID: 8300000, guid: 14bb88a9e6785bc4e817e50cf62b373d, type: 3}
   _electricNoise: {fileID: 0}
   _solarNoise: {fileID: 0}
 --- !u!114 &114201592688578324
