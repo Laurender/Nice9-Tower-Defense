@@ -8,9 +8,12 @@ public class MusicController : MonoBehaviour
     [SerializeField]
     private AudioSource[] _music;
 
+    [SerializeField]
+    private AudioClip[] _SFX;
+
     private int _currentMusic;
 
-    private bool _playMusic;
+    private bool _playMusic, _playSFX;
 
     static MusicController _instance;
 
@@ -50,7 +53,7 @@ public class MusicController : MonoBehaviour
 
     }
 
-    public bool PlayMusic
+    public static bool PlayMusic
     {
         get
         {
@@ -60,6 +63,19 @@ public class MusicController : MonoBehaviour
         set
         {
             _instance.SetPlay(value);
+        }
+    }
+
+    public static bool PlaySFX
+    {
+        get
+        {
+            return _instance._playSFX;
+        }
+
+        set
+        {
+            _instance._playSFX = value;
         }
     }
 
@@ -78,6 +94,15 @@ public class MusicController : MonoBehaviour
             _music[_currentMusic].Stop();
         }
     }
+
+    public static void PlaySound(int sound)
+    {
+
+        if (!PlaySFX) return;
+
+        AudioSource.PlayClipAtPoint(_instance._SFX[sound], Vector3.zero);
+    }
+
 
 
 }
