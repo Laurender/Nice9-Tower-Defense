@@ -45,6 +45,7 @@ public class WikiTabsController : MonoBehaviour {
     }
     public void ChangeCurrentTab(int tab)
     {
+        MusicController.PlaySound(1);
         Deselect(_currentTab);
         _currentTab = tab;
         Select(_currentTab);
