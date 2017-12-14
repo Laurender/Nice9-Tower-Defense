@@ -47,6 +47,7 @@ public class TeslaTower : MonoBehaviour {
 			if (shootCounter < shootingSpeed) {
 				shootCounter += Time.deltaTime;	
 			} else {
+                MusicController.StartElectric();
 				_shooting = true;
 				shootCounter = 0.0f;
 				_myColl.enabled = true;
@@ -56,6 +57,7 @@ public class TeslaTower : MonoBehaviour {
 			if (shootCounter < shootingTime) {
 				shootCounter += Time.deltaTime;	
 			} else {
+                MusicController.StopElectric();
 				_shooting = false;
 				shootCounter = 0.0f;
 				_myColl.enabled = false;

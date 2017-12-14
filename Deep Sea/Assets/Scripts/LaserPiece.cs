@@ -31,11 +31,16 @@ public class LaserPiece : MonoBehaviour {
 		if (lifeCounter < _lifetime) {
 			lifeCounter += Time.deltaTime;
 		} else {
+
+            MusicController.StopSolar();
 			Destroy (this.gameObject);
 		}
 	}
 
 	public void AsMade(string direction, string startMidEnd, float startPoint){
+
+        MusicController.StartSolar();
+
 		if (direction == "E") {
 			transform.eulerAngles = new Vector3 (0.0f, 0.0f, 0.0f);
 		} else if (direction == "N") {

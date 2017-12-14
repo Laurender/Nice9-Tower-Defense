@@ -16,9 +16,11 @@ public class MusicController : MonoBehaviour
 
     [SerializeField]
     private AudioSource _electricNoise;
+    private int _electricNoiseCounter;
 
     [SerializeField]
     private AudioSource _solarNoise;
+    private int _solarNoiseCounter;
 
     private int _currentMusic;
 
@@ -121,6 +123,46 @@ public class MusicController : MonoBehaviour
 
     }
 
+    public static void StartElectric()
+    {
+        if(_instance._electricNoiseCounter==0)
+        {
+            _instance._electricNoise.Play();
+        }
 
+        _instance._electricNoiseCounter++;
+    }
+
+    public static void StopElectric()
+    {
+        _instance._electricNoiseCounter--;
+
+        if (_instance._electricNoiseCounter == 0)
+        {
+            _instance._electricNoise.Stop();
+        }
+
+    }
+
+    public static void StartSolar()
+    {
+        if (_instance._solarNoiseCounter == 0)
+        {
+            _instance._solarNoise.Play();
+        }
+
+        _instance._solarNoiseCounter++;
+    }
+
+    public static void StopSolar()
+    {
+        _instance._solarNoiseCounter--;
+
+        if (_instance._solarNoiseCounter == 0)
+        {
+            _instance._solarNoise.Stop();
+        }
+
+    }
 
 }
