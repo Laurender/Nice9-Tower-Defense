@@ -82,48 +82,46 @@ public class BarPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_moneyAnimate>0)
+        if (_moneyAnimate > 0)
         {
             _moneyAnimate -= Time.deltaTime;
 
-            if(_moneyBlink>0)
+            if (_moneyBlink > 0)
             {
                 _moneyBlink -= Time.deltaTime;
-
-                if(_moneyBlink<=0)
-                {
-                    _moneyBlink = .2f;
-                    _moneyDisplay.transform.localScale =_moneyLarge ? Vector3.one : Vector3.one * 1.2f;
-                    _moneyLarge = _moneyLarge ? false : true;
-                }
             }
-            
-            
-            if(_moneyAnimate<=0)
+
+            if (_moneyBlink <= 0)
+            {
+                _moneyBlink = .2f;
+                _moneyDisplay.transform.localScale = _moneyLarge ? Vector3.one : Vector3.one * 1.2f;
+                _moneyLarge = _moneyLarge ? false : true;
+            }
+
+            if (_moneyAnimate <= 0)
             {
                 _moneyAnimate = 0;
                 _moneyDisplay.transform.localScale = Vector3.one; ;
             }
         }
-    
 
-            if(_healthAnimate>0)
+
+        if (_healthAnimate > 0)
         {
             _healthAnimate -= Time.deltaTime;
 
             if (_healthBlink > 0)
             {
                 _healthBlink -= Time.deltaTime;
-
-                if (_healthBlink <= 0)
-                {
-                    _healthBlink = .2f;
-                    _healthDisplay.transform.localScale = _healthLarge ? Vector3.one : Vector3.one * 1.2f;
-                    _healthLarge = _healthLarge ? false : true;
-                }
+            }
+            if (_healthBlink <= 0)
+            {
+                _healthBlink = .2f;
+                _healthDisplay.transform.localScale = _healthLarge ? Vector3.one : Vector3.one * 1.2f;
+                _healthLarge = _healthLarge ? false : true;
             }
 
-            if (_healthAnimate<=0)
+            if (_healthAnimate <= 0)
             {
                 _healthAnimate = 0;
                 _healthDisplay.transform.localScale = Vector3.one;

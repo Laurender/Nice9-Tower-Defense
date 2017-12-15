@@ -151,13 +151,18 @@ public class Enemy : MonoBehaviour
 	// The enemy takes damage here and gets destroyed when hit points drop to zero.
 	public void takeDamage (int damage)
 	{
-
-		_hitPoints -= damage;
-		_animator.SetInteger ("Health", _hitPoints);
-		if (_hitPoints <= 0) {
-            MusicController.PlayEffect(1);
-            StartCoroutine (BeDestroyed());
-		}
+        if (isActive)
+        {
+            _hitPoints -= damage;
+            _animator.SetInteger("Health", _hitPoints);
+            if (_hitPoints <= 0)
+            {
+                MusicController.PlayEffect(1);
+                _waveCounter.EnemyDied();
+                StartCoroutine(BeDestroyed());
+                isActive = false;
+            }
+        }
 	}
 
 	IEnumerator BeDestroyed(){
@@ -174,7 +179,8 @@ public class Enemy : MonoBehaviour
 
 		// If the base was hit, the base takes damage and the enemy is destroyed.
 		if (b != null) {
-			b.takeDamage (_damage);
+            _waveCounter.EnemyDied();
+            b.takeDamage (_damage);
 			Destroy (gameObject);
 		}
 
@@ -216,10 +222,5 @@ public class Enemy : MonoBehaviour
 		return isActive;
 	}
 
-    private void OnDestroy()
-    {
-        
-        _waveCounter.EnemyDied();
-        
-    }
+    
 }
