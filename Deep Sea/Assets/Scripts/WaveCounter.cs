@@ -67,7 +67,11 @@ public class WaveCounter : MonoBehaviour {
         {
             if(_currentCount<_totalCount)
             {
-                waves[_currentCount].Trigger();
+                if (waves[_currentCount] != null)
+                    // Turns out this gets called after the game is closed´, which causes 'errors' in Unity.
+                {
+                    waves[_currentCount].Trigger();
+                }
             } else
             {
                 FindObjectOfType<GridUI>().LevelPass();

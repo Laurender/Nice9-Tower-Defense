@@ -155,7 +155,8 @@ public class Enemy : MonoBehaviour
 		_hitPoints -= damage;
 		_animator.SetInteger ("Health", _hitPoints);
 		if (_hitPoints <= 0) {
-			StartCoroutine (BeDestroyed());
+            MusicController.PlayEffect(1);
+            StartCoroutine (BeDestroyed());
 		}
 	}
 
@@ -217,7 +218,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        MusicController.PlayEffect(1);
+        
         _waveCounter.EnemyDied();
         
     }

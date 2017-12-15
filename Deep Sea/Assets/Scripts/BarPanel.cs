@@ -65,6 +65,10 @@ public class BarPanel : MonoBehaviour
 
     private float _moneyAnimate, _healthAnimate;
 
+    private float _moneyBlink, _healthBlink;
+
+    private bool _moneyLarge, _healthLarge;
+
     #endregion
 
 
@@ -82,11 +86,23 @@ public class BarPanel : MonoBehaviour
         {
             _moneyAnimate -= Time.deltaTime;
 
-            // Actual animation
+            if(_moneyBlink>0)
+            {
+                _moneyBlink -= Time.deltaTime;
+
+                if(_moneyBlink<=0)
+                {
+                    _moneyBlink = .2f;
+                    _moneyDisplay.transform.localScale =_moneyLarge ? Vector3.one : Vector3.one * 1.2f;
+                    _moneyLarge = _moneyLarge ? false : true;
+                }
+            }
             
-            if(_moneyAnimate<0)
+            
+            if(_moneyAnimate<=0)
             {
                 _moneyAnimate = 0;
+                _moneyDisplay.transform.localScale = Vector3.one; ;
             }
         }
     
@@ -95,11 +111,22 @@ public class BarPanel : MonoBehaviour
         {
             _healthAnimate -= Time.deltaTime;
 
-            // Actual animation
-            
-            if(_healthAnimate<0)
+            if (_healthBlink > 0)
+            {
+                _healthBlink -= Time.deltaTime;
+
+                if (_healthBlink <= 0)
+                {
+                    _healthBlink = .2f;
+                    _healthDisplay.transform.localScale = _healthLarge ? Vector3.one : Vector3.one * 1.2f;
+                    _healthLarge = _healthLarge ? false : true;
+                }
+            }
+
+            if (_healthAnimate<=0)
             {
                 _healthAnimate = 0;
+                _healthDisplay.transform.localScale = Vector3.one;
             }
         }
     }

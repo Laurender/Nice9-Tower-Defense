@@ -29,6 +29,8 @@ public class Wave : MonoBehaviour
 	}
 
     public void Trigger(){
+
+        
         StartCoroutine(Spawner());
         
     }
