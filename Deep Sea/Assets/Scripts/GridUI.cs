@@ -6,26 +6,13 @@ using UnityEngine;
 public class GridUI : MonoBehaviour
 {
 
-    [SerializeField, Tooltip("Maximum number of towers.")]
+    [SerializeField, Tooltip("Starting money(?).")]
     private int _popCap = 6;
-
-    [SerializeField, Tooltip("Energy bar sprites.")]
-    private Sprite[] _energyBarSprites;
-
-    [SerializeField, Tooltip("Energy bar container")]
-    private GameObject _energyBarContainer;
-
-    [SerializeField, Tooltip("Energy bar")]
-    private GameObject _energyBar;
 
     [SerializeField]
     private GameObject _smokeEffectPrefab;
 
     private WaveCounter _waveCounter;
-
-    private UnityEngine.UI.Image _image;
-
-    private int _popCurrent = 0;
 
     // State flags.
     private bool _aMenuIsOpen, _menuOnRight, _waitingForPair;
@@ -83,7 +70,7 @@ public class GridUI : MonoBehaviour
     {
         get
         {
-            return _popCap - _popCurrent >= 2;
+            return BarPanel.Money >= 2;
         }
     }
 
@@ -99,11 +86,8 @@ public class GridUI : MonoBehaviour
     void Start()
     {
         
-        _image = _energyBar.GetComponent<UnityEngine.UI.Image>();
-        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
-
-        _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 15, 20);
-        _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 150, 20);
+        
+        BarPanel.Money = _popCap;
 
         // Find the menus and wave counter for later reference...
         _buildMenu = _buildMenuObject.GetComponent<BuildMenu>();
@@ -206,32 +190,27 @@ public class GridUI : MonoBehaviour
 
     public void CountTowerBuild(int price = 1)
     {
-        _popCurrent+=price;
-        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
+        BarPanel.Money -=price;
     }
 
-    public void CountTowerDestroy()
+    public void CountTowerDestroy(int price = 1)
     {
-        _popCurrent--;
-        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
+        BarPanel.Money += price; ;
+        
     }
 
-	//Increases pop cap, allowing the player to build more towers
-	//Does not allow pop cap to be greater than 6
+	//Increases pop cap, allowing the player to build more towers.
 	public void IncreasePopCap(){
-		if (_popCap < 6) {
-			_popCap++;
-			_image.sprite = _energyBarSprites[_popCap - _popCurrent];
-		}
+        BarPanel.Money++;
 	}
 
     public void AddMoney(int money) {
-        _popCap += money;
+        BarPanel.Money += money;
     }
 
     public int GetCurrentMoney()
     {
-        return _popCap - _popCurrent;
+        return BarPanel.Money;
     }
 
     private void OpenMenu(Grid tile)
@@ -241,7 +220,7 @@ public class GridUI : MonoBehaviour
         {
             //open buildmenu, if popCap allows.
 
-            if (_popCurrent < _popCap)
+            if (BarPanel.Money > 0)
             {
                 MusicController.PlaySound(0);
                 _buildMenu.Open(tile);

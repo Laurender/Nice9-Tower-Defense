@@ -1,16 +1,11 @@
 fileFormatVersion: 2
-guid: ecdeaac33a7408645b8630cbfe9c810d
-timeCreated: 1509466174
+guid: fdb3b176d34cbc442bef3c9d1bbc54de
+timeCreated: 1513339639
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_healthbar_0
-    21300002: spr_healthbar_1
-    21300004: spr_healthbar_2
-    21300006: spr_healthbar_3
-    21300008: spr_healthbar_4
-    21300010: spr_healthbar_5
-    21300012: spr_healthbar_6
+    21300000: spr_icons_25px_0
+    21300002: spr_icons_25px_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -86,33 +81,17 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 2
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 2
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_healthbar_0
+      name: spr_icons_25px_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 92
-        height: 24
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,83 +99,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_healthbar_1
+      name: spr_icons_25px_1
       rect:
         serializedVersion: 2
-        x: 92
+        x: 25
         y: 0
-        width: 92
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spr_healthbar_2
-      rect:
-        serializedVersion: 2
-        x: 184
-        y: 0
-        width: 92
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spr_healthbar_3
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 0
-        width: 92
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spr_healthbar_4
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 0
-        width: 92
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spr_healthbar_5
-      rect:
-        serializedVersion: 2
-        x: 460
-        y: 0
-        width: 92
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spr_healthbar_6
-      rect:
-        serializedVersion: 2
-        x: 552
-        y: 0
-        width: 92
-        height: 24
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

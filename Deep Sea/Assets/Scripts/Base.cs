@@ -9,19 +9,11 @@ public class Base : MonoBehaviour
     [SerializeField]
     private int _health = 4;
 
-    [SerializeField]
-    private GameObject _healthBar;
-
-    [SerializeField]
-    private Sprite[] _healthBarSprites;
-
-    private UnityEngine.UI.Image _image;
 
     // Use this for initialization
     void Start()
     {
-        _image = _healthBar.GetComponent<UnityEngine.UI.Image>();
-        _image.sprite = _healthBarSprites[_health];
+        BarPanel.Health = _health;
     }
 
     // Update is called once per frame
@@ -39,13 +31,13 @@ public class Base : MonoBehaviour
         {
 
             Destroy(gameObject);
-            _healthBar.SetActive(false);
+            BarPanel.Health = 0;
 
             FindObjectOfType<GridUI>().GameOver();
 
         } else
         {
-            _image.sprite = _healthBarSprites[_health];
+            BarPanel.Health = _health;
 
             if(_health > 1)
             {
