@@ -34,7 +34,8 @@ public class Enemy : MonoBehaviour
 
 	bool isActive = false;
 
-    
+    [SerializeField, Tooltip("The money added when this enemy is killed. Leave this at 0 until levels with new balance exist.")]
+    private int _reward;
 
     // Use this for initialization
     void Start ()
@@ -155,10 +156,13 @@ public class Enemy : MonoBehaviour
         {
             _hitPoints -= damage;
             _animator.SetInteger("Health", _hitPoints);
+
             if (_hitPoints <= 0)
             {
                 MusicController.PlayEffect(1);
                 _waveCounter.EnemyDied();
+                BarPanel.Money += _reward;
+
                 StartCoroutine(BeDestroyed());
                 isActive = false;
             }
