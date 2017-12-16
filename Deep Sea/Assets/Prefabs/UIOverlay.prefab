@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 223674833963356162}
   - component: {fileID: 114845139126802254}
   - component: {fileID: 114433393909500616}
+  - component: {fileID: 114919621403603094}
   m_Layer: 5
   m_Name: UIOverlay
   m_TagString: Untagged
@@ -3967,7 +3968,6 @@ MonoBehaviour:
   _popCap: 4
   _smokeEffectPrefab: {fileID: 1614185584207746, guid: ceae93f430187d8479be1e0ad26a422a,
     type: 2}
-  _placeHolder: {fileID: 0}
   _pauseMenu: {fileID: 1720637191315596}
   _gameOverDisplay: {fileID: 1885834240919834}
   _levelPassDisplay: {fileID: 1588314860202316}
@@ -7899,6 +7899,26 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114919621403603094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020119293677318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e196ef9189f8237439a3a049e1fba537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneNames:
+  - Tutorial_firstdraft
+  - Level_2
+  - Level_3
+  - Level_4
+  - 
+  - 
+  _bannerPrefab: {fileID: 1167629197974416, guid: 3763a53ecc64f7641a06c10c232186d6,
+    type: 2}
 --- !u!114 &114928441682174236
 MonoBehaviour:
   m_ObjectHideFlags: 1

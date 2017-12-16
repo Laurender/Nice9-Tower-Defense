@@ -30,7 +30,7 @@ public class MusicController : MonoBehaviour
 
     // Sets _instance to the the MusicController of the current scene, hopefully.
     // This allows static calls to the methods. Probably should change other classes to work this way?
-    void Start()
+    void Awake()
     {
 
         _instance = this;

@@ -3606,52 +3606,9 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: _popCap
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845139126802254, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114070322465583560, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: _pausePlayGlowGO
-      value: 
-      objectReference: {fileID: 473200396}
-    - target: {fileID: 1945720295075164, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1712375595325906, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224669602098386352, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224669602098386352, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &473200396 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1712375595325906, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-    type: 2}
-  m_PrefabInternal: {fileID: 473200395}
 --- !u!1 &473305736
 GameObject:
   m_ObjectHideFlags: 0
@@ -7451,15 +7408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 6
-  _healthBar: {fileID: 465173556}
-  _healthBarSprites:
-  - {fileID: 21300012, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300010, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300008, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300006, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300004, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300002, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300000, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
 --- !u!50 &838179158
 Rigidbody2D:
   serializedVersion: 4
