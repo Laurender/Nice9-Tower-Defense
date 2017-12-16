@@ -38,6 +38,7 @@ public class LevelBanner : MonoBehaviour
         if (_position.x < -_moveLimits)
         {
             Destroy(gameObject);
+            Grid.StartEmphasis();
         }
     }
 
