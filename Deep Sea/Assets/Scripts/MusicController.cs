@@ -34,8 +34,8 @@ public class MusicController : MonoBehaviour
     {
 
         _instance = this;
-        PlayMusic = true;
-        PlaySFX = true;
+        PlayMusic = (PlayerPrefs.GetInt("PlayMusic", 1) == 1);
+        PlaySFX = (PlayerPrefs.GetInt("PlaySFX", 1) == 1);
 
     }
 
@@ -74,7 +74,7 @@ public class MusicController : MonoBehaviour
 
         set
         {
-            _instance.SetPlay(value);
+            _instance.SetPlayMusic(value);
         }
     }
 
@@ -87,15 +87,17 @@ public class MusicController : MonoBehaviour
 
         set
         {
-            _instance._playSFX = value;
+            _instance.SetPlaySFX(value);
+
         }
     }
 
-    private void SetPlay(bool playMusic)
+    private void SetPlayMusic(bool playMusic)
     {
         if (_playMusic == playMusic) return;
 
         _playMusic = playMusic;
+        PlayerPrefs.SetInt("PlayMusic", _playMusic ? 1 : 0);
 
         if (playMusic)
         {
@@ -105,6 +107,15 @@ public class MusicController : MonoBehaviour
         {
             _music[_currentMusic].Stop();
         }
+    }
+
+    private void SetPlaySFX(bool playSFX)
+    {
+        if (_playSFX == playSFX) return;
+
+        _playSFX = playSFX;
+        PlayerPrefs.SetInt("PlaySFX", _playSFX ? 1 : 0);
+
     }
 
     public static void PlaySound(int sound)
@@ -125,7 +136,7 @@ public class MusicController : MonoBehaviour
 
     public static void StartElectric()
     {
-        if(_instance._electricNoiseCounter==0)
+        if (_instance._electricNoiseCounter == 0)
         {
             _instance._electricNoise.Play();
         }
