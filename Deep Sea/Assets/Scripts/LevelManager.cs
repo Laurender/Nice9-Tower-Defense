@@ -34,4 +34,25 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Detected level : " + _currentLevel.ToString());
         Instantiate(_bannerPrefab).GetComponent<LevelBanner>().Initialize(currentLevel);
     }
+
+    public void OpenNextLevel()
+    {
+        int _nextLevel = _currentLevel + 1;
+
+        if (_nextLevel >= _sceneNames.Length)
+        {
+            // Current is last level available, maybe we need to do something?
+            return;
+        }
+
+        if(_sceneNames[_nextLevel].Length < 3)
+        {
+            // Not valid scene name. Probably means it is not ready, so do nothing.
+            return;
+        }
+
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_sceneNames[_nextLevel]);
+
+
+    }
 }
