@@ -93,12 +93,12 @@ public class BuildMenu : MonoBehaviour {
 
         if (tile.OnLeft)
         {
-            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 50, 256);
+            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 50, 288);
             Debug.Log("Menu open on left.");
         }
         else
         {
-            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 50, 256);
+            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 50, 288);
             Debug.Log("Menu open on right.");
         }
 
