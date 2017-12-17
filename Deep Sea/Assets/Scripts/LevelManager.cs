@@ -20,7 +20,13 @@ public class LevelManager : MonoBehaviour
     private UnityEngine.UI.Image _passLevelImage;
 
     [SerializeField]
+    private UnityEngine.UI.Image _pauseLevelImage;
+
+    [SerializeField]
     private Sprite[] _images;
+
+    [SerializeField]
+    private Sprite[] _imagesForPause;
 
     // Use this for initialization
     void Start()
@@ -34,6 +40,7 @@ public class LevelManager : MonoBehaviour
             LevelCeremony(_currentLevel);
             _failLevelImage.sprite = _images[_currentLevel];
             _passLevelImage.sprite = _images[_currentLevel];
+            _pauseLevelImage.sprite = _imagesForPause[_currentLevel];
         }
 
         Debug.Log("Scene name : " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
@@ -56,7 +63,7 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        if(_sceneNames[_nextLevel].Length < 3)
+        if (_sceneNames[_nextLevel].Length < 3)
         {
             // Not valid scene name. Probably means it is not ready, so do nothing.
             return;
