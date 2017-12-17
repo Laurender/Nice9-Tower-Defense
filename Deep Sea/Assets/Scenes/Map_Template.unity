@@ -5993,7 +5993,7 @@ Prefab:
     - target: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
       propertyPath: _popCap
-      value: 4
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114845139126802254, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
