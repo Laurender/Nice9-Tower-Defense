@@ -5,10 +5,11 @@ using UnityEngine;
 public class DeleteMenu : MonoBehaviour
 {
 
-    // Using static to get data from the static function.
     private Grid _gridTemp;
 
     private GridUI _gridUI;
+
+    private int _sellPrice, _upgradePrice;
 
     #region Serialized Fields
 
@@ -97,6 +98,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _harpoonText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell1;
 					tile.GetTower ().GetComponent<Tower> ().ShowRange (true);
+                    _sellPrice = 60;
                     break;
                 }
             case Grid.TowerTypes.HatchTower:
@@ -104,6 +106,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _hatchIcon;
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _hatchText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell1;
+                    _sellPrice = 80;
                     break;
                 }
             case Grid.TowerTypes.LaserTower:
@@ -111,6 +114,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _laserIcon;
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _laserText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell2;
+                    _sellPrice = 120;
                     break;
                 }
             case Grid.TowerTypes.TeslaTower:
@@ -118,6 +122,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _teslaIcon;
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _teslaText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell2;
+                    _sellPrice = 120;
                     break;
                 }
         }
@@ -146,6 +151,7 @@ public class DeleteMenu : MonoBehaviour
     public void DeleteTower()
     {
         _gridTemp.RemoveTower();
+        BarPanel.Money += _sellPrice;
         CleanUp();
     }
 

@@ -307,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1152224126698008
 GameObject:
   m_ObjectHideFlags: 1
@@ -342,7 +342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1155604705909622
 GameObject:
   m_ObjectHideFlags: 1
@@ -3604,11 +3604,41 @@ MonoBehaviour:
   _enableHatchTowers: 1
   _enableLaserTowers: 1
   _enableTeslaTowers: 1
+  _harpoonTowerButton: {fileID: 114619262459133350}
   _hatchTowerButton: {fileID: 114761830094348156}
   _laserTowerButton: {fileID: 114085255862296770}
   _teslaTowerButton: {fileID: 114159700816906058}
   _lockedSprite: {fileID: 21300008, guid: baee3221ffe6a594baccc44bfb04af59, type: 3}
-  _not2Energy: {fileID: 1497226980766820}
+  _priceTags:
+  - {fileID: 114437266910591770}
+  - {fileID: 114411358045287392}
+  - {fileID: 114003196175097824}
+  - {fileID: 114414767488835276}
+  _towerIcons:
+  - {fileID: 114351768183113952}
+  - {fileID: 114962552009059752}
+  - {fileID: 114640876687328946}
+  - {fileID: 114450208174957506}
+  _enabledTowerSprites:
+  - {fileID: 21300000, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
+  - {fileID: 21300002, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
+  - {fileID: 21300004, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
+  - {fileID: 21300006, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
+  _disabledTowerSprites:
+  - {fileID: 21300008, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
+  - {fileID: 21300010, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
+  - {fileID: 21300012, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
+  - {fileID: 21300014, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
+  _enabledPriceSprites:
+  - {fileID: 21300000, guid: 6e905cfacd578434a9da5b75f3c0868c, type: 3}
+  - {fileID: 21300002, guid: 6e905cfacd578434a9da5b75f3c0868c, type: 3}
+  - {fileID: 21300004, guid: 6e905cfacd578434a9da5b75f3c0868c, type: 3}
+  - {fileID: 21300004, guid: 6e905cfacd578434a9da5b75f3c0868c, type: 3}
+  _disabledPriceSprites:
+  - {fileID: 21300006, guid: 6e905cfacd578434a9da5b75f3c0868c, type: 3}
+  - {fileID: 21300008, guid: 6e905cfacd578434a9da5b75f3c0868c, type: 3}
+  - {fileID: 21300010, guid: 6e905cfacd578434a9da5b75f3c0868c, type: 3}
+  - {fileID: 21300010, guid: 6e905cfacd578434a9da5b75f3c0868c, type: 3}
 --- !u!114 &114033727302890500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4000,7 +4030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221ecebd6cb8f4d4dbed1e83fffbe37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _popCap: 4
+  _popCap: 200
   _smokeEffectPrefab: {fileID: 1614185584207746, guid: ceae93f430187d8479be1e0ad26a422a,
     type: 2}
   _pauseMenu: {fileID: 1720637191315596}

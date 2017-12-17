@@ -165,7 +165,6 @@ public class Grid : MonoBehaviour
         MusicController.PlaySound(2);
         currentTower = tower;
         StopAnim();
-        _gridUI.CountTowerBuild();
     }
 
     public GameObject GetTower()
@@ -180,17 +179,13 @@ public class Grid : MonoBehaviour
             currentTower.GetComponent<PairedTower>().PairedTile.RemoveTower(true);
         }
 
-        if (currentTower.GetComponent<TeslaTower>() != null)
-        {
-            _gridUI.CountTowerDestroy();
-        }
+ 
 
         // Play sound only once.
         if(!getPair) MusicController.PlaySound(2);
 
         Destroy(currentTower);
         currentTower = null; // Now critical as ;
-        _gridUI.CountTowerDestroy();
         Instantiate(_gridUI.SmokeEffectPrefab, transform);
     }
     #endregion

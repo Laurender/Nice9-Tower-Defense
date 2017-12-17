@@ -216,16 +216,13 @@ public class GridUI : MonoBehaviour
 
         if (!tile.HasTower)
         {
-            //open buildmenu, if popCap allows.
-
-            if (BarPanel.Money > 0)
-            {
+            
                 MusicController.PlaySound(0);
                 _buildMenu.Open(tile);
                 _aMenuIsOpen = true;
                 _menuOnRight = tile.OnLeft;
 
-            }
+            
 
         }
         else

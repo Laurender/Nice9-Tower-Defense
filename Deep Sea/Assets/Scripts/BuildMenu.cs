@@ -27,6 +27,9 @@ public class BuildMenu : MonoBehaviour {
     [SerializeField, Tooltip("If tesla towers are enabled.")]
     private bool _enableTeslaTowers;
 
+    [SerializeField, Tooltip("Harpoon tower button.")]
+    private UnityEngine.UI.Button _harpoonTowerButton;
+
     [SerializeField, Tooltip("Hatch tower button.")]
     private UnityEngine.UI.Button _hatchTowerButton;
 
@@ -39,17 +42,30 @@ public class BuildMenu : MonoBehaviour {
     [SerializeField, Tooltip("Locked tower sprite")]
     private Sprite _lockedSprite;
 
-    [SerializeField, Tooltip("Insuffient Energy Sprite")]
-    private GameObject _not2Energy;
+    [SerializeField]
+    private UnityEngine.UI.Image[] _priceTags;
+
+    [SerializeField]
+    private UnityEngine.UI.Image[] _towerIcons;
+
+    [SerializeField]
+    private Sprite[] _enabledTowerSprites;
+
+    [SerializeField]
+    private Sprite[] _disabledTowerSprites;
+
+    [SerializeField]
+    private Sprite[] _enabledPriceSprites;
+
+    [SerializeField]
+    private Sprite[] _disabledPriceSprites;
+
 
 
     #endregion
 
-    #region Paired tower state
-    // Extra state needed for the paired towers.
     private GameObject _firstTower;
     private Grid _firstGrid;
-#endregion
 
     private Grid _gridTemp;
 
@@ -104,31 +120,73 @@ public class BuildMenu : MonoBehaviour {
 
 		tile.StartAnim ();
 
-        // Control whether the button to build laser towers is active.
-        if(tile.IsPaired && _enableLaserTowers && _gridUI.HasTwoEnergy)
+        if (BarPanel.Money >= 60)
         {
-            _laserTowerButton.interactable = true;
-        } else
+            _harpoonTowerButton.interactable = true;
+            EnabledVisuals(0);
+        }
+        else
         {
-            _laserTowerButton.interactable = false;
+            _harpoonTowerButton.interactable = false;
+            DisabledVisuals(0);
+        }
+
+        // Control button for trap layers.
+        if (_enableHatchTowers && BarPanel.Money >= 80)
+        {
+            _hatchTowerButton.interactable = true;
+            EnabledVisuals(1);
+        }
+        else
+        {
+            _hatchTowerButton.interactable = false;
+            DisabledVisuals(1);
         }
 
         // Control button for tesla towers.
-        if(_enableTeslaTowers&&_gridUI.HasTwoEnergy)
+        if (_enableTeslaTowers && BarPanel.Money >= 120)
         {
             _teslaTowerButton.interactable = true;
-        } else
+            EnabledVisuals(2);
+        }
+        else
         {
             _teslaTowerButton.interactable = false;
+            DisabledVisuals(2);
         }
 
-        // Insufficient energy overlay
-        _not2Energy.SetActive(!_gridUI.HasTwoEnergy);
-
-        _gridTemp = tile;
-
+        // Control whether the button to build laser towers is active.
+        if (tile.IsPaired && _enableLaserTowers && BarPanel.Money >= 120)
+        {
+            _laserTowerButton.interactable = true;
+            EnabledVisuals(3);
+        } else
+        {
+            _laserTowerButton.interactable = false;
+            DisabledVisuals(3);
+        }
 
         
+
+        // Insufficient energy overlay. Probably not needed anymore.
+        //_not2Energy.SetActive(!_gridUI.HasTwoEnergy);
+
+        _gridTemp = tile;
+       
+    }
+
+    private void EnabledVisuals(int tower)
+    {
+        _towerIcons[tower].sprite = _enabledTowerSprites[tower];
+        _priceTags[tower].sprite = _enabledPriceSprites[tower];
+
+    }
+
+    private void DisabledVisuals(int tower)
+    {
+        _towerIcons[tower].sprite = _disabledTowerSprites[tower];
+        _priceTags[tower].sprite = _disabledPriceSprites[tower];
+
     }
 
     // A complex function that does nothing. Well, it hides the menu.
@@ -150,6 +208,7 @@ public class BuildMenu : MonoBehaviour {
     public void BuildHarpoonTower()
     {
         BasicTowerBuild(_harpoonPrefab);
+        BarPanel.Money -= 60;
  
       
     }
@@ -157,6 +216,7 @@ public class BuildMenu : MonoBehaviour {
     public void BuildHatchTower()
     {
         BasicTowerBuild(_hatchPrefab);
+        BarPanel.Money -= 80;
  
     }
 
@@ -190,6 +250,7 @@ public class BuildMenu : MonoBehaviour {
         _firstGrid.DeAnimatePairs();
         _gridUI.ActivateGrid();
 
+        BarPanel.Money -= 120;
     }
 
     // Use stored state to reset back to normal.
@@ -205,10 +266,9 @@ public class BuildMenu : MonoBehaviour {
 
     public void BuildTeslaTower()
     {
-        // This tower consumes extra energy.
-        _gridUI.CountTowerBuild();
-
-        BasicTowerBuild(_teslaPrefab);       
+        
+        BasicTowerBuild(_teslaPrefab);
+        BarPanel.Money -= 120;
 
     }
 
