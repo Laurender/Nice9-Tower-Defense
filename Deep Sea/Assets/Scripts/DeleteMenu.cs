@@ -14,16 +14,16 @@ public class DeleteMenu : MonoBehaviour
     #region Serialized Fields
 
     [SerializeField]
-    private GameObject _towerImage;
+    private UnityEngine.UI.Image _towerImage;
 
     [SerializeField]
-    private GameObject _towerText;
+    private UnityEngine.UI.Image _towerText;
 
     [SerializeField]
-    private GameObject _upgradeImage;
+    private UnityEngine.UI.Image _upgradeImage;
 
     [SerializeField]
-    private GameObject _sellImage;
+    private UnityEngine.UI.Image _sellImage;
 
     [SerializeField]
     private Sprite _harpoonIcon;
@@ -50,16 +50,13 @@ public class DeleteMenu : MonoBehaviour
     private Sprite _teslaText;
 
     [SerializeField]
-    private Sprite _upgrade1;
+    private Sprite[] _sellSprite;
 
     [SerializeField]
-    private Sprite _upgrade2;
+    private Sprite[] _upgradeEnabled;
 
     [SerializeField]
-    private Sprite _sell1;
-
-    [SerializeField]
-    private Sprite _sell2;
+    private Sprite[] _upgradeDisabled;
 
     #endregion Serialized Fields
 
@@ -94,34 +91,42 @@ public class DeleteMenu : MonoBehaviour
         {
             case Grid.TowerTypes.HarpoonTower:
                 {
-                    _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _harpoonIcon;
-                    _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _harpoonText;
-                    _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell1;
+                    _towerImage.sprite = _harpoonIcon;
+                    _towerText.sprite = _harpoonText;
+                    _sellImage.sprite = _sellSprite[0];
+                    _upgradeImage.sprite = (BarPanel.Money >= 60) ? _upgradeEnabled[0] : _upgradeDisabled[0];
+
 					tile.GetTower ().GetComponent<Tower> ().ShowRange (true);
                     _sellPrice = 30;
                     break;
                 }
             case Grid.TowerTypes.HatchTower:
                 {
-                    _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _hatchIcon;
-                    _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _hatchText;
-                    _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell1;
+                    _towerImage.sprite = _hatchIcon;
+                    _towerText.sprite = _hatchText;
+                    _sellImage.sprite = _sellSprite[1];
+                    _upgradeImage.sprite = (BarPanel.Money >= 80) ? _upgradeEnabled[1] : _upgradeDisabled[1];
+
                     _sellPrice = 40;
                     break;
                 }
             case Grid.TowerTypes.LaserTower:
                 {
-                    _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _laserIcon;
-                    _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _laserText;
-                    _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell2;
+                    _towerImage.sprite = _laserIcon;
+                    _towerText.sprite = _laserText;
+                    _sellImage.sprite = _sellSprite[2];
+                    _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
+
                     _sellPrice = 60;
                     break;
                 }
             case Grid.TowerTypes.TeslaTower:
                 {
-                    _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _teslaIcon;
-                    _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _teslaText;
-                    _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell2;
+                    _towerImage.sprite = _teslaIcon;
+                    _towerText.sprite = _teslaText;
+                    _sellImage.sprite = _sellSprite[2];
+                    _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
+
                     _sellPrice = 60;
                     break;
                 }

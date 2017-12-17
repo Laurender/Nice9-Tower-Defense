@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e9aacd64d106ddf4abc041e4fa115e01
-timeCreated: 1511496836
+timeCreated: 1513486762
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -92,8 +92,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 227
-        height: 42
+        width: 221
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,10 +104,10 @@ TextureImporter:
       name: spr_sellmenu_towertexts_1
       rect:
         serializedVersion: 2
-        x: 227
+        x: 221
         y: 0
-        width: 227
-        height: 42
+        width: 221
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,10 +118,10 @@ TextureImporter:
       name: spr_sellmenu_towertexts_2
       rect:
         serializedVersion: 2
-        x: 454
+        x: 442
         y: 0
-        width: 227
-        height: 42
+        width: 221
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,10 +132,10 @@ TextureImporter:
       name: spr_sellmenu_towertexts_3
       rect:
         serializedVersion: 2
-        x: 681
+        x: 663
         y: 0
-        width: 227
-        height: 42
+        width: 221
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
