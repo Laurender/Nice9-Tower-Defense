@@ -43,7 +43,7 @@ public class WaveCounter : MonoBehaviour {
         _container.SetActive(true);
         _position = _textObject.transform.localPosition;
         _destination = _position;
-        _slideOut = _position + Vector3.up * 40;
+        _slideOut = _position + Vector3.up * 80;
 
         // Trigger first wave;
         //waves[0].Trigger();
@@ -106,7 +106,7 @@ public class WaveCounter : MonoBehaviour {
     void IncrementPosition()
     {
         // Calculate the next position
-        float delta = 40f * Time.deltaTime;
+        float delta = 60f * Time.deltaTime;
         Vector3 currentPosition = _textObject.transform.localPosition;
         Vector3 nextPosition = Vector3.MoveTowards(currentPosition, _destination, delta);
 
