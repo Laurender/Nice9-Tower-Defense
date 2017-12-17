@@ -150,6 +150,7 @@ MonoBehaviour:
   _maxSpeed: 1
   _hitPoints: 9
   _damage: 1
+  _reward: 2
 --- !u!212 &212589268083900808
 SpriteRenderer:
   m_ObjectHideFlags: 1

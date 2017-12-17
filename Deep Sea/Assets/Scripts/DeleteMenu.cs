@@ -98,7 +98,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _harpoonText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell1;
 					tile.GetTower ().GetComponent<Tower> ().ShowRange (true);
-                    _sellPrice = 60;
+                    _sellPrice = 30;
                     break;
                 }
             case Grid.TowerTypes.HatchTower:
@@ -106,7 +106,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _hatchIcon;
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _hatchText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell1;
-                    _sellPrice = 80;
+                    _sellPrice = 40;
                     break;
                 }
             case Grid.TowerTypes.LaserTower:
@@ -114,7 +114,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _laserIcon;
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _laserText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell2;
-                    _sellPrice = 120;
+                    _sellPrice = 60;
                     break;
                 }
             case Grid.TowerTypes.TeslaTower:
@@ -122,7 +122,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.GetComponent<UnityEngine.UI.Image>().sprite = _teslaIcon;
                     _towerText.GetComponent<UnityEngine.UI.Image>().sprite = _teslaText;
                     _sellImage.GetComponent<UnityEngine.UI.Image>().sprite = _sell2;
-                    _sellPrice = 120;
+                    _sellPrice = 60;
                     break;
                 }
         }
