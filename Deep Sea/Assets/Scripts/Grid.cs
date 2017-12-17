@@ -41,7 +41,7 @@ public class Grid : MonoBehaviour
 
     private float _startAnimationTime = 0;
 
-    private static bool _emphasize = true;
+    private static bool _emphasizeStart, _emphasizeStop;
 
     private bool _ready;
 
@@ -117,7 +117,7 @@ public class Grid : MonoBehaviour
 
         if (_ready) return;
 
-        if (_emphasize)
+        if (_emphasizeStart)
         {
             _startAnimationTime += Time.deltaTime;
 
@@ -126,11 +126,11 @@ public class Grid : MonoBehaviour
             _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, Mathf.Abs(_startAnimationTime-1));
 
         }
-        else
+
+        if(_emphasizeStop)
         {
             _ready = true;
             _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, .1f);
-
         }
 
 
@@ -142,9 +142,15 @@ public class Grid : MonoBehaviour
 
     public static void StopEmphasis()
     {
-        Debug.Log("Stop emphasis.");
-        _emphasize = false;
+        
+        _emphasizeStop = true;
 
+    }
+
+    public static void StartEmphasis()
+    {
+        _emphasizeStart = true;
+        
     }
 
     #region Set, get and remove tower    
@@ -159,7 +165,6 @@ public class Grid : MonoBehaviour
         MusicController.PlaySound(2);
         currentTower = tower;
         StopAnim();
-        _gridUI.CountTowerBuild();
     }
 
     public GameObject GetTower()
@@ -174,17 +179,13 @@ public class Grid : MonoBehaviour
             currentTower.GetComponent<PairedTower>().PairedTile.RemoveTower(true);
         }
 
-        if (currentTower.GetComponent<TeslaTower>() != null)
-        {
-            _gridUI.CountTowerDestroy();
-        }
+ 
 
         // Play sound only once.
         if(!getPair) MusicController.PlaySound(2);
 
         Destroy(currentTower);
         currentTower = null; // Now critical as ;
-        _gridUI.CountTowerDestroy();
         Instantiate(_gridUI.SmokeEffectPrefab, transform);
     }
     #endregion

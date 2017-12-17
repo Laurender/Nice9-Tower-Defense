@@ -26,8 +26,7 @@ public class GridUI : MonoBehaviour
 
 #region Serialized objects
 
-    [SerializeField, Tooltip("Placeholder object")]
-    private GameObject _placeHolder;
+    
     [SerializeField, Tooltip("Pause menu object")]
     private GameObject _pauseMenu;
     [SerializeField, Tooltip("Game over display object")]
@@ -98,7 +97,6 @@ public class GridUI : MonoBehaviour
         // ...and hide most UI objects until needed. Most of these are unnecessary.
         _buildMenuObject.SetActive(false);
         _sellMenuObject.SetActive(false);
-        _placeHolder.SetActive(false);
         _pauseMenu.SetActive(false);
         _gameOverDisplay.SetActive(false);
         _levelPassDisplay.SetActive(false);
@@ -218,16 +216,13 @@ public class GridUI : MonoBehaviour
 
         if (!tile.HasTower)
         {
-            //open buildmenu, if popCap allows.
-
-            if (BarPanel.Money > 0)
-            {
+            
                 MusicController.PlaySound(0);
                 _buildMenu.Open(tile);
                 _aMenuIsOpen = true;
                 _menuOnRight = tile.OnLeft;
 
-            }
+            
 
         }
         else

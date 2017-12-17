@@ -1,12 +1,14 @@
 fileFormatVersion: 2
-guid: 4548ab91d61f0704b8fe8d8642bb5c8d
-timeCreated: 1511493211
+guid: baee3221ffe6a594baccc44bfb04af59
+timeCreated: 1513480181
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_pausemenu_lvl_0
-    21300002: spr_pausemenu_lvl_1
-    21300004: spr_pausemenu_lvl_2
+    21300000: spr_buildmenu_towertexts_130x39px_0
+    21300002: spr_buildmenu_towertexts_130x39px_1
+    21300004: spr_buildmenu_towertexts_130x39px_2
+    21300006: spr_buildmenu_towertexts_130x39px_3
+    21300008: spr_buildmenu_towertexts_130x39px_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -48,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -86,13 +88,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_pausemenu_lvl_0
+      name: spr_buildmenu_towertexts_130x39px_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 58
-        height: 10
+        width: 130
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -100,13 +102,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_pausemenu_lvl_1
+      name: spr_buildmenu_towertexts_130x39px_1
       rect:
         serializedVersion: 2
-        x: 58
+        x: 130
         y: 0
-        width: 58
-        height: 10
+        width: 130
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,13 +116,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spr_pausemenu_lvl_2
+      name: spr_buildmenu_towertexts_130x39px_2
       rect:
         serializedVersion: 2
-        x: 116
+        x: 260
         y: 0
-        width: 58
-        height: 10
+        width: 130
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_buildmenu_towertexts_130x39px_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 130
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_buildmenu_towertexts_130x39px_4
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 130
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

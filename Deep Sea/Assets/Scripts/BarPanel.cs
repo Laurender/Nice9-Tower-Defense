@@ -73,7 +73,7 @@ public class BarPanel : MonoBehaviour
 
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         // Set instance to the one in the current level.
         _instance = this;
@@ -82,6 +82,13 @@ public class BarPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // This removes an error when running in editor.
+        // Can probably be removed in actual builds.
+        if(_instance==null)
+        {
+            _instance = this;
+        }
+
         if (_moneyAnimate > 0)
         {
             _moneyAnimate -= Time.deltaTime;
