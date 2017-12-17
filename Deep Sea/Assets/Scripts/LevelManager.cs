@@ -13,6 +13,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject _bannerPrefab;
 
+    [SerializeField]
+    private UnityEngine.UI.Image _failLevelImage;
+
+    [SerializeField]
+    private UnityEngine.UI.Image _passLevelImage;
+
+    [SerializeField]
+    private Sprite[] _images;
+
     // Use this for initialization
     void Start()
     {
@@ -23,6 +32,8 @@ public class LevelManager : MonoBehaviour
         if (_currentLevel != -1)
         {
             LevelCeremony(_currentLevel);
+            _failLevelImage.sprite = _images[_currentLevel];
+            _passLevelImage.sprite = _images[_currentLevel];
         }
 
         Debug.Log("Scene name : " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
