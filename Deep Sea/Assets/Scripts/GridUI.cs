@@ -6,26 +6,13 @@ using UnityEngine;
 public class GridUI : MonoBehaviour
 {
 
-    [SerializeField, Tooltip("Maximum number of towers.")]
+    [SerializeField, Tooltip("Starting money(?).")]
     private int _popCap = 6;
-
-    [SerializeField, Tooltip("Energy bar sprites.")]
-    private Sprite[] _energyBarSprites;
-
-    [SerializeField, Tooltip("Energy bar container")]
-    private GameObject _energyBarContainer;
-
-    [SerializeField, Tooltip("Energy bar")]
-    private GameObject _energyBar;
 
     [SerializeField]
     private GameObject _smokeEffectPrefab;
 
     private WaveCounter _waveCounter;
-
-    private UnityEngine.UI.Image _image;
-
-    private int _popCurrent = 0;
 
     // State flags.
     private bool _aMenuIsOpen, _menuOnRight, _waitingForPair;
@@ -39,8 +26,7 @@ public class GridUI : MonoBehaviour
 
 #region Serialized objects
 
-    [SerializeField, Tooltip("Placeholder object")]
-    private GameObject _placeHolder;
+    
     [SerializeField, Tooltip("Pause menu object")]
     private GameObject _pauseMenu;
     [SerializeField, Tooltip("Game over display object")]
@@ -83,7 +69,7 @@ public class GridUI : MonoBehaviour
     {
         get
         {
-            return _popCap - _popCurrent >= 2;
+            return BarPanel.Money >= 2;
         }
     }
 
@@ -99,11 +85,8 @@ public class GridUI : MonoBehaviour
     void Start()
     {
         
-        _image = _energyBar.GetComponent<UnityEngine.UI.Image>();
-        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
-
-        _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 15, 20);
-        _energyBarContainer.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 150, 20);
+        
+        BarPanel.Money = _popCap;
 
         // Find the menus and wave counter for later reference...
         _buildMenu = _buildMenuObject.GetComponent<BuildMenu>();
@@ -114,7 +97,6 @@ public class GridUI : MonoBehaviour
         // ...and hide most UI objects until needed. Most of these are unnecessary.
         _buildMenuObject.SetActive(false);
         _sellMenuObject.SetActive(false);
-        _placeHolder.SetActive(false);
         _pauseMenu.SetActive(false);
         _gameOverDisplay.SetActive(false);
         _levelPassDisplay.SetActive(false);
@@ -157,8 +139,8 @@ public class GridUI : MonoBehaviour
         // Close menu if click is on opposite side.
         if (_aMenuIsOpen && PointIsOnOppositeSide(worldPoint))
         {
-            _buildMenu.DoNothing();
-            _deleteMenu.DoNothing();
+            _buildMenu.CleanUp();
+            _deleteMenu.CleanUp();
 
             // Avoid further processing.
             return;
@@ -204,48 +186,49 @@ public class GridUI : MonoBehaviour
         return _menuOnRight?worldPoint.x<0:worldPoint.x>0;
     }
 
-    public void CountTowerBuild()
+    public void CountTowerBuild(int price = 1)
     {
-        _popCurrent++;
-        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
+        BarPanel.Money -=price;
     }
 
-    public void CountTowerDestroy()
+    public void CountTowerDestroy(int price = 1)
     {
-        _popCurrent--;
-        _image.sprite = _energyBarSprites[_popCap - _popCurrent];
+        BarPanel.Money += price; ;
+        
     }
 
-	//Increases pop cap, allowing the player to build more towers
-	//Does not allow pop cap to be greater than 6
+	//Increases pop cap, allowing the player to build more towers.
 	public void IncreasePopCap(){
-		if (_popCap < 6) {
-			_popCap++;
-			_image.sprite = _energyBarSprites[_popCap - _popCurrent];
-		}
+        BarPanel.Money++;
 	}
+
+    public void AddMoney(int money) {
+        BarPanel.Money += money;
+    }
+
+    public int GetCurrentMoney()
+    {
+        return BarPanel.Money;
+    }
 
     private void OpenMenu(Grid tile)
     {
 
         if (!tile.HasTower)
         {
-            //open buildmenu, if popCap allows.
-
-            if (_popCurrent < _popCap)
-            {
-
+            
+                MusicController.PlaySound(0);
                 _buildMenu.Open(tile);
                 _aMenuIsOpen = true;
                 _menuOnRight = tile.OnLeft;
 
-            }
+            
 
         }
         else
         {
             //open destroymenu
-
+            MusicController.PlaySound(0);
             _deleteMenu.Open(tile);
             _aMenuIsOpen = true;
             _menuOnRight = tile.OnLeft;
@@ -273,7 +256,8 @@ public class GridUI : MonoBehaviour
 
         if (_isPaused)
         {
-            if(!_hasStarted)
+            MusicController.PlaySound(1);
+            if (!_hasStarted)
             {
                 _hasStarted = true;
                 _pausePlayGlowGO.SetActive(false);
@@ -286,6 +270,7 @@ public class GridUI : MonoBehaviour
             _wikiScreen.SetActive(false); 
         } else
         {
+            MusicController.PlaySound(0);
             _pauseMenuOpen = true;
             _isPaused = true;
             _pauseMenu.SetActive(true);
@@ -299,6 +284,7 @@ public class GridUI : MonoBehaviour
 
     public void SpeedButton()
     {
+        MusicController.PlaySound(1);
         _isAccelerated = _isAccelerated ? false : true;
         SetSpeed();
         
@@ -337,14 +323,24 @@ public class GridUI : MonoBehaviour
     // Allows exiting the game from placeholder button.
     public void Exit()
     {
+        MusicController.PlaySound(1);
         Application.Quit();
     }
 
     public void GameOver()
     {
+
+        MusicController.ChangeMusic(3);
+
         _gameOver = true;
         _isPaused = true;
         SetSpeed();
+
+        if (_aMenuIsOpen)
+        {
+            _buildMenu.CleanUp();
+            _deleteMenu.CleanUp();
+        }
 
         _gameOverDisplay.SetActive(true);
 
@@ -352,9 +348,17 @@ public class GridUI : MonoBehaviour
 
     public void LevelPass()
     {
+        MusicController.ChangeMusic(2);
+
         _gameOver = true;
         _isPaused = true;
         SetSpeed();
+
+        if (_aMenuIsOpen)
+        {
+            _buildMenu.CleanUp();
+            _deleteMenu.CleanUp();
+        }
 
         _levelPassDisplay.SetActive(true);
 
@@ -362,22 +366,21 @@ public class GridUI : MonoBehaviour
 
     public void ReloadScene()
     {
+        MusicController.PlaySound(1);
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
     // The wiki opens from and closes to pause menu?
     public void OpenWiki()
     {
-
-        
+        MusicController.PlaySound(0);
         _pauseMenu.SetActive(false);
         _wikiScreen.SetActive(true);
     }
 
     public void CloseWiki()
     {
-
-   
+        MusicController.PlaySound(0);
         _pauseMenu.SetActive(true);
         _wikiScreen.SetActive(false);
     }

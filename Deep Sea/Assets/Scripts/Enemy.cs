@@ -27,12 +27,15 @@ public class Enemy : MonoBehaviour
 	private Vector3 _target, _direction;
     private WaveCounter _waveCounter;
 
+	private Animator _animator;
+
 	SpriteRenderer mySR;
 	Color myColor;
 
 	bool isActive = false;
 
-    
+    [SerializeField, Tooltip("The money added when this enemy is killed. Leave this at 0 until levels with new balance exist.")]
+    private int _reward;
 
     // Use this for initialization
     void Start ()
@@ -43,6 +46,8 @@ public class Enemy : MonoBehaviour
 		myColor.a = 0.5f;
 		mySR.color = myColor;
         _waveCounter = FindObjectOfType<WaveCounter>();
+		_animator = GetComponent<Animator> ();
+		_animator.SetInteger ("Health", _hitPoints);
     }
 	
 	// Update is called once per frame
@@ -147,11 +152,27 @@ public class Enemy : MonoBehaviour
 	// The enemy takes damage here and gets destroyed when hit points drop to zero.
 	public void takeDamage (int damage)
 	{
+        if (isActive)
+        {
+            _hitPoints -= damage;
+            _animator.SetInteger("Health", _hitPoints);
 
-		_hitPoints -= damage;
-		if (_hitPoints <= 0) {
-			Destroy (gameObject);
-		}
+            if (_hitPoints <= 0)
+            {
+                MusicController.PlayEffect(1);
+                _waveCounter.EnemyDied();
+                BarPanel.Money += _reward;
+
+                StartCoroutine(BeDestroyed());
+                isActive = false;
+            }
+        }
+	}
+
+	IEnumerator BeDestroyed(){
+        
+		yield return new WaitForSeconds (0.625f);
+		Destroy (gameObject);
 	}
 
 	// Handles hitting the base.
@@ -162,7 +183,8 @@ public class Enemy : MonoBehaviour
 
 		// If the base was hit, the base takes damage and the enemy is destroyed.
 		if (b != null) {
-			b.takeDamage (_damage);
+            _waveCounter.EnemyDied();
+            b.takeDamage (_damage);
 			Destroy (gameObject);
 		}
 
@@ -204,9 +226,5 @@ public class Enemy : MonoBehaviour
 		return isActive;
 	}
 
-    private void OnDestroy()
-    {
-        _waveCounter.EnemyDied();
-        
-    }
+    
 }

@@ -5965,11 +5965,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &465173556 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1055365611376830, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-    type: 2}
-  m_PrefabInternal: {fileID: 1117558698}
 --- !u!1 &477538230
 GameObject:
   m_ObjectHideFlags: 0
@@ -11496,15 +11491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 6
-  _healthBar: {fileID: 465173556}
-  _healthBarSprites:
-  - {fileID: 21300012, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300010, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300008, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300006, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300004, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300002, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300000, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
 --- !u!50 &838179158
 Rigidbody2D:
   serializedVersion: 4
