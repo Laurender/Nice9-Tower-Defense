@@ -8090,7 +8090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneNames:
-  - Tutorial_firstdraft
+  - Level_1
   - Level_2
   - Level_3
   - Level_4
