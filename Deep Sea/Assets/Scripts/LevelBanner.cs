@@ -31,7 +31,7 @@ public class LevelBanner : MonoBehaviour
     void Update()
     {
         // Move object left.
-        _position.x -= _speed * Time.deltaTime;
+        _position.x -= _speed *(Mathf.Abs(_position.x/_moveLimits)+.5f)* Time.deltaTime;
         gameObject.transform.localPosition = _position;
 
         // Until banner is outside left edge and can be destroyed.
