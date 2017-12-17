@@ -20,7 +20,7 @@ public class MainMenuUP : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        _position = gameObject.transform.localPosition;
     }
 
     // Update is called once per frame
