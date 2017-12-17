@@ -1440,7 +1440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1716474581086634
 GameObject:
   m_ObjectHideFlags: 1
@@ -8094,7 +8094,7 @@ MonoBehaviour:
   - Level_2
   - Level_3
   - Level_4
-  - 
+  - Level_5
   - 
   _bannerPrefab: {fileID: 1167629197974416, guid: 3763a53ecc64f7641a06c10c232186d6,
     type: 2}
