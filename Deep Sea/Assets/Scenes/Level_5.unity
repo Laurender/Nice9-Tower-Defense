@@ -7107,15 +7107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 6
-  _healthBar: {fileID: 465173556}
-  _healthBarSprites:
-  - {fileID: 21300012, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300010, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300008, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300006, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300004, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300002, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300000, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
 --- !u!50 &838179158
 Rigidbody2D:
   serializedVersion: 4
@@ -9719,7 +9710,7 @@ MonoBehaviour:
   _waveStart: 35
   _spawnInterval: 0.5
   _givesPopCap: 0
-  _route: {fileID: 1009908746}
+  _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -10084,11 +10075,6 @@ MonoBehaviour:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
---- !u!1 &1009908746 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1324218694721950, guid: 40c0d209bec68ec438ee9a60dd65ee46,
-    type: 2}
-  m_PrefabInternal: {fileID: 1302995312}
 --- !u!4 &1009908748 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4995531920398590, guid: 40c0d209bec68ec438ee9a60dd65ee46,
