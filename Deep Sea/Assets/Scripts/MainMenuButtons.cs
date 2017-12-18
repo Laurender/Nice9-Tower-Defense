@@ -10,6 +10,9 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField]
     private GameObject _wiki;
 
+    [SerializeField]
+    private GameObject _story;
+
     private IEnumerator ShowMenu()
     {
 
@@ -52,5 +55,15 @@ public class MainMenuButtons : MonoBehaviour
     {
         MusicController.PlaySound(0);
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Options");
+    }
+
+    public void ShowStory()
+    {
+        _story.SetActive(true);
+    }
+
+    public void HideStory()
+    {
+        _story.SetActive(false);
     }
 }
