@@ -32,6 +32,12 @@ public class Tower : MonoBehaviour {
 	[SerializeField]
 	private int target;
 
+	[SerializeField]
+	private Sprite bigRange;
+
+	[SerializeField]
+	private SpriteRenderer rangeRenderer;
+
 	// Use this for initialization
 	void Start () {
 		enemies = new List<GameObject> ();
@@ -140,6 +146,11 @@ public class Tower : MonoBehaviour {
 				enemies.Remove (other.gameObject);
 			}
 		}
+	}
+
+	public void UpgradeTower(){
+		GetComponent<CircleCollider2D> ().radius = 3.5f;
+		rangeRenderer.sprite = bigRange;
 	}
 
 }

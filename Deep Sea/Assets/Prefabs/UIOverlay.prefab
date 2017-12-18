@@ -2840,7 +2840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221ecebd6cb8f4d4dbed1e83fffbe37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _popCap: 200
+  _popCap: 100
   _smokeEffectPrefab: {fileID: 1614185584207746, guid: ceae93f430187d8479be1e0ad26a422a,
     type: 2}
   _pauseMenu: {fileID: 1720637191315596}
@@ -4871,6 +4871,7 @@ MonoBehaviour:
   _towerText: {fileID: 114523693738408960}
   _upgradeImage: {fileID: 114033727302890500}
   _sellImage: {fileID: 114768559350372306}
+  _upgradeButton: {fileID: 114552873648746326}
   _harpoonIcon: {fileID: 21300000, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
   _harpoonText: {fileID: 21300000, guid: 89c2c2de8b83128489caa3ec8b79f20b, type: 3}
   _hatchIcon: {fileID: 21300002, guid: 9ef73679de49a114b8103102815dff9b, type: 3}
@@ -5490,7 +5491,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114334810993625284}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114457759227211226}
+        m_MethodName: UpgradeTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114571146229290474
