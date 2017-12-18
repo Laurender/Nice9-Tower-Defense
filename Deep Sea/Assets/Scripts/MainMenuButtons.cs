@@ -13,7 +13,7 @@ public class MainMenuButtons : MonoBehaviour
     private IEnumerator ShowMenu()
     {
 
-        yield return new WaitForSeconds(5.2f);
+        yield return new WaitForSeconds(2.2f);
         _buttons.SetActive(true);
     }
 
@@ -22,6 +22,7 @@ public class MainMenuButtons : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        MusicController.ChangeMusic(1);
         StartCoroutine(ShowMenu());
         _buttons.SetActive(false);
     }
@@ -29,19 +30,27 @@ public class MainMenuButtons : MonoBehaviour
 
     public void StartGame()
     {
-        // Eventually should go to level select, for now just open first level.
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Level_1");
+        MusicController.PlaySound(0);
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("LevelSelect");
     }
 
     public void OpenWiki()
     {
+        MusicController.PlaySound(0);
         _buttons.SetActive(false);
         _wiki.SetActive(true);
     }
 
     public void CloseWiki()
     {
+        MusicController.PlaySound(0);
         _wiki.SetActive(false);
         _buttons.SetActive(true);
+    }
+
+    public void OpenOptions()
+    {
+        MusicController.PlaySound(0);
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Options");
     }
 }
