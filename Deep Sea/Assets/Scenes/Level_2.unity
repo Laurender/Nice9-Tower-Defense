@@ -8634,7 +8634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 15
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -8669,7 +8669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 55
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -8700,7 +8700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 125
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -8740,7 +8740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 35
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -8765,7 +8765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 100
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -8822,7 +8822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 265
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -8892,7 +8892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 235
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -8954,7 +8954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 205
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -9012,7 +9012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 150
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -9060,7 +9060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 175
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -9112,7 +9112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 75
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 20
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
