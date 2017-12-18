@@ -27,15 +27,17 @@ public class MusicController : MonoBehaviour
     private bool _playMusic, _playSFX;
 
     static MusicController _instance;
+    static bool _alreadyPresent;
 
     // Sets _instance to the the MusicController of the current scene, hopefully.
     // This allows static calls to the methods. Probably should change other classes to work this way?
     void Awake()
     {
+
         if (_instance == null)
         {
             _instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -129,7 +131,7 @@ public class MusicController : MonoBehaviour
 
     public static void PlaySound(int sound)
     {
-
+        if (_instance == null) return;
         if (!_instance._playSFX) return;
 
         _instance._sounds[sound].Play();
@@ -137,6 +139,7 @@ public class MusicController : MonoBehaviour
 
     public static void PlayEffect(int effect)
     {
+        if (_instance == null) return;
         if (!_instance._playSFX) return;
 
         AudioSource.PlayClipAtPoint(_instance._effects[effect], Vector3.zero);
@@ -145,6 +148,7 @@ public class MusicController : MonoBehaviour
 
     public static void StartElectric()
     {
+        if (_instance == null) return;
         if (_instance._electricNoiseCounter == 0)
         {
             _instance._electricNoise.Play();
@@ -155,6 +159,7 @@ public class MusicController : MonoBehaviour
 
     public static void StopElectric()
     {
+        if (_instance == null) return;
         _instance._electricNoiseCounter--;
 
         if (_instance._electricNoiseCounter == 0)
@@ -166,6 +171,7 @@ public class MusicController : MonoBehaviour
 
     public static void StartSolar()
     {
+        if (_instance == null) return;
         if (_instance._solarNoiseCounter == 0)
         {
             _instance._solarNoise.Play();
@@ -176,6 +182,7 @@ public class MusicController : MonoBehaviour
 
     public static void StopSolar()
     {
+        if (_instance == null) return;
         _instance._solarNoiseCounter--;
 
         if (_instance._solarNoiseCounter == 0)
@@ -187,6 +194,7 @@ public class MusicController : MonoBehaviour
 
     public static void ClearSfx()
     {
+        if (_instance == null) return;
         _instance._solarNoise.Stop();
         _instance._solarNoiseCounter = 0;
 

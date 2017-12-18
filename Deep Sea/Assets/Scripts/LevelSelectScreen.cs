@@ -14,11 +14,13 @@ public class LevelSelectScreen : MonoBehaviour {
 	
     public void ReturnToMenu()
     {
+        MusicController.PlaySound(0);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 
     public void OpenLevel(int level)
     {
+        MusicController.PlaySound(0);
         UnityEngine.SceneManagement.SceneManager.LoadScene(_levels[level]);
     }
 	

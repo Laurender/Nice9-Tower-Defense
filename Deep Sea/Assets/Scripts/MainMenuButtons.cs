@@ -30,24 +30,27 @@ public class MainMenuButtons : MonoBehaviour
 
     public void StartGame()
     {
-        
+        MusicController.PlaySound(0);
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("LevelSelect");
     }
 
     public void OpenWiki()
     {
+        MusicController.PlaySound(0);
         _buttons.SetActive(false);
         _wiki.SetActive(true);
     }
 
     public void CloseWiki()
     {
+        MusicController.PlaySound(0);
         _wiki.SetActive(false);
         _buttons.SetActive(true);
     }
 
     public void OpenOptions()
     {
+        MusicController.PlaySound(0);
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Options");
     }
 }

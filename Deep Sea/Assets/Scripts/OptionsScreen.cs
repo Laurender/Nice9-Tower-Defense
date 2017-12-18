@@ -14,16 +14,19 @@ public class OptionsScreen : MonoBehaviour {
 	
 	public void ReturnToMenu()
     {
+        MusicController.PlaySound(0);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 
     public void OpenCredits()
     {
+        MusicController.PlaySound(0);
         _credits.SetActive(true);
     }
 
     public void CloseCredits()
     {
+        MusicController.PlaySound(0);
         _credits.SetActive(false);
     }
 
