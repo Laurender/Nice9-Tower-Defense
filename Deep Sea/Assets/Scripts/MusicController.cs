@@ -159,7 +159,8 @@ public class MusicController : MonoBehaviour
 
     public static void StopElectric()
     {
-        if (_instance == null) return;
+        if (_instance == null || _instance._electricNoiseCounter == 0) return;
+
         _instance._electricNoiseCounter--;
 
         if (_instance._electricNoiseCounter == 0)
@@ -182,8 +183,10 @@ public class MusicController : MonoBehaviour
 
     public static void StopSolar()
     {
-        if (_instance == null) return;
+        if (_instance == null || _instance._solarNoiseCounter == 0) return;
+
         _instance._solarNoiseCounter--;
+      
 
         if (_instance._solarNoiseCounter == 0)
         {

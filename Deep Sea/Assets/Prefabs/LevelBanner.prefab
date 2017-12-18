@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveLimits: 20
-  _animationDuration: 2
+  _animationDuration: 1
   _images:
   - {fileID: 21300000, guid: 15a8590d13eb1804cb6900f55e5fea82, type: 3}
   - {fileID: 21300002, guid: 15a8590d13eb1804cb6900f55e5fea82, type: 3}
