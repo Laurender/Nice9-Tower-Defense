@@ -5,7 +5,7 @@ public class MainMenuUP : MonoBehaviour
 {
 
     // How long the main menu 'animations' last. Set in code as editing one file is actually simpler than using editor for multiple objects.
-    private float _animationTime = 5f;
+    private float _animationTime = 2f;
 
     [SerializeField]
     private float _startYPosition;
