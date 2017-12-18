@@ -7034,7 +7034,7 @@ MonoBehaviour:
   - Level_3
   - Level_4
   - Level_5
-  - 
+  - Level_1
   _bannerPrefab: {fileID: 1167629197974416, guid: 3763a53ecc64f7641a06c10c232186d6,
     type: 2}
   _failLevelImage: {fileID: 114345138848514660}
