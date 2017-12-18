@@ -23,6 +23,12 @@ public class Enemy : MonoBehaviour
 
 	private GameObject currentHatch;
 
+    [SerializeField]
+    private GameObject explosionPrefab;
+
+    [SerializeField]
+    private GameObject damagePrefab;
+
 	private int _targetIndex;
 	private Vector3 _target, _direction;
     private WaveCounter _waveCounter;
@@ -156,6 +162,7 @@ public class Enemy : MonoBehaviour
         {
             _hitPoints -= damage;
             _animator.SetInteger("Health", _hitPoints);
+            Instantiate(damagePrefab, transform.position, Quaternion.identity);
 
             if (_hitPoints <= 0)
             {
@@ -185,6 +192,7 @@ public class Enemy : MonoBehaviour
 		if (b != null) {
             _waveCounter.EnemyDied();
             b.takeDamage (_damage);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 			Destroy (gameObject);
 		}
 

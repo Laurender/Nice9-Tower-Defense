@@ -3122,7 +3122,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &414697456
 MonoBehaviour:
@@ -3205,7 +3205,7 @@ Prefab:
     - target: {fileID: 224978736436757862, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224978736436757862, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
@@ -7483,7 +7483,7 @@ Transform:
   m_LocalScale: {x: 1.1071621, y: 1.1071652, z: 1.1071652}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &838179157
 MonoBehaviour:
@@ -7496,16 +7496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfa580111922fa4e9fc8afe7770bdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 6
-  _healthBar: {fileID: 465173556}
-  _healthBarSprites:
-  - {fileID: 21300012, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300010, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300008, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300006, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300004, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300002, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300000, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
 --- !u!50 &838179158
 Rigidbody2D:
   serializedVersion: 4
@@ -7712,7 +7702,7 @@ Transform:
   - {fileID: 1256141897}
   - {fileID: 1610168163}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &857378910
 Prefab:
@@ -7751,7 +7741,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4359662607020540, guid: 1baeabeaa315741a98f0d655296244e5, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114772781395024144, guid: 1baeabeaa315741a98f0d655296244e5,
         type: 2}
@@ -8922,7 +8912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 15
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -8957,7 +8947,7 @@ Transform:
   m_Children:
   - {fileID: 1711209875}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1003896182
 MonoBehaviour:
@@ -8972,7 +8962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 55
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -8994,7 +8984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 125
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -9034,7 +9024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 35
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -9066,7 +9056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 100
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -9125,7 +9115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 265
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -9156,7 +9146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 235
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -9208,7 +9198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 205
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -9264,7 +9254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 150
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -9289,7 +9279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 295
   _spawnInterval: 0.5
-  _givesPopCap: 1
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -9341,7 +9331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 175
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -9381,7 +9371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 75
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
@@ -14375,7 +14365,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1553893011
 Prefab:

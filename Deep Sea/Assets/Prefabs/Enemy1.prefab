@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861431146670018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5173163, y: 3.7989924, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,6 +150,10 @@ MonoBehaviour:
   _maxSpeed: 1
   _hitPoints: 3
   _damage: 1
+  explosionPrefab: {fileID: 1689129753831996, guid: e02b8cf73e31841f4bb59aff07871d33,
+    type: 2}
+  damagePrefab: {fileID: 1689129753831996, guid: 89dc7a83690544222a524fe61984f140,
+    type: 2}
   _reward: 1
 --- !u!212 &212364750517914418
 SpriteRenderer:
