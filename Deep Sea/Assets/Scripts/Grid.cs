@@ -122,6 +122,7 @@ public class Grid : MonoBehaviour
             _startAnimationTime += Time.deltaTime;
 
             if (_startAnimationTime > 1.95f) _startAnimationTime = 0;
+			if (_startAnimationTime > 0.8f && _startAnimationTime < 1.2f) _startAnimationTime = 1.2f;
 
             _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, Mathf.Abs(_startAnimationTime-1));
 
@@ -130,7 +131,7 @@ public class Grid : MonoBehaviour
         if(_emphasizeStop)
         {
             _ready = true;
-            _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, .1f);
+            _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, .2f);
         }
 
 
@@ -203,7 +204,7 @@ public class Grid : MonoBehaviour
         _myAnim.enabled = false;
         _myRend.sprite = _mySprite;
         // Alpha to 25/225
-        _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, 0.15f);
+        _myRend.color = new Color(_myRend.color.r, _myRend.color.g, _myRend.color.b, 0.2f);
     }
 
     #endregion
