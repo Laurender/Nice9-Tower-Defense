@@ -32,10 +32,19 @@ public class MusicController : MonoBehaviour
     // This allows static calls to the methods. Probably should change other classes to work this way?
     void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+            //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        _instance = this;
         PlayMusic = (PlayerPrefs.GetInt("PlayMusic", 1) == 1);
         PlaySFX = (PlayerPrefs.GetInt("PlaySFX", 1) == 1);
+        
 
     }
 
@@ -173,6 +182,16 @@ public class MusicController : MonoBehaviour
         {
             _instance._solarNoise.Stop();
         }
+
+    }
+
+    public static void ClearSfx()
+    {
+        _instance._solarNoise.Stop();
+        _instance._solarNoiseCounter = 0;
+
+        _instance._electricNoise.Stop();
+        _instance._electricNoiseCounter = 0;
 
     }
 

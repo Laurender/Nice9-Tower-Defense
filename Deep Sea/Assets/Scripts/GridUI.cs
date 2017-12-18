@@ -104,6 +104,8 @@ public class GridUI : MonoBehaviour
         // start paused
         _isPaused = true;
         SetSpeed();
+
+        MusicController.ChangeMusic(0);
     }
 
     // Update is called once per frame
@@ -308,6 +310,7 @@ public class GridUI : MonoBehaviour
         {
             Time.timeScale = 0;
             _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _playSprite;
+            MusicController.ClearSfx();
 
         } else
         {
@@ -331,6 +334,7 @@ public class GridUI : MonoBehaviour
     {
 
         MusicController.ChangeMusic(3);
+        MusicController.ClearSfx();
 
         _gameOver = true;
         _isPaused = true;
@@ -349,6 +353,7 @@ public class GridUI : MonoBehaviour
     public void LevelPass()
     {
         MusicController.ChangeMusic(2);
+        MusicController.ClearSfx();
 
         _gameOver = true;
         _isPaused = true;
@@ -383,5 +388,11 @@ public class GridUI : MonoBehaviour
         MusicController.PlaySound(0);
         _pauseMenu.SetActive(true);
         _wikiScreen.SetActive(false);
+    }
+
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 }
