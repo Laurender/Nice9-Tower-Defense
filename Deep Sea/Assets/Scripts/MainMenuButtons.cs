@@ -57,13 +57,5 @@ public class MainMenuButtons : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Options");
     }
 
-    public void ShowStory()
-    {
-        _story.SetActive(true);
-    }
 
-    public void HideStory()
-    {
-        _story.SetActive(false);
-    }
 }

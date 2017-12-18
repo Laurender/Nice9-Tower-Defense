@@ -4129,11 +4129,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: _popCap
-      value: 300
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
   m_IsPrefabParent: 0
@@ -9547,7 +9542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveStart: 15
   _spawnInterval: 0.5
-  _givesPopCap: 0
+  _moneyReward: 0
   _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1884701309121360, guid: 034dda47e3c2c034fb77fe44dc30c32f, type: 2}

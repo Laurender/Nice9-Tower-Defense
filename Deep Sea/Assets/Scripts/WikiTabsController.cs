@@ -12,6 +12,9 @@ public class WikiTabsController : MonoBehaviour {
     private GameObject[] _tab;
 
     [SerializeField]
+    private GameObject _story;
+
+    [SerializeField]
     private GameObject[] _icon;
 
     [SerializeField]
@@ -52,4 +55,13 @@ public class WikiTabsController : MonoBehaviour {
 
     }
 
+    public void ShowStory()
+    {
+        _story.SetActive(true);
+    }
+
+    public void HideStory()
+    {
+        _story.SetActive(false);
+    }
 }
