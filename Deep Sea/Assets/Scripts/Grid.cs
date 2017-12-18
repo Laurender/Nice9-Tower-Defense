@@ -39,7 +39,7 @@ public class Grid : MonoBehaviour
 
     private GridUI _gridUI;
 
-    private float _startAnimationTime = 0;
+    private float _startAnimationTime = 1.2f;
 
     private static bool _emphasizeStart, _emphasizeStop;
 

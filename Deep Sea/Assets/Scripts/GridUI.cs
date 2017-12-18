@@ -201,7 +201,7 @@ public class GridUI : MonoBehaviour
 
 	//Increases pop cap, allowing the player to build more towers.
 	public void IncreasePopCap(){
-        BarPanel.Money++;
+        BarPanel.Money += 20;
 	}
 
     public void AddMoney(int money) {

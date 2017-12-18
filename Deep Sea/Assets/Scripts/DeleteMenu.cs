@@ -25,6 +25,9 @@ public class DeleteMenu : MonoBehaviour
     [SerializeField]
     private UnityEngine.UI.Image _sellImage;
 
+	[SerializeField]
+	private UnityEngine.UI.Button _upgradeButton;
+
     [SerializeField]
     private Sprite _harpoonIcon;
 
@@ -95,6 +98,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerText.sprite = _harpoonText;
                     _sellImage.sprite = _sellSprite[0];
                     _upgradeImage.sprite = (BarPanel.Money >= 60) ? _upgradeEnabled[0] : _upgradeDisabled[0];
+					_upgradeButton.enabled = (BarPanel.Money >= 60) ? true : false;
 
 					tile.GetTower ().GetComponent<Tower> ().ShowRange (true);
                     _sellPrice = 30;
@@ -105,7 +109,8 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.sprite = _hatchIcon;
                     _towerText.sprite = _hatchText;
                     _sellImage.sprite = _sellSprite[1];
-                    _upgradeImage.sprite = (BarPanel.Money >= 80) ? _upgradeEnabled[1] : _upgradeDisabled[1];
+					_upgradeImage.sprite = (BarPanel.Money >= 80) ? _upgradeEnabled[1] : _upgradeDisabled[1];
+					_upgradeButton.enabled =  false;
 
                     _sellPrice = 40;
                     break;
@@ -115,7 +120,8 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.sprite = _laserIcon;
                     _towerText.sprite = _laserText;
                     _sellImage.sprite = _sellSprite[2];
-                    _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
+					_upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
+					_upgradeButton.enabled =  false;
 
                     _sellPrice = 60;
                     break;
@@ -126,6 +132,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerText.sprite = _teslaText;
                     _sellImage.sprite = _sellSprite[2];
                     _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
+					_upgradeButton.enabled =  false;
 
                     _sellPrice = 60;
                     break;
@@ -159,5 +166,29 @@ public class DeleteMenu : MonoBehaviour
         BarPanel.Money += _sellPrice;
         CleanUp();
     }
+
+	public void UpgradeTower()
+	{
+		switch (_gridTemp.CurrenTowerType) {
+		case Grid.TowerTypes.HarpoonTower:
+			{
+				_gridTemp.GetTower ().GetComponent<Tower> ().UpgradeTower ();
+				break;
+			}
+		/*case Grid.TowerTypes.HatchTower:
+			{
+				_gridTemp.GetTower ().GetComponent<HatchTower> ().UpgradeTower ();
+			}
+		case Grid.TowerTypes.LaserTower:
+			{
+				_gridTemp.GetTower ().GetComponent<PairedTower> ().UpgradeTower ();
+			}
+		case Grid.TowerTypes.TeslaTower:
+			{
+				_gridTemp.GetTower ().GetComponent<TeslaTower> ().UpgradeTower ();
+			}*/
+		}
+		CleanUp ();
+	}
 
 }
