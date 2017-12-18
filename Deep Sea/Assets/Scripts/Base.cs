@@ -6,8 +6,8 @@ public class Base : MonoBehaviour
 {
 
     // Hit points for the base, should not work this simply, probably?
-    [SerializeField]
-    private int _health = 4;
+    // Now all levels have same initial health.
+    private int _health = 10;
 
 
     // Use this for initialization
