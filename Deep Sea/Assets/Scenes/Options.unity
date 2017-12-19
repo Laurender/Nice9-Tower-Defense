@@ -992,6 +992,7 @@ GameObject:
   - component: {fileID: 1306354303}
   - component: {fileID: 1306354306}
   - component: {fileID: 1306354305}
+  - component: {fileID: 1306354307}
   m_Layer: 5
   m_Name: OptionsField
   m_TagString: Untagged
@@ -1089,6 +1090,18 @@ MonoBehaviour:
   _musicImage: {fileID: 1322401846}
   _musicEnabled: {fileID: 21300060, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _musicDisabled: {fileID: 21300062, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
+--- !u!114 &1306354307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306354301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628ae39774a0c8f46972a0a72a22d4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unscaled: 1
 --- !u!1 &1322401845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1696,7 @@ GameObject:
   - component: {fileID: 1933189964}
   - component: {fileID: 1933189966}
   - component: {fileID: 1933189965}
+  - component: {fileID: 1933189967}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -1742,3 +1756,15 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1933189963}
+--- !u!114 &1933189967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1933189963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628ae39774a0c8f46972a0a72a22d4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unscaled: 1
