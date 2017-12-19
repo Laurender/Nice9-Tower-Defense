@@ -393,6 +393,14 @@ public class GridUI : MonoBehaviour
     public void ReturnToMenu()
     {
         Time.timeScale = 1f;
+        MusicController.ChangeMusic(1);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+    }
+
+    public void ReturnToLevelSelect()
+    {
+        Time.timeScale = 1f;
+        MusicController.ChangeMusic(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
     }
 }
