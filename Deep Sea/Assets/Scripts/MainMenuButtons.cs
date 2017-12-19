@@ -13,10 +13,26 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField]
     private GameObject _story;
 
+    #region Main menu already shown properties
+    private static bool _once;
+
+    public static bool Once
+    {
+        get
+        {
+            return _once;
+        }
+    }
+    #endregion
+
     private IEnumerator ShowMenu()
     {
-
-        yield return new WaitForSeconds(2.2f);
+        if (!_once)
+        {
+            yield return new WaitForSeconds(1f);
+            _once = true;
+        }
+        yield return new WaitForSeconds(.1f);
         _buttons.SetActive(true);
     }
 

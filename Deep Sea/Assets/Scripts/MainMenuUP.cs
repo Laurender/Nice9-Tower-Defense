@@ -5,7 +5,7 @@ public class MainMenuUP : MonoBehaviour
 {
 
     // How long the main menu 'animations' last. Set in code as editing one file is actually simpler than using editor for multiple objects.
-    private float _animationTime = 2f;
+    private float _animationTime = 1f;
 
     [SerializeField]
     private float _startYPosition;
@@ -19,15 +19,27 @@ public class MainMenuUP : MonoBehaviour
 
     private float _elapsedTime;
 
+
     // Use this for initialization
     void Start()
     {
-        // Set start position
-        _position = gameObject.transform.localPosition;
-        _position.y = _startYPosition;
-        gameObject.transform.localPosition = _position;
+        if (MainMenuButtons.Once)
+        {
+            _position = gameObject.transform.localPosition;
+            _position.y = _endYPosition;
+            gameObject.transform.localPosition = _position;
+            _elapsedTime = _animationTime + 1;
+        }
+        else
+        {
+            // Set start position
+            _position = gameObject.transform.localPosition;
+            _position.y = _startYPosition;
+            gameObject.transform.localPosition = _position;
 
-        _speed = (_endYPosition - _startYPosition) / _animationTime;
+            _speed = (_endYPosition - _startYPosition) / _animationTime;
+        }
+
     }
 
     // Update is called once per frame
