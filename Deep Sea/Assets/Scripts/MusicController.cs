@@ -77,13 +77,18 @@ public class MusicController : MonoBehaviour
 
     public static bool PlayMusic
     {
+
+        
+
         get
         {
+            if (_instance == null) return false;
             return _instance._playMusic;
         }
 
         set
         {
+            if (_instance == null) return;
             _instance.SetPlayMusic(value);
         }
     }
@@ -92,11 +97,13 @@ public class MusicController : MonoBehaviour
     {
         get
         {
+            if (_instance == null) return false;
             return _instance._playSFX;
         }
 
         set
         {
+            if (_instance == null) return;
             _instance.SetPlaySFX(value);
 
         }
@@ -104,6 +111,7 @@ public class MusicController : MonoBehaviour
 
     private void SetPlayMusic(bool playMusic)
     {
+  
         if (_playMusic == playMusic) return;
 
         _playMusic = playMusic;
@@ -212,6 +220,7 @@ public class MusicController : MonoBehaviour
     public static void PauseSfx()
     {
         _paused = true;
+        if (_instance == null) return;
         _instance._solarNoise.Stop();
         _instance._electricNoise.Stop();
     }
@@ -219,7 +228,8 @@ public class MusicController : MonoBehaviour
     public static void ResumeSfx()
     {
         _paused = false;
-        if(_instance._solarNoiseCounter > 0) _instance._solarNoise.Play();
+        if (_instance == null) return;
+        if (_instance._solarNoiseCounter > 0) _instance._solarNoise.Play();
         if (_instance._electricNoiseCounter > 0) _instance._electricNoise.Play();
 
     }
