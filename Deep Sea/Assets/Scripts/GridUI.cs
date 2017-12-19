@@ -266,6 +266,7 @@ public class GridUI : MonoBehaviour
                 _waveCounter.StartWaves();
                 Debug.Log("has started");
             }
+            MusicController.ResumeSfx();
             _pauseMenuOpen = false;
             _isPaused = false;
             _pauseMenu.SetActive(false);
@@ -273,6 +274,7 @@ public class GridUI : MonoBehaviour
         } else
         {
             MusicController.PlaySound(0);
+            MusicController.PauseSfx();
             _pauseMenuOpen = true;
             _isPaused = true;
             _pauseMenu.SetActive(true);
@@ -310,8 +312,6 @@ public class GridUI : MonoBehaviour
         {
             Time.timeScale = 0;
             _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _playSprite;
-            MusicController.ClearSfx();
-
         } else
         {
             _pausePlayGO.GetComponent<UnityEngine.UI.Image>().sprite = _pauseSprite;            
@@ -334,7 +334,7 @@ public class GridUI : MonoBehaviour
     {
 
         MusicController.ChangeMusic(3);
-        MusicController.ClearSfx();
+        MusicController.EndSfx();
 
         _gameOver = true;
         _isPaused = true;
@@ -353,7 +353,7 @@ public class GridUI : MonoBehaviour
     public void LevelPass()
     {
         MusicController.ChangeMusic(2);
-        MusicController.ClearSfx();
+        MusicController.EndSfx();
 
         _gameOver = true;
         _isPaused = true;

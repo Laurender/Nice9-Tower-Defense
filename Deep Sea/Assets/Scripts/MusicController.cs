@@ -27,7 +27,7 @@ public class MusicController : MonoBehaviour
     private bool _playMusic, _playSFX;
 
     static MusicController _instance;
-    static bool _alreadyPresent;
+    private static bool _paused;
 
     // Sets _instance to the the MusicController of the current scene, hopefully.
     // This allows static calls to the methods. Probably should change other classes to work this way?
@@ -62,7 +62,6 @@ public class MusicController : MonoBehaviour
 
     private void IntChangeMusic(int _nextMusic)
     {
-
         if (_nextMusic == _currentMusic) return;
 
         if (_playMusic)
@@ -149,7 +148,7 @@ public class MusicController : MonoBehaviour
     public static void StartElectric()
     {
         if (_instance == null) return;
-        if (_instance._electricNoiseCounter == 0)
+        if (_instance._electricNoiseCounter == 0 && !_paused)
         {
             _instance._electricNoise.Play();
         }
@@ -173,7 +172,7 @@ public class MusicController : MonoBehaviour
     public static void StartSolar()
     {
         if (_instance == null) return;
-        if (_instance._solarNoiseCounter == 0)
+        if (_instance._solarNoiseCounter == 0 && !_paused)
         {
             _instance._solarNoise.Play();
         }
@@ -195,14 +194,33 @@ public class MusicController : MonoBehaviour
 
     }
 
-    public static void ClearSfx()
+    public static void EndSfx()
     {
+        _paused = false;
+
         if (_instance == null) return;
         _instance._solarNoise.Stop();
         _instance._solarNoiseCounter = 0;
 
         _instance._electricNoise.Stop();
         _instance._electricNoiseCounter = 0;
+
+
+
+    }
+
+    public static void PauseSfx()
+    {
+        _paused = true;
+        _instance._solarNoise.Stop();
+        _instance._electricNoise.Stop();
+    }
+
+    public static void ResumeSfx()
+    {
+        _paused = false;
+        if(_instance._solarNoiseCounter > 0) _instance._solarNoise.Play();
+        if (_instance._electricNoiseCounter > 0) _instance._electricNoise.Play();
 
     }
 
