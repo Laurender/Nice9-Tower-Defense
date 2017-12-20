@@ -25,7 +25,7 @@ public class MusicController : MonoBehaviour
     private int _currentMusic;
 
     private bool _playMusic, _playSFX;
-
+    
     static MusicController _instance;
     private static bool _paused;
 

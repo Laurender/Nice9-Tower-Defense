@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Spacing: 50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
 --- !u!114 &367690433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +323,9 @@ MonoBehaviour:
   _scale: 60
   _minX: -750
   _maxX: -1280
+  _levelLock: 6
+  _lockedLevelImage: {fileID: 21300000, guid: 8ecd4cf9a3bbed448bf7efc025b1cc4d, type: 3}
+  _lockedButtonImage: {fileID: 21300060, guid: f8ad59c0c6b559d409a0d9b864c7489a, type: 3}
 --- !u!114 &367690434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +460,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f8ad59c0c6b559d409a0d9b864c7489a, type: 3}
+  m_Sprite: {fileID: 21300030, guid: f8ad59c0c6b559d409a0d9b864c7489a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -506,7 +509,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 283.3333, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558311194
 MonoBehaviour:
@@ -765,7 +768,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 283.3333, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &922468125
 MonoBehaviour:
@@ -1092,7 +1095,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 283.3333, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1147435807
 MonoBehaviour:
@@ -1502,7 +1505,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 283.3333, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328595476
 MonoBehaviour:
@@ -1918,7 +1921,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 283.3333, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552149360
 MonoBehaviour:
@@ -2056,7 +2059,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 283.3333, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712496632
 MonoBehaviour:

@@ -20,9 +20,45 @@ public class LevelSelectScreen : MonoBehaviour
     [SerializeField]
     private float _maxX;
 
+    [SerializeField, Tooltip("Level lock, the highest open level, -1 uses stored values. 1 and 6 seem like most useful values standing for reset to default and open all.")]
+    private int _levelLock = -1;
+
+    [SerializeField]
+    private Sprite _lockedLevelImage;
+
+    [SerializeField]
+    private Sprite _lockedButtonImage;
+
     // Use this for initialization
     void Start()
     {
+        // Allow resetting the level lock for debug purposes. Otherwise uses stored value.
+        if(_levelLock > 0)
+        {
+            PlayerPrefs.SetInt("LevelLock", _levelLock);
+        }
+        else
+        {
+             _levelLock = PlayerPrefs.GetInt("LevelLock", 1);
+        }
+
+        int iterator = _levelLock * 3;
+
+        UnityEngine.UI.Image[] results = gameObject.GetComponentsInChildren<UnityEngine.UI.Image>();
+
+        while(iterator<results.Length)
+        {
+            // These are depth first! It said so in the tooltip but I still got it wrong first time... and the second too.
+            // Anyway the order is : Button image, the invisible larger button you can press and the level image.
+            results[iterator++].sprite = _lockedLevelImage;
+            results[iterator++].sprite = _lockedButtonImage;
+            results[iterator++].gameObject.GetComponent<UnityEngine.UI.Button>().interactable = false;
+            
+
+            
+           
+        }
+
 
     }
 
@@ -35,6 +71,10 @@ public class LevelSelectScreen : MonoBehaviour
     public void OpenLevel(int level)
     {
         MusicController.PlaySound(0);
+
+        // Level lock!
+        if (level > _levelLock) return;
+
         UnityEngine.SceneManagement.SceneManager.LoadScene(_levels[level]);
     }
 
@@ -61,7 +101,7 @@ public class LevelSelectScreen : MonoBehaviour
         Vector3 _position = _startPosition;
         _position.x += scrollDistance;
 
-        Debug.Log("X position : " + _position.x.ToString());
+        //Debug.Log("X position : " + _position.x.ToString());
 
         if (_position.x > _minX || _position.x < _maxX) return;
 

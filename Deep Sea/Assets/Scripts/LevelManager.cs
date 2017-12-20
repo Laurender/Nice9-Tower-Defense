@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField, Tooltip("The level scenes in order.")]
     private string[] _sceneNames;
 
-    private int _currentLevel;
+    private static int _currentLevel;
 
     [SerializeField]
     private GameObject _bannerPrefab;
@@ -72,5 +72,12 @@ public class LevelManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_sceneNames[_nextLevel]);
 
 
+    }
+
+    public static void MarkLevelPassed()
+    {
+        // Note that this is highest level open, ie next level plus one for conversion from array index to level number.
+        // This will progress above the number of available levels by one!
+        PlayerPrefs.SetInt("LevelLock", _currentLevel + 2);
     }
 }

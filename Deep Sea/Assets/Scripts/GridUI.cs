@@ -352,6 +352,8 @@ public class GridUI : MonoBehaviour
 
     public void LevelPass()
     {
+        LevelManager.MarkLevelPassed();
+
         MusicController.ChangeMusic(2);
         MusicController.EndSfx();
 
@@ -365,6 +367,7 @@ public class GridUI : MonoBehaviour
             _deleteMenu.CleanUp();
         }
 
+        
         _levelPassDisplay.SetActive(true);
 
     }
