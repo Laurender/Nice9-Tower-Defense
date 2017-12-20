@@ -9573,6 +9573,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textObject: {fileID: 1917388975}
   _container: {fileID: 786071421}
+  _routes:
+  - {fileID: 1711209873}
+  - {fileID: 1302995313}
 --- !u!4 &1009908748 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4995531920398590, guid: 40c0d209bec68ec438ee9a60dd65ee46,
@@ -11532,6 +11535,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c0d209bec68ec438ee9a60dd65ee46, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1302995313 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1324218694721950, guid: 40c0d209bec68ec438ee9a60dd65ee46,
+    type: 2}
+  m_PrefabInternal: {fileID: 1302995312}
 --- !u!1 &1314132661
 GameObject:
   m_ObjectHideFlags: 0

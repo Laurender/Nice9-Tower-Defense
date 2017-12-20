@@ -15,8 +15,11 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private int _hitPoints = 3;
 
-	// The damage the enemy does if, it gets to the base.
-	[SerializeField, Tooltip ("The damage the enemy does, if it gets to the base.")]
+    [SerializeField]
+    private int _usesRoute;
+
+    // The damage the enemy does if, it gets to the base.
+    [SerializeField, Tooltip ("The damage the enemy does, if it gets to the base.")]
 	private int _damage = 1;
 
 	private Route _route;
@@ -67,8 +70,10 @@ public class Enemy : MonoBehaviour
 
 	}
 
-	public void SetRoute (Route route)
+	public void SetRoute (GameObject[] routes)
 	{
+        Route route = routes[_usesRoute].GetComponent<Route>();
+
         // Check if the route is long enough to use.
         if(route.IsEnd(0))
         {

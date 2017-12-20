@@ -8809,6 +8809,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textObject: {fileID: 1917388975}
   _container: {fileID: 786071421}
+  _routes:
+  - {fileID: 1711209873}
 --- !u!114 &1003896187
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,9 +14,6 @@ public class Wave : MonoBehaviour
 	[SerializeField, Tooltip ("Amount of money player gets at the start of this wave.")]
 	private int _moneyReward;
 
-	[SerializeField, Tooltip ("A previously defined route. You need to create this as a GameObject in the scene. Use the prefab.")]
-	private GameObject _route;
-
 	[SerializeField, Tooltip ("The prefabs to use as enemies, in order.")]
 	private GameObject[] _enemies;
 
@@ -28,17 +25,17 @@ public class Wave : MonoBehaviour
 		//StartCoroutine (Spawner ());
 	}
 
-    public void Trigger(){
+    public void Trigger(GameObject[] routes){
 
         
-        StartCoroutine(Spawner());
+        StartCoroutine(Spawner(routes));
         
     }
 
     
 
 	// The coroutine that spawns the enemies on time.
-	private IEnumerator Spawner ()
+	private IEnumerator Spawner (GameObject[] routes)
 	{
 		//used to refer to the instantiated object within the loop.
 		GameObject tempReference;
@@ -58,7 +55,7 @@ public class Wave : MonoBehaviour
 
 			tempReference = Instantiate (go);
 
-			(tempReference.GetComponent<Enemy> ()).SetRoute (_route.GetComponent<Route> ());
+			(tempReference.GetComponent<Enemy> ()).SetRoute (routes);
 
             // Wait until time to spawn next enemy. There will be a redundant wait after last enemy.
             yield return new WaitForSeconds (_spawnInterval);

@@ -11,6 +11,9 @@ public class WaveCounter : MonoBehaviour {
     [SerializeField, Tooltip("Wave counter container")]
     private GameObject _container;
 
+    [SerializeField, Tooltip("Routes available for enemies, select route in enemy prefab, if not using the first one.")]
+    private GameObject[] _routes;
+
     private int _currentCount, _totalCount, _endedCount;
     private UnityEngine.UI.Text _text;
     private int _enemyCount;
@@ -70,7 +73,7 @@ public class WaveCounter : MonoBehaviour {
                 if (waves[_currentCount] != null)
                     // Turns out this gets called after the game is closed´, which causes 'errors' in Unity.
                 {
-                    waves[_currentCount].Trigger();
+                    waves[_currentCount].Trigger(_routes);
                 }
             } else
             {
@@ -82,7 +85,7 @@ public class WaveCounter : MonoBehaviour {
     // This method allows delaying the first wave until the game is first unpaused.
     public void StartWaves()
     {
-        waves[0].Trigger();
+        waves[0].Trigger(_routes);
     }
 
     void Update()
