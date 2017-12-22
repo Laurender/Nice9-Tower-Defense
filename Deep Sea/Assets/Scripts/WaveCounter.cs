@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveCounter : MonoBehaviour {
+public class WaveCounter : MonoBehaviour
+{
 
     [SerializeField, Tooltip("Wave counter text")]
     private GameObject _textObject;
@@ -13,6 +14,9 @@ public class WaveCounter : MonoBehaviour {
 
     [SerializeField, Tooltip("Routes available for enemies, select route in enemy prefab, if not using the first one.")]
     private GameObject[] _routes;
+
+    [SerializeField, Tooltip("Sets the level as endless. Waves are spawned in random order without end")]
+    private bool _endless;
 
     private int _currentCount, _totalCount, _endedCount;
     private UnityEngine.UI.Text _text;
@@ -24,41 +28,54 @@ public class WaveCounter : MonoBehaviour {
     private Vector3 _position;
     private bool _isSlidingOut;
 
-    
+
     public void EnemyCount(int enemies)
     {
         _enemyCount = enemies;
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         waves = gameObject.GetComponents<Wave>();
         _totalCount = waves.Length;
 
         _text = _textObject.GetComponent<UnityEngine.UI.Text>();
 
-        _text.text = "WAVE : "+_currentCount.ToString() + "/" + _totalCount.ToString();
+        if (_endless)
+        {
+            _text.text = "ENDLESS";
+        }
+        else
+        {
+            _text.text = "WAVE : " + _currentCount.ToString() + "/" + _totalCount.ToString();
 
-        //_container.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 15, 20);
-        //_container.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 75, 20);
+        }
+
 
         _container.SetActive(true);
         _position = _textObject.transform.localPosition;
         _destination = _position;
         _slideOut = _position + Vector3.up * 80;
 
-        // Trigger first wave;
-        //waves[0].Trigger();
+
 
     }
 
     public void WaveCount()
     {
-        _currentCount++;
-        _isSlidingOut = true;
-        _destination = _slideOut;
-       // _text.text = "WAVE : " + _currentCount.ToString() + "/" + _totalCount.ToString();
+        if (_endless)
+        {
+            _currentCount = UnityEngine.Random.Range(0, _totalCount);
+        }
+        else
+        {
+            _currentCount++;
+            _isSlidingOut = true;
+            _destination = _slideOut;
+        }
+        // _text.text = "WAVE : " + _currentCount.ToString() + "/" + _totalCount.ToString();
 
     }
 
@@ -66,16 +83,17 @@ public class WaveCounter : MonoBehaviour {
     {
         _enemyCount--;
         //Debug.Log(_enemyCount);
-        if(_enemyCount==0)
+        if (_enemyCount == 0)
         {
-            if(_currentCount<_totalCount)
+            if (_currentCount < _totalCount || _endless)
             {
                 if (waves[_currentCount] != null)
-                    // Turns out this gets called after the game is closed´, which causes 'errors' in Unity.
+                // Turns out this gets called after the game is closed´, which causes 'errors' in Unity.
                 {
                     waves[_currentCount].Trigger(_routes);
                 }
-            } else
+            }
+            else
             {
                 FindObjectOfType<GridUI>().LevelPass();
             }
@@ -95,9 +113,10 @@ public class WaveCounter : MonoBehaviour {
         {
             // Move towards the destination each frame until the object reaches it
             IncrementPosition();
-        } else
+        }
+        else
         {
-            if(_isSlidingOut)
+            if (_isSlidingOut)
             {
                 _isSlidingOut = false;
                 _destination = _position;
