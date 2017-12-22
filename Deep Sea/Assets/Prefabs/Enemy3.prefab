@@ -149,6 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 0.5
   _hitPoints: 24
+  _armor: 1
+  _usesRoute: 0
   _damage: 1
   explosionPrefab: {fileID: 1689129753831996, guid: e02b8cf73e31841f4bb59aff07871d33,
     type: 2}

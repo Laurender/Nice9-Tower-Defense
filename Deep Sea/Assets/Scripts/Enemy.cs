@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private int _hitPoints = 3;
 
+    [SerializeField, Tooltip("Armor value that protects from weaker damage.")]
+    private int _armor;
+
     [SerializeField]
     private int _usesRoute;
 
@@ -165,6 +168,9 @@ public class Enemy : MonoBehaviour
 	{
         if (isActive)
         {
+            // Armor negates weaker hits.
+            if (damage <= _armor) return;
+
             _hitPoints -= damage;
             _animator.SetInteger("Health", _hitPoints);
             Instantiate(damagePrefab, transform.position, Quaternion.identity);
