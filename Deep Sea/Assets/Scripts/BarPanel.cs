@@ -51,7 +51,7 @@ public class BarPanel : MonoBehaviour
         set
         {
             _instance._health = value;
-            _instance._healthText.text = value.ToString();
+            _instance._healthText.text = value.ToString()+"/10";
             _instance._healthAnimate = _instance._animationTime;
         }
     }
