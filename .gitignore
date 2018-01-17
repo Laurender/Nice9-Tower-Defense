@@ -5,3 +5,6 @@ Deep Sea/Builds/
 *.csproj
 Deep Sea/.vs/
 Deep Sea/Deep Sea.userprefs
+Deep Sea/Assets/Builds.meta
+Deep Sea/Assets/Builds/0.1.meta
+Deep Sea/Assets/Builds/0.1b.meta
