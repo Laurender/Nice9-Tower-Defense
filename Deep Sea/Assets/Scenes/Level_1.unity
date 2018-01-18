@@ -14816,7 +14816,6 @@ MonoBehaviour:
   _waveStart: 15
   _spawnInterval: 0.5
   _moneyReward: 0
-  _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -14850,7 +14849,6 @@ MonoBehaviour:
   _waveStart: 55
   _spawnInterval: 0.5
   _moneyReward: 20
-  _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -14878,7 +14876,6 @@ MonoBehaviour:
   _waveStart: 35
   _spawnInterval: 0.5
   _moneyReward: 20
-  _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -14902,7 +14899,6 @@ MonoBehaviour:
   _waveStart: 100
   _spawnInterval: 0.5
   _moneyReward: 20
-  _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -14944,6 +14940,7 @@ MonoBehaviour:
   _container: {fileID: 786071421}
   _routes:
   - {fileID: 1711209873}
+  _endless: 0
 --- !u!114 &1003896193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14958,7 +14955,6 @@ MonoBehaviour:
   _waveStart: 75
   _spawnInterval: 0.5
   _moneyReward: 20
-  _route: {fileID: 1711209873}
   _enemies:
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
   - {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
@@ -18004,6 +18000,11 @@ Prefab:
     - target: {fileID: 114011300202540864, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
       propertyPath: _enableTeslaTowers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011300202540864, guid: a3cd9d1f89eb8054dbfa09bf80390720,
+        type: 2}
+      propertyPath: _enableHatchTowers
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
