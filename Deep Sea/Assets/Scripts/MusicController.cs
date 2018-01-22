@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +23,8 @@ public class MusicController : MonoBehaviour
     private AudioSource _solarNoise;
     private int _solarNoiseCounter;
 
-    private int _currentMusic;
+    private int _currentMusic, _storedMusic;
+    private bool _overlay;
 
     private bool _playMusic, _playSFX;
     
@@ -50,6 +52,28 @@ public class MusicController : MonoBehaviour
 
     }
 
+    public static void OverlayMusic(int music)
+    {
+        if (_instance == null) return;
+
+        if (!_instance._overlay)
+        {
+            _instance._storedMusic = _instance._currentMusic;
+            _instance._overlay = true;
+        }
+
+        ChangeMusic(music);
+    }
+
+    public static void EndOverlayMusic(int music)
+    {
+        if (_instance == null || !_instance._overlay || music != _instance._currentMusic) return;
+
+        _instance._overlay = false;
+
+        ChangeMusic(_instance._storedMusic);
+      
+    }
     public static void ChangeMusic(int _nextMusic)
     {
 
@@ -59,6 +83,8 @@ public class MusicController : MonoBehaviour
         _instance.IntChangeMusic(_nextMusic);
 
     }
+
+  
 
     private void IntChangeMusic(int _nextMusic)
     {

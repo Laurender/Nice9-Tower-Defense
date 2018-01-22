@@ -57,11 +57,13 @@ public class WikiTabsController : MonoBehaviour {
 
     public void ShowStory()
     {
+        MusicController.OverlayMusic(5);
         _story.SetActive(true);
     }
 
     public void HideStory()
     {
+        MusicController.EndOverlayMusic(5);
         _story.SetActive(false);
     }
 }

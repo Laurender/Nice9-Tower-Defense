@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
 	Color myColor;
 
 	bool isActive = false;
+    
 
     [SerializeField, Tooltip("The money added when this enemy is killed. Leave this at 0 until levels with new balance exist.")]
     private int _reward;
@@ -60,6 +61,8 @@ public class Enemy : MonoBehaviour
         _waveCounter = FindObjectOfType<WaveCounter>();
 		_animator = GetComponent<Animator> ();
 		_animator.SetInteger ("Health", _hitPoints);
+
+       
     }
 	
 	// Update is called once per frame
@@ -152,9 +155,11 @@ public class Enemy : MonoBehaviour
 	// The code for doing what needs to happen when enemy reaches the base.
 	private void EndReached ()
 	{
-
+ 
 		// Currently just destroys the enemy.
 		Destroy (gameObject);
+
+
 
 	}
 
