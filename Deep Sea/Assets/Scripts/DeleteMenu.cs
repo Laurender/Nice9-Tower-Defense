@@ -162,6 +162,7 @@ public class DeleteMenu : MonoBehaviour
 
     public void DeleteTower()
     {
+        MusicController.PlaySound(6);
         _gridTemp.RemoveTower();
         BarPanel.Money += _sellPrice;
         CleanUp();
@@ -169,6 +170,7 @@ public class DeleteMenu : MonoBehaviour
 
     public void UpgradeTower()
     {
+        MusicController.PlaySound(7);
         switch (_gridTemp.CurrenTowerType)
         {
             case Grid.TowerTypes.HarpoonTower:

@@ -298,6 +298,7 @@ public class GridUI : MonoBehaviour
     {
         if (_isAccelerated)
         {
+            MusicController.PlaySound(5);
             Time.timeScale = 3;
             _speedyGO.GetComponent<UnityEngine.UI.Image>().sprite = _speed1Sprite;
 
