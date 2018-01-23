@@ -27,7 +27,7 @@ public class Grid : MonoBehaviour
     [SerializeField]
     GameObject currentTower;
 
-
+	bool _isUpgraded = false;
 
     Animator _myAnim;
 
@@ -101,6 +101,14 @@ public class Grid : MonoBehaviour
         }
     }
 
+	public bool IsUpgraded
+	{
+		get
+		{
+			return _isUpgraded;
+		}
+	}
+
     #endregion properties
 
     void Start()
@@ -153,6 +161,11 @@ public class Grid : MonoBehaviour
         _emphasizeStart = true;
         
     }
+
+	public void SetUpgrade(bool state)
+	{
+		_isUpgraded = state;
+	}
 
     #region Set, get and remove tower    
     public void SetTower(GameObject tower)

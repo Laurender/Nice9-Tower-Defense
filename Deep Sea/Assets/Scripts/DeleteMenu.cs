@@ -61,6 +61,9 @@ public class DeleteMenu : MonoBehaviour
     [SerializeField]
     private Sprite[] _upgradeDisabled;
 
+	[SerializeField]
+	private Sprite _alreadyUpgraded;
+
     #endregion Serialized Fields
 
     // Use this for initialization
@@ -97,8 +100,16 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.sprite = _harpoonIcon;
                     _towerText.sprite = _harpoonText;
                     _sellImage.sprite = _sellSprite[0];
-                    _upgradeImage.sprite = (BarPanel.Money >= 60) ? _upgradeEnabled[0] : _upgradeDisabled[0];
-                    _upgradeButton.enabled = (BarPanel.Money >= 60) ? true : false;
+				if (!_gridTemp.IsUpgraded) 
+				{
+					_upgradeImage.sprite = (BarPanel.Money >= 60) ? _upgradeEnabled [0] : _upgradeDisabled [0];
+					_upgradeButton.enabled = (BarPanel.Money >= 60) ? true : false;
+				} 
+				else 
+				{
+					_upgradeImage.sprite = _alreadyUpgraded;
+					_upgradeButton.enabled = false;
+				}
 
                     tile.GetTower().GetComponent<Tower>().ShowRange(true);
                     _sellPrice = 30;
@@ -108,9 +119,19 @@ public class DeleteMenu : MonoBehaviour
                 {
                     _towerImage.sprite = _hatchIcon;
                     _towerText.sprite = _hatchText;
-                    _sellImage.sprite = _sellSprite[1];
+				_sellImage.sprite = _sellSprite[1];
+				if (!_gridTemp.IsUpgraded) 
+				{
+					
                     _upgradeImage.sprite = (BarPanel.Money >= 80) ? _upgradeEnabled[1] : _upgradeDisabled[1];
 					_upgradeButton.enabled = (BarPanel.Money >= 80) ? true : false;
+				} 
+				else 
+				{
+					_upgradeImage.sprite = _alreadyUpgraded;
+					_upgradeButton.enabled = false;
+				}
+
 
                     _sellPrice = 40;
                     break;
@@ -119,9 +140,19 @@ public class DeleteMenu : MonoBehaviour
                 {
                     _towerImage.sprite = _laserIcon;
                     _towerText.sprite = _laserText;
-                    _sellImage.sprite = _sellSprite[2];
-                    _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
-					_upgradeButton.enabled = (BarPanel.Money >= 120) ? true : false;
+					_sellImage.sprite = _sellSprite[2];
+					if (!_gridTemp.IsUpgraded) 
+					{
+
+
+	                    _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
+						_upgradeButton.enabled = (BarPanel.Money >= 120) ? true : false;
+					} 
+					else 
+					{
+						_upgradeImage.sprite = _alreadyUpgraded;
+						_upgradeButton.enabled = false;
+					}
 
                     _sellPrice = 60;
                     break;
@@ -131,8 +162,16 @@ public class DeleteMenu : MonoBehaviour
                     _towerImage.sprite = _teslaIcon;
                     _towerText.sprite = _teslaText;
                     _sellImage.sprite = _sellSprite[2];
-                    _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
-					_upgradeButton.enabled = (BarPanel.Money >= 120) ? true : false;
+					if (!_gridTemp.IsUpgraded) 
+					{
+	                    _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
+						_upgradeButton.enabled = (BarPanel.Money >= 120) ? true : false;
+					} 
+					else 
+					{
+						_upgradeImage.sprite = _alreadyUpgraded;
+						_upgradeButton.enabled = false;
+					}
 
                     _sellPrice = 60;
                     break;
@@ -163,6 +202,7 @@ public class DeleteMenu : MonoBehaviour
     public void DeleteTower()
     {
         MusicController.PlaySound(6);
+		_gridTemp.SetUpgrade (false);
         _gridTemp.RemoveTower();
         BarPanel.Money += _sellPrice;
         CleanUp();
@@ -171,6 +211,7 @@ public class DeleteMenu : MonoBehaviour
     public void UpgradeTower()
     {
         MusicController.PlaySound(7);
+		_gridTemp.SetUpgrade (true);
         switch (_gridTemp.CurrenTowerType)
         {
             case Grid.TowerTypes.HarpoonTower:
