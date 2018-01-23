@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 61429161740268138}
   - component: {fileID: 50353114728551070}
   - component: {fileID: 60156802625620792}
+  - component: {fileID: 114408748689349508}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -153,12 +154,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 0.5
   _hitPoints: 120
+  _armor: 0
+  _usesRoute: 0
   _damage: 30
   explosionPrefab: {fileID: 1689129753831996, guid: e02b8cf73e31841f4bb59aff07871d33,
     type: 2}
   damagePrefab: {fileID: 1689129753831996, guid: 89dc7a83690544222a524fe61984f140,
     type: 2}
   _reward: 13
+--- !u!114 &114408748689349508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884701309121360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6209e9767223d064caecb9261aa5d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212539241956390512
 SpriteRenderer:
   m_ObjectHideFlags: 1
