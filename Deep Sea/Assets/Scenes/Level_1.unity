@@ -17990,7 +17990,7 @@ Prefab:
     - target: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
       propertyPath: _popCap
-      value: 100
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 114011300202540864, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}

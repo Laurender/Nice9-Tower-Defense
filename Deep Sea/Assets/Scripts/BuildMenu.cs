@@ -147,23 +147,23 @@ public class BuildMenu : MonoBehaviour {
         if (_enableTeslaTowers && BarPanel.Money >= 120)
         {
             _teslaTowerButton.interactable = true;
-            EnabledVisuals(2);
+            EnabledVisuals(3);
         }
         else
         {
             _teslaTowerButton.interactable = false;
-            DisabledVisuals(2);
+            DisabledVisuals(3);
         }
 
         // Control whether the button to build laser towers is active.
         if (tile.IsPaired && _enableLaserTowers && BarPanel.Money >= 120)
         {
             _laserTowerButton.interactable = true;
-            EnabledVisuals(3);
+            EnabledVisuals(2);
         } else
         {
             _laserTowerButton.interactable = false;
-            DisabledVisuals(3);
+            DisabledVisuals(2);
         }
 
         
@@ -227,7 +227,8 @@ public class BuildMenu : MonoBehaviour {
         _firstTower = Instantiate(_laserPrefab);
         _firstGrid = _gridTemp;
 
-        _firstTower.GetComponent<Transform>().position = _gridTemp.GetComponent<Transform>().position;
+		Vector3 tempPos = _gridTemp.GetComponent<Transform>().position;
+		_firstTower.GetComponent<Transform> ().position = new Vector3 (tempPos.x, tempPos.y + 0.125f, tempPos.z);
         _gridTemp.SetTower(_firstTower);
 
         // Set up to get the pair.
@@ -241,7 +242,8 @@ public class BuildMenu : MonoBehaviour {
     public void CompletePair(Grid tile)
     {
         GameObject temp = Instantiate(_laserPrefab);
-        temp.GetComponent<Transform>().position = tile.GetComponent<Transform>().position;
+		Vector3 tempPos = tile.GetComponent<Transform>().position;
+		temp.GetComponent<Transform>().position = new Vector3 (tempPos.x, tempPos.y + 0.125f, tempPos.z);
         tile.SetTower(temp);
 
         _firstTower.GetComponent<PairedTower>().WhenBuilt(false, temp, tile.gameObject);

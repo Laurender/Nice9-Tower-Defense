@@ -60,7 +60,7 @@ public class Tower : MonoBehaviour {
 			Vector3 vectorToTarget = enemies[target].transform.position - cannon.transform.position;
 			float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
 			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-			cannon.transform.rotation = Quaternion.Slerp(cannon.transform.rotation, q, Time.deltaTime*3);
+			cannon.transform.rotation = Quaternion.Slerp(cannon.transform.rotation, q, Time.deltaTime*4);
 		}
 	}
 

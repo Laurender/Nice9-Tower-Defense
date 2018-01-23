@@ -385,7 +385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114490827827317522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -398,7 +397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114641768794727090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -415,6 +413,7 @@ MonoBehaviour:
   southHasRoad: 0
   westHasRoad: 1
   hatch: {fileID: 1111976045527586, guid: a1f43a0a11e8f954982623c02a261772, type: 2}
+  uHatch: {fileID: 1970226478863296, guid: 7f7d3b95d46deeb4990753c265866259, type: 2}
 --- !u!114 &114719141596514664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,7 +426,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114943374900444244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +438,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114967578121626034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,7 +450,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!212 &212087124252721960
 SpriteRenderer:
   m_ObjectHideFlags: 1

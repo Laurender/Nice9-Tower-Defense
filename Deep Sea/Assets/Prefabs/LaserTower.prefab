@@ -345,7 +345,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114420458407788390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,6 +360,8 @@ MonoBehaviour:
   _gridPair: {fileID: 0}
   shootingSpeed: 3
   projectile: {fileID: 1470556015484866, guid: 379d164b45394444b866deb83535a0e6, type: 2}
+  uProjectile: {fileID: 1495605688809860, guid: 6688d18573ea6ea40b8ff06b8870207c,
+    type: 2}
   preparingToShoot: 0
   expectingLaser: 0
 --- !u!114 &114649870557560860
@@ -375,7 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114662682134964998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,7 +388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114759619361171220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -401,7 +400,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!114 &114990436014906444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -414,7 +412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
-  _speed: 0.5
 --- !u!212 &212065095778093552
 SpriteRenderer:
   m_ObjectHideFlags: 1

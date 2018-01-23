@@ -185,6 +185,7 @@ public class Enemy : MonoBehaviour
                 MusicController.PlayEffect(1);
                 _waveCounter.EnemyDied();
                 BarPanel.Money += _reward;
+				_speed = 0.0f;
 
                 StartCoroutine(BeDestroyed());
                 isActive = false;

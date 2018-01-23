@@ -30,6 +30,10 @@ public class HatchTower : MonoBehaviour {
 	[SerializeField]
 	GameObject hatch;
 
+	//the hatch dropped when tower is upgraded
+	[SerializeField]
+	GameObject uHatch;
+
 	//timers
 	float startTimer = 5f;
 	float timer = 0f;
@@ -228,5 +232,9 @@ public class HatchTower : MonoBehaviour {
 		eastHasRoad = eR;
 		southHasRoad = sR;
 		westHasRoad = wR;
+	}
+
+	public void UpgradeTower(){
+		hatch = uHatch;
 	}
 }

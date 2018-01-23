@@ -110,7 +110,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerText.sprite = _hatchText;
                     _sellImage.sprite = _sellSprite[1];
                     _upgradeImage.sprite = (BarPanel.Money >= 80) ? _upgradeEnabled[1] : _upgradeDisabled[1];
-                    _upgradeButton.enabled = false;
+					_upgradeButton.enabled = (BarPanel.Money >= 80) ? true : false;
 
                     _sellPrice = 40;
                     break;
@@ -121,7 +121,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerText.sprite = _laserText;
                     _sellImage.sprite = _sellSprite[2];
                     _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
-                    _upgradeButton.enabled = false;
+					_upgradeButton.enabled = (BarPanel.Money >= 120) ? true : false;
 
                     _sellPrice = 60;
                     break;
@@ -132,7 +132,7 @@ public class DeleteMenu : MonoBehaviour
                     _towerText.sprite = _teslaText;
                     _sellImage.sprite = _sellSprite[2];
                     _upgradeImage.sprite = (BarPanel.Money >= 120) ? _upgradeEnabled[2] : _upgradeDisabled[2];
-                    _upgradeButton.enabled = false;
+					_upgradeButton.enabled = (BarPanel.Money >= 120) ? true : false;
 
                     _sellPrice = 60;
                     break;
@@ -179,18 +179,25 @@ public class DeleteMenu : MonoBehaviour
                     BarPanel.Money -= 60;
                     break;
                 }
-                /*case Grid.TowerTypes.HatchTower:
-                    {
-                        _gridTemp.GetTower ().GetComponent<HatchTower> ().UpgradeTower ();
-                    }
-                case Grid.TowerTypes.LaserTower:
-                    {
-                        _gridTemp.GetTower ().GetComponent<PairedTower> ().UpgradeTower ();
-                    }
-                case Grid.TowerTypes.TeslaTower:
-                    {
-                        _gridTemp.GetTower ().GetComponent<TeslaTower> ().UpgradeTower ();
-                    }*/
+            case Grid.TowerTypes.HatchTower:
+                {
+                    _gridTemp.GetTower ().GetComponent<HatchTower> ().UpgradeTower ();
+					BarPanel.Money -= 80;
+					break;
+                }
+            case Grid.TowerTypes.LaserTower:
+                {
+                    _gridTemp.GetTower ().GetComponent<PairedTower> ().UpgradeTower ();
+					_gridTemp.GetTower ().GetComponent<PairedTower> ().PairedTile.GetTower ().GetComponent<PairedTower> ().UpgradeTower ();
+					BarPanel.Money -= 120;
+					break;
+                }
+            case Grid.TowerTypes.TeslaTower:
+                {
+					_gridTemp.GetTower ().GetComponent<TeslaTower> ().UpgradeTower ();
+					BarPanel.Money -= 120;
+					break;
+                }
         }
         CleanUp();
     }

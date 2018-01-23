@@ -87,4 +87,9 @@ public class TeslaTower : MonoBehaviour {
 			Debug.Log ("Does damage");
 		}
 	}
+
+	public void UpgradeTower(){
+		_damage = 2;
+	}
+
 }
