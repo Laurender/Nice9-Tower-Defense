@@ -29,6 +29,8 @@ public class TeslaTower : MonoBehaviour {
 
 	SpriteRenderer _childSprite;
 
+	private Animator _animator;
+
 
 
 
@@ -39,6 +41,7 @@ public class TeslaTower : MonoBehaviour {
 		_myColl.enabled = false;
 		_childSprite = transform.GetChild (0).GetComponent<SpriteRenderer> ();
 		_childSprite.enabled = false;
+		_animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -90,6 +93,7 @@ public class TeslaTower : MonoBehaviour {
 
 	public void UpgradeTower(){
 		_damage = 2;
+		_animator.SetBool ("Upgraded", true);
 	}
 
 }

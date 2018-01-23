@@ -42,17 +42,25 @@ public class PairedTower : MonoBehaviour {
 
 	//distance to paired tower. used to make laser.
 	float pairDistance;
+
+	float shootingTime = 0.75f;
+
+	private Animator _animator;
+
+	void Start(){
+		_animator = GetComponent<Animator> ();
+	}
 	
 	// Update is called once per frame. Contains the shooting of a laser
 	void Update () {
 		if (preparingToShoot) {
 			shootCounter += Time.deltaTime;
 			if (shootCounter >= shootingSpeed) {
-				shootCounter = 0.0f;
 				/*GameObject temp;
 				temp = Instantiate (projectile, transform.position, Quaternion.identity);
 				temp.GetComponent<LaserProjectile> ().SetTarget ((Vector2)_towerPair.transform.position);*/
 				Shoot ();
+				StartCoroutine (Shooting ());
 				preparingToShoot = false;
 				_towerPair.SendMessage ("ExpectLaser");
 			}
@@ -80,20 +88,22 @@ public class PairedTower : MonoBehaviour {
 
 		} else if (pairDirection == "E") {
 			
-			Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y+0.1875f, transform.position.z);
+			Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y+0.15625f, transform.position.z);
 			GameObject temp;
 			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
 			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "S", 0.0f);
+			temp.GetComponent<SpriteRenderer> ().sortingOrder = 2;
 
 			for (int i = 0; i < pairDistance - 1; i++) {
-				laserPosition = new Vector3 (transform.position.x + 1.0f + ((float)i), transform.position.y+0.1875f, transform.position.z);
+				laserPosition = new Vector3 (transform.position.x + 1.0f + ((float)i), transform.position.y+0.15625f, transform.position.z);
 				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
 				temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "M", (1 / 7) * (i % 8));
 			}
 
-			laserPosition = new Vector3 (_towerPair.transform.position.x, transform.position.y+0.1875f, transform.position.z);
+			laserPosition = new Vector3 (_towerPair.transform.position.x, transform.position.y+0.15625f, transform.position.z);
 			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
 			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "E", 0.0f);
+			temp.GetComponent<SpriteRenderer> ().sortingOrder = 2;
 
 		} else if (pairDirection == "S") {
 
@@ -115,20 +125,22 @@ public class PairedTower : MonoBehaviour {
 
 		} else if (pairDirection == "W") {
 
-			Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y+0.1875f, transform.position.z);
+			Vector3 laserPosition = new Vector3 (transform.position.x, transform.position.y+0.15625f, transform.position.z);
 			GameObject temp;
 			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
 			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "S", 0.0f);
+			temp.GetComponent<SpriteRenderer> ().sortingOrder = 2;
 
 			for (int i = 0; i < pairDistance - 1; i++) {
-				laserPosition = new Vector3 (transform.position.x - 1.0f - ((float)i), transform.position.y+0.1875f, transform.position.z);
+				laserPosition = new Vector3 (transform.position.x - 1.0f - ((float)i), transform.position.y+0.15625f, transform.position.z);
 				temp = Instantiate (projectile, laserPosition, Quaternion.identity);
 				temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "M", (1 / 7) * (i % 8));
 			}
 
-			laserPosition = new Vector3 (_towerPair.transform.position.x, transform.position.y+0.1875f, transform.position.z);
+			laserPosition = new Vector3 (_towerPair.transform.position.x, transform.position.y+0.15625f, transform.position.z);
 			temp = Instantiate (projectile, laserPosition, Quaternion.identity);
 			temp.GetComponent<LaserPiece> ().AsMade (pairDirection, "E", 0.0f);
+			temp.GetComponent<SpriteRenderer> ().sortingOrder = 2;
 
 		}
 	}
@@ -147,6 +159,8 @@ public class PairedTower : MonoBehaviour {
 	public void ExpectLaser(){
 		expectingLaser = true;
 		preparingToShoot = true;
+		shootCounter = -1f * shootingTime;
+		StartCoroutine (Shooting ());
 	}
 
 	//called when tower is built by buildmenu. set everything important
@@ -183,7 +197,19 @@ public class PairedTower : MonoBehaviour {
         }
 	}
 
+	IEnumerator Shooting(){
+		_animator.SetBool ("Shooting", true);
+
+		yield return new WaitForSeconds(shootingTime);
+
+		_animator.SetBool ("Shooting", false);
+	}
+
 	public void UpgradeTower(){
 		projectile = uProjectile;
+		shootingTime = 1.5f;
+		shootCounter = 0f;
+		_animator.SetBool ("Shooting", false);
+		_animator.SetBool ("Upgraded", true);
 	}
 }

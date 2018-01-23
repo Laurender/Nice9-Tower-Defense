@@ -38,6 +38,11 @@ public class Tower : MonoBehaviour {
 	[SerializeField]
 	private SpriteRenderer rangeRenderer;
 
+	private SpriteRenderer _mySR;
+
+	[SerializeField]
+	private Sprite upgradeSprite;
+
 	// Use this for initialization
 	void Start () {
 		enemies = new List<GameObject> ();
@@ -45,6 +50,7 @@ public class Tower : MonoBehaviour {
 		target = -1;
 		shootCounter = 0.0f;
 		cannon = transform.GetChild (0);
+		_mySR = GetComponent<SpriteRenderer> ();
 	}
 
 	//if tower has a target, shoot a projectile at it with frequency based on shootingSpeed
@@ -151,6 +157,7 @@ public class Tower : MonoBehaviour {
 	public void UpgradeTower(){
 		GetComponent<CircleCollider2D> ().radius = 3.5f;
 		rangeRenderer.sprite = bigRange;
+		_mySR.sprite = upgradeSprite;
 	}
 
 }
