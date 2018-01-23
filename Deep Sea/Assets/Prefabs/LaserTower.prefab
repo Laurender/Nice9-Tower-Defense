@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 50953247984993782}
   - component: {fileID: 114420458407788390}
   - component: {fileID: 61776941972614810}
+  - component: {fileID: 95726511876152896}
   m_Layer: 0
   m_Name: LaserTower
   m_TagString: Untagged
@@ -333,6 +334,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95726511876152896
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823883985229748}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b32b846da18220449bf67e3e48f78a4c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114151078865662734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerPair: {fileID: 0}
   _gridPair: {fileID: 0}
-  shootingSpeed: 3
+  shootingSpeed: 2.75
   projectile: {fileID: 1470556015484866, guid: 379d164b45394444b866deb83535a0e6, type: 2}
   uProjectile: {fileID: 1495605688809860, guid: 6688d18573ea6ea40b8ff06b8870207c,
     type: 2}

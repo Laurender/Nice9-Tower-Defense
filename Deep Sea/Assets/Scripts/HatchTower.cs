@@ -50,6 +50,13 @@ public class HatchTower : MonoBehaviour {
 
 	//tells if initial hatches have been spawned
 	bool hasSpawned = false;
+
+
+	private Animator _animator;
+
+	void Start(){
+		_animator = GetComponent<Animator> ();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -236,5 +243,6 @@ public class HatchTower : MonoBehaviour {
 
 	public void UpgradeTower(){
 		hatch = uHatch;
+		_animator.SetBool ("Upgraded", true);
 	}
 }

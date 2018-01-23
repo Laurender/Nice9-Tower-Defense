@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _lifetime: 2
+  _lifetime: 1.5
   _animLaserEnd: {fileID: 9100000, guid: 86d29cd11f8a6fe4fac080bc8069e12b, type: 2}
   _animLaserMid: {fileID: 9100000, guid: a18f874d74ccbac4fb84f0d8eaf50caf, type: 2}
 --- !u!212 &212920873192010162
