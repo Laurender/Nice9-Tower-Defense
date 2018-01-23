@@ -298,7 +298,7 @@ public class GridUI : MonoBehaviour
     {
         if (_isAccelerated)
         {
-            MusicController.PlaySound(5);
+            if(!_isPaused) MusicController.PlaySound(5);
             Time.timeScale = 3;
             _speedyGO.GetComponent<UnityEngine.UI.Image>().sprite = _speed1Sprite;
 
@@ -375,6 +375,7 @@ public class GridUI : MonoBehaviour
 
     public void ReloadScene()
     {
+        MusicController.EndSfx();
         MusicController.PlaySound(1);
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
@@ -396,6 +397,7 @@ public class GridUI : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        MusicController.EndSfx();
         Time.timeScale = 1f;
         MusicController.ChangeMusic(1);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
@@ -403,6 +405,7 @@ public class GridUI : MonoBehaviour
 
     public void ReturnToLevelSelect()
     {
+        MusicController.EndSfx();
         Time.timeScale = 1f;
         MusicController.ChangeMusic(1);
         UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
