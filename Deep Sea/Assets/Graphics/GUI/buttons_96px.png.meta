@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 45a9009d3f18b9f4887b8e9c05a8d335
-timeCreated: 1511478512
+timeCreated: 1516703141
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -30,6 +30,31 @@ TextureImporter:
     21300046: buttons_96px_23
     21300048: buttons_96px_24
     21300050: buttons_96px_25
+    21300052: buttons_96px_26
+    21300054: buttons_96px_27
+    21300056: buttons_96px_28
+    21300058: buttons_96px_29
+    21300060: buttons_96px_30
+    21300062: buttons_96px_31
+    21300064: buttons_96px_32
+    21300066: buttons_96px_33
+    21300068: buttons_96px_34
+    21300070: buttons_96px_35
+    21300072: buttons_96px_36
+    21300074: buttons_96px_37
+    21300076: buttons_96px_38
+    21300078: buttons_96px_39
+    21300080: buttons_96px_40
+    21300082: buttons_96px_41
+    21300084: buttons_96px_42
+    21300086: buttons_96px_43
+    21300088: buttons_96px_44
+    21300090: buttons_96px_45
+    21300092: buttons_96px_46
+    21300094: buttons_96px_47
+    21300096: buttons_96px_48
+    21300098: buttons_96px_49
+    21300100: buttons_96px_50
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -113,7 +138,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -127,7 +152,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -141,7 +166,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -155,7 +180,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 288
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -169,7 +194,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -183,7 +208,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -197,7 +222,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 576
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -211,7 +236,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 672
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -225,7 +250,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -239,7 +264,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 864
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -253,7 +278,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 960
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -267,7 +292,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1056
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -281,7 +306,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1152
-        y: 32
+        y: 64
         width: 96
         height: 32
       alignment: 0
@@ -292,6 +317,300 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: buttons_96px_13
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 64
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_14
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 64
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_15
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 64
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_16
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 64
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_20
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_22
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_23
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_24
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_25
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_26
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_27
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_28
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_29
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_30
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_31
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_32
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_33
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 32
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_34
       rect:
         serializedVersion: 2
         x: 0
@@ -305,7 +624,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_14
+      name: buttons_96px_35
       rect:
         serializedVersion: 2
         x: 96
@@ -319,7 +638,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_15
+      name: buttons_96px_36
       rect:
         serializedVersion: 2
         x: 192
@@ -333,7 +652,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_16
+      name: buttons_96px_37
       rect:
         serializedVersion: 2
         x: 288
@@ -347,7 +666,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_17
+      name: buttons_96px_38
       rect:
         serializedVersion: 2
         x: 384
@@ -361,7 +680,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_18
+      name: buttons_96px_39
       rect:
         serializedVersion: 2
         x: 480
@@ -375,7 +694,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_19
+      name: buttons_96px_40
       rect:
         serializedVersion: 2
         x: 576
@@ -389,7 +708,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_20
+      name: buttons_96px_41
       rect:
         serializedVersion: 2
         x: 672
@@ -403,7 +722,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_21
+      name: buttons_96px_42
       rect:
         serializedVersion: 2
         x: 768
@@ -417,7 +736,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_22
+      name: buttons_96px_43
       rect:
         serializedVersion: 2
         x: 864
@@ -431,7 +750,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_23
+      name: buttons_96px_44
       rect:
         serializedVersion: 2
         x: 960
@@ -445,7 +764,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_24
+      name: buttons_96px_45
       rect:
         serializedVersion: 2
         x: 1056
@@ -459,10 +778,66 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_96px_25
+      name: buttons_96px_46
       rect:
         serializedVersion: 2
         x: 1152
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_47
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_48
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_49
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: buttons_96px_50
+      rect:
+        serializedVersion: 2
+        x: 1536
         y: 0
         width: 96
         height: 32
