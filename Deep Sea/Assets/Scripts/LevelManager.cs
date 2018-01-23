@@ -11,9 +11,6 @@ public class LevelManager : MonoBehaviour
     private static int _currentLevel;
 
     [SerializeField]
-    private GameObject _bannerPrefab;
-
-    [SerializeField]
     private UnityEngine.UI.Image _failLevelImage;
 
     [SerializeField]
@@ -28,8 +25,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private Sprite[] _imagesForPause;
 
+    public static int CurrentLevel
+    {
+        get
+        {
+            return _currentLevel;
+        }
+    }
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         // Tries to find the active scene from array of scenes.
         _currentLevel = System.Array.IndexOf(_sceneNames, UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
@@ -37,7 +41,7 @@ public class LevelManager : MonoBehaviour
         // If scene was found it was a legit level and the banner animation for it is shown.
         if (_currentLevel != -1)
         {
-            LevelCeremony(_currentLevel);
+            
             _failLevelImage.sprite = _images[_currentLevel];
             _passLevelImage.sprite = _images[_currentLevel];
             _pauseLevelImage.sprite = _imagesForPause[_currentLevel];
@@ -47,11 +51,6 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    private void LevelCeremony(int currentLevel)
-    {
-        Debug.Log("Detected level : " + _currentLevel.ToString());
-        Instantiate(_bannerPrefab).GetComponent<LevelBanner>().Initialize(currentLevel);
-    }
 
     public void OpenNextLevel()
     {

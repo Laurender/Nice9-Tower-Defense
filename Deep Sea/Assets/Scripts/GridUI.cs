@@ -290,6 +290,16 @@ public class GridUI : MonoBehaviour
     {
         MusicController.PlaySound(1);
         _isAccelerated = _isAccelerated ? false : true;
+
+        if(_isAccelerated)
+        {
+            MusicController.PlaySound(5);
+        }
+        else
+        {
+            MusicController.PlaySound(1);
+        }
+
         SetSpeed();
         
     }
@@ -298,7 +308,6 @@ public class GridUI : MonoBehaviour
     {
         if (_isAccelerated)
         {
-            if(!_isPaused) MusicController.PlaySound(5);
             Time.timeScale = 3;
             _speedyGO.GetComponent<UnityEngine.UI.Image>().sprite = _speed1Sprite;
 
