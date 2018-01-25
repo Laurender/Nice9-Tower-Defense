@@ -6,8 +6,8 @@ using UnityEngine;
 public class GridUI : MonoBehaviour
 {
 
-    [SerializeField, Tooltip("Starting money(?).")]
-    private int _popCap = 6;
+    [SerializeField, Tooltip("Starting money for levels.")]
+    private int[] _popCap;
 
     [SerializeField]
     private GameObject _smokeEffectPrefab;
@@ -86,7 +86,7 @@ public class GridUI : MonoBehaviour
     {
         
         
-        BarPanel.Money = _popCap;
+        BarPanel.Money = _popCap[LevelManager.CurrentLevel];
 
         // Find the menus and wave counter for later reference...
         _buildMenu = _buildMenuObject.GetComponent<BuildMenu>();
@@ -344,11 +344,13 @@ public class GridUI : MonoBehaviour
     {
 
         MusicController.ChangeMusic(3);
-        MusicController.EndSfx();
+        
 
         _gameOver = true;
         _isPaused = true;
         SetSpeed();
+
+        MusicController.EndSfx();
 
         if (_aMenuIsOpen)
         {
@@ -365,11 +367,13 @@ public class GridUI : MonoBehaviour
         LevelManager.MarkLevelPassed();
 
         MusicController.ChangeMusic(2);
-        MusicController.EndSfx();
+        
 
         _gameOver = true;
         _isPaused = true;
         SetSpeed();
+
+        MusicController.EndSfx();
 
         if (_aMenuIsOpen)
         {

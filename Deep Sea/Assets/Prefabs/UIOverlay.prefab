@@ -3004,7 +3004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221ecebd6cb8f4d4dbed1e83fffbe37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _popCap: 150
+  _popCap: 640000008c000000b4000000b4000000dc000000dc000000
   _smokeEffectPrefab: {fileID: 1614185584207746, guid: ceae93f430187d8479be1e0ad26a422a,
     type: 2}
   _pauseMenu: {fileID: 1720637191315596}
