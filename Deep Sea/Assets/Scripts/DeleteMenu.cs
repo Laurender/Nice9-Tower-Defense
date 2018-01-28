@@ -82,12 +82,12 @@ public class DeleteMenu : MonoBehaviour
 
         if (tile.OnLeft)
         {
-            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 120, 670);
+            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 120, 650);
             Debug.Log("Menu open on left.");
         }
         else
         {
-            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 120, 670);
+            gameObject.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 120, 650);
             Debug.Log("Menu open on right.");
         }
 
