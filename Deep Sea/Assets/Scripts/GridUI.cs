@@ -112,6 +112,11 @@ public class GridUI : MonoBehaviour
     void Update()
     {
 
+		if (!_hasStarted && BarPanel.Money < 60) 
+		{
+			PauseButton ();
+		}
+
         // Check for mouse and touch events.
         CheckForInputEvents();
 
