@@ -7250,7 +7250,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1020119293677318, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114457759227211226, guid: a3cd9d1f89eb8054dbfa09bf80390720,
         type: 2}
@@ -8986,6 +8986,11 @@ MonoBehaviour:
   - {fileID: 1711209873}
   - {fileID: 2025762412}
   _endless: 1
+  _enemy1: {fileID: 1861431146670018, guid: 24413a7c085651d44826a484b4f1ed74, type: 2}
+  _enemy2: {fileID: 1637908369342630, guid: a44f382d4adc9a14990b66df0e55e929, type: 2}
+  _enemy3: {fileID: 1743905117219794, guid: f9024c2539167014c931c3e60588b7d5, type: 2}
+  _enemy4: {fileID: 1071014549263354, guid: 5d0a58db6ffc31d44af28bd2afc57b10, type: 2}
+  _boss: {fileID: 1884701309121360, guid: 034dda47e3c2c034fb77fe44dc30c32f, type: 2}
 --- !u!114 &1003896187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15738,7 +15743,7 @@ Prefab:
     - target: {fileID: 114292711673997260, guid: e8a680d3b64e5ab46b5fe9e1b064f80a,
         type: 2}
       propertyPath: _pairedGrid.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4439430832757838, guid: e8a680d3b64e5ab46b5fe9e1b064f80a, type: 2}
       propertyPath: m_LocalPosition.x
