@@ -31,6 +31,9 @@ public class TeslaTower : MonoBehaviour {
 
 	private Animator _animator;
 
+	[SerializeField]
+	private Sprite touchUpgradeIcon;
+
 
 
 
@@ -94,6 +97,7 @@ public class TeslaTower : MonoBehaviour {
 	public void UpgradeTower(){
 		_damage = 2;
 		_animator.SetBool ("Upgraded", true);
+		transform.Find ("TouchIcon").GetComponent<SpriteRenderer> ().sprite = touchUpgradeIcon;
 	}
 
 }

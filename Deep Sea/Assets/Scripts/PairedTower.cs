@@ -47,6 +47,9 @@ public class PairedTower : MonoBehaviour {
 
 	private Animator _animator;
 
+	[SerializeField]
+	private Sprite touchUpgradeIcon;
+
 	void Start(){
 		_animator = GetComponent<Animator> ();
 	}
@@ -211,5 +214,6 @@ public class PairedTower : MonoBehaviour {
 		shootCounter = 0f;
 		_animator.SetBool ("Shooting", false);
 		_animator.SetBool ("Upgraded", true);
+		transform.Find ("TouchIcon").GetComponent<SpriteRenderer> ().sprite = touchUpgradeIcon;
 	}
 }

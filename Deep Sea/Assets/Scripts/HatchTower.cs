@@ -54,6 +54,9 @@ public class HatchTower : MonoBehaviour {
 
 	private Animator _animator;
 
+	[SerializeField]
+	private Sprite touchUpgradeIcon;
+
 	void Start(){
 		_animator = GetComponent<Animator> ();
 	}
@@ -244,5 +247,6 @@ public class HatchTower : MonoBehaviour {
 	public void UpgradeTower(){
 		hatch = uHatch;
 		_animator.SetBool ("Upgraded", true);
+		transform.Find ("TouchIcon").GetComponent<SpriteRenderer> ().sprite = touchUpgradeIcon;
 	}
 }
