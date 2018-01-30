@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61327799959079746}
   - component: {fileID: 50299285377361494}
   - component: {fileID: 114772781395024144}
+  - component: {fileID: 95355764952072720}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931705404166334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -2.1, z: 0}
+  m_LocalPosition: {x: -5.372, y: -2.219, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,6 +89,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.90002704, y: 0.901355}
   m_EdgeRadius: 0
+--- !u!95 &95355764952072720
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931705404166334}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1dfe79345332e2741b2bd64cb28ac6b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114772781395024144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,16 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfa580111922fa4e9fc8afe7770bdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 6
-  _healthBar: {fileID: 0}
-  _healthBarSprites:
-  - {fileID: 21300012, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300010, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300008, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300006, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300004, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300002, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
-  - {fileID: 21300000, guid: ecdeaac33a7408645b8630cbfe9c810d, type: 3}
 --- !u!212 &212370836583794382
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -140,7 +148,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 25226d1137b014929bea66d0a13bcbb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

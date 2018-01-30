@@ -9,11 +9,14 @@ public class Base : MonoBehaviour
     // Now all levels have same initial health.
     private int _health = 10;
 
+	private Animator _animator;
+
 
     // Use this for initialization
     void Start()
     {
         BarPanel.Health = _health;
+		_animator = GetComponent<Animator> ();
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class Base : MonoBehaviour
     {
 
         _health -= damage;
+		_animator.SetInteger ("Health", _health);
         if (_health <= 0)
         {
 
