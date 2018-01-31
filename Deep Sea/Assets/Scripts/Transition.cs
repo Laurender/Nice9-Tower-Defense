@@ -7,6 +7,16 @@ public class Transition : MonoBehaviour {
     [SerializeField, Tooltip("Game objects to disable when screen is touched.")]
     private GameObject[] _partsOfTransition;
 
+
+    public void Awake()
+    {
+        foreach (GameObject go in _partsOfTransition)
+        {
+            go.SetActive(true);
+        }
+    }
+
+
     public void Close()
     {
         foreach(GameObject go in _partsOfTransition)
@@ -14,4 +24,7 @@ public class Transition : MonoBehaviour {
             go.SetActive(false);
         }
     }
+
+ 
+
 }

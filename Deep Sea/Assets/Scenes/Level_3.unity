@@ -6816,26 +6816,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114156329297542244, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: _popCap
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011300202540864, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: _enableTeslaTowers
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1020119293677318, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114457759227211226, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-        type: 2}
-      propertyPath: _alreadyUpgraded
-      value: 
-      objectReference: {fileID: 21300098, guid: 45a9009d3f18b9f4887b8e9c05a8d335,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd9d1f89eb8054dbfa09bf80390720, type: 2}
   m_IsPrefabParent: 0

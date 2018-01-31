@@ -152,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1041189891849054
 GameObject:
   m_ObjectHideFlags: 1
@@ -1548,7 +1548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1747867604212788
 GameObject:
   m_ObjectHideFlags: 1
@@ -1721,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1844735828423200
 GameObject:
   m_ObjectHideFlags: 1
@@ -2489,6 +2489,8 @@ MonoBehaviour:
   - {fileID: 21300006, guid: eadb73c5db301d244a51c42bc4644466, type: 3}
   - {fileID: 21300008, guid: eadb73c5db301d244a51c42bc4644466, type: 3}
   - {fileID: 21300010, guid: eadb73c5db301d244a51c42bc4644466, type: 3}
+  _startYPosition: -600
+  _endYPosition: -120
 --- !u!114 &114004591358528236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3013,6 +3015,7 @@ MonoBehaviour:
   _buildMenuObject: {fileID: 1140568187358860}
   _sellMenuObject: {fileID: 1712262708936926}
   _wikiScreen: {fileID: 1945720295075164}
+  _transition: {fileID: 1742778202794356}
   _pauseSprite: {fileID: 21300010, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _playSprite: {fileID: 21300008, guid: f6a9a93f439e0de418670997cc852d71, type: 3}
   _pausePlayGO: {fileID: 1428237801009402}
@@ -7556,6 +7559,8 @@ MonoBehaviour:
   - {fileID: 21300006, guid: 15a8590d13eb1804cb6900f55e5fea82, type: 3}
   - {fileID: 21300008, guid: 15a8590d13eb1804cb6900f55e5fea82, type: 3}
   - {fileID: 21300010, guid: 15a8590d13eb1804cb6900f55e5fea82, type: 3}
+  _startYPosition: 600
+  _endYPosition: 300
 --- !u!114 &114905714901951848
 MonoBehaviour:
   m_ObjectHideFlags: 1

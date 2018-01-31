@@ -39,6 +39,8 @@ public class GridUI : MonoBehaviour
     private GameObject _sellMenuObject;
     [SerializeField, Tooltip("Wiki screen object")]
     private GameObject _wikiScreen;
+    [SerializeField, Tooltip("Pre-level transition object")]
+    private GameObject _transition;
 
     [SerializeField]
     private Sprite _pauseSprite;
@@ -101,9 +103,10 @@ public class GridUI : MonoBehaviour
         _gameOverDisplay.SetActive(false);
         _levelPassDisplay.SetActive(false);
 
-        // start paused
+        // start paused and with transition
         _isPaused = true;
         SetSpeed();
+        _transition.SetActive(true);
 
         MusicController.ChangeMusic(0);
     }
