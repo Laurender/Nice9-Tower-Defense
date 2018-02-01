@@ -269,6 +269,7 @@ public class GridUI : MonoBehaviour
             MusicController.PlaySound(1);
             if (!_hasStarted)
             {
+                HelpBanners.ShowWavesBanner();
                 _hasStarted = true;
                 _pausePlayGlowGO.SetActive(false);
                 _waveCounter.StartWaves();

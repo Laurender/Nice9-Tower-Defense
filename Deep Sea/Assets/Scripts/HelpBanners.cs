@@ -33,15 +33,25 @@ public class HelpBanners : MonoBehaviour {
     {
         banner.SetActive(true);
 
-        for (float y = -100; y < 0; y += 5)
+        for (float y = -400; y < 0; y += 15)
         {
-            yield return new WaitForSecondsRealtime(.05f);
+            SetY(y);
+            yield return new WaitForSecondsRealtime(.02f);
         }
 
-        for (float y = 0; y > -100; y -= 5)
+        for (float y = 0; y > -400; y -= 15)
         {
-            yield return new WaitForSecondsRealtime(.05f);
+            SetY(y);
+            yield return new WaitForSecondsRealtime(.02f);
         }
         banner.SetActive(false);
+    }
+
+    private void SetY(float y)
+    {
+        Vector3 _position;
+        _position = transform.localPosition;
+        _position.y = y;
+        transform.localPosition = _position;
     }
 }
