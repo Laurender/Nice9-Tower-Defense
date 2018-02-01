@@ -29,6 +29,15 @@ public class LevelSelectScreen : MonoBehaviour
     [SerializeField]
     private Sprite _lockedButtonImage;
 
+    [SerializeField, Tooltip("Reset whether the story slide is shown.")]
+    private bool _forceStory;
+
+    [SerializeField]
+    private GameObject _storyImage;
+
+    // Whether the story is shown
+    private bool _showStory;
+
     // Use this for initialization
     void Start()
     {
@@ -40,6 +49,14 @@ public class LevelSelectScreen : MonoBehaviour
         else
         {
              _levelLock = PlayerPrefs.GetInt("LevelLock", 1);
+        }
+
+        _showStory = _forceStory || PlayerPrefs.GetInt("ShowStory", 1) == 1;
+
+        if (_showStory)
+        {
+            _storyImage.SetActive(true);
+            PlayerPrefs.SetInt("ShowStory", 0);
         }
 
         int iterator = _levelLock * 3;
@@ -76,6 +93,11 @@ public class LevelSelectScreen : MonoBehaviour
         if (level > _levelLock) return;
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(_levels[level]);
+    }
+
+    public void HideStory()
+    {
+        _storyImage.SetActive(false);
     }
 
     void Update()
