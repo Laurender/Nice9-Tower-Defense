@@ -350,6 +350,7 @@ public class GridUI : MonoBehaviour
 
     public void GameOver()
     {
+		if (_gameOver) return;
 
         MusicController.ChangeMusic(3);
         
@@ -372,6 +373,8 @@ public class GridUI : MonoBehaviour
 
     public void LevelPass()
     {
+		if (_gameOver) return;
+
         LevelManager.MarkLevelPassed();
 
         MusicController.ChangeMusic(2);

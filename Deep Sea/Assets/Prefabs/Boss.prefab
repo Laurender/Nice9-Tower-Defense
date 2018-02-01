@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 0.5
-  _hitPoints: 480
+  _hitPoints: 360
   _armor: 0
   _usesRoute: 0
   _damage: 30
