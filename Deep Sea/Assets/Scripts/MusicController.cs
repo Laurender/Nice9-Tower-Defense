@@ -158,6 +158,8 @@ public class MusicController : MonoBehaviour
         if (_playSFX == playSFX) return;
 
         _playSFX = playSFX;
+
+        if (!_playSFX) EndSfx();
         PlayerPrefs.SetInt("PlaySFX", _playSFX ? 1 : 0);
 
     }
@@ -181,7 +183,7 @@ public class MusicController : MonoBehaviour
 
     public static void StartElectric()
     {
-        if (_instance == null) return;
+        if (_instance == null || !_instance._playSFX) return;
         if (_instance._electricNoiseCounter == 0 && !_paused)
         {
             _instance._electricNoise.Play();
@@ -205,7 +207,7 @@ public class MusicController : MonoBehaviour
 
     public static void StartSolar()
     {
-        if (_instance == null) return;
+        if (_instance == null || !_instance._playSFX) return;
         if (_instance._solarNoiseCounter == 0 && !_paused)
         {
             _instance._solarNoise.Play();
