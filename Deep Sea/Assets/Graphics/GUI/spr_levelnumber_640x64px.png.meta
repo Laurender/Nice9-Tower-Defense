@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 15a8590d13eb1804cb6900f55e5fea82
-timeCreated: 1513426298
+timeCreated: 1517490229
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,8 @@ TextureImporter:
     21300006: spr_levelnumber_640x64px_3
     21300008: spr_levelnumber_640x64px_4
     21300010: spr_levelnumber_640x64px_5
+    21300012: spr_levelnumber_640x64px_6
+    21300014: spr_levelnumber_640x64px_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -93,7 +95,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
+        y: 448
         width: 640
         height: 64
       alignment: 0
@@ -107,7 +109,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 384
         width: 640
         height: 64
       alignment: 0
@@ -121,7 +123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 320
         width: 640
         height: 64
       alignment: 0
@@ -135,7 +137,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 256
         width: 640
         height: 64
       alignment: 0
@@ -149,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 192
         width: 640
         height: 64
       alignment: 0
@@ -160,6 +162,34 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: spr_levelnumber_640x64px_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 640
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_levelnumber_640x64px_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 640
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_levelnumber_640x64px_7
       rect:
         serializedVersion: 2
         x: 0
