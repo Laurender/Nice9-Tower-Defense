@@ -269,6 +269,7 @@ public class GridUI : MonoBehaviour
             MusicController.PlaySound(1);
             if (!_hasStarted)
             {
+                HelpBanners.ShowWavesBanner();
                 _hasStarted = true;
                 _pausePlayGlowGO.SetActive(false);
                 _waveCounter.StartWaves();
@@ -350,6 +351,7 @@ public class GridUI : MonoBehaviour
 
     public void GameOver()
     {
+		if (_gameOver) return;
 
         MusicController.ChangeMusic(3);
         
@@ -372,6 +374,8 @@ public class GridUI : MonoBehaviour
 
     public void LevelPass()
     {
+		if (_gameOver) return;
+
         LevelManager.MarkLevelPassed();
 
         MusicController.ChangeMusic(2);

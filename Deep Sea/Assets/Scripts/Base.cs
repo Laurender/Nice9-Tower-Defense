@@ -34,7 +34,8 @@ public class Base : MonoBehaviour
         if (_health <= 0)
         {
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
+			_animator.gameObject.SetActive (false);
             BarPanel.Health = 0;
 
             FindObjectOfType<GridUI>().GameOver();

@@ -19,8 +19,10 @@ public class Transition : MonoBehaviour {
 
     public void Close()
     {
+        HelpBanners.ShowBuildBanner();
         foreach(GameObject go in _partsOfTransition)
         {
+
             go.SetActive(false);
         }
     }
