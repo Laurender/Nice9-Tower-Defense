@@ -169,274 +169,275 @@ public class WaveCounter : MonoBehaviour
 	void SendEndless()
 	{
 		_endlessWave.Clear();
-		Debug.Log (_currentCount % 10);
-		switch (_currentCount % 10) 
+		//Debug.Log (_currentCount % 10);
+		switch (_currentCount % 15) 
 		{
 		case 0:
-			for (int i = 0; i < 6 + (((int)_currentCount / 10) * 2); i++) 
+			for (int i = 0; i < 4 + (((int)_currentCount / 15) * 10); i++) 
 			{
 				_endlessWave.Add (_enemy1);
 			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 3 + (((int)_currentCount / 15) * 2); i++) 
 			{
 				_endlessWave.Add (_enemy2);
+			}
+			_endlessWave.Add (_enemy3);
+			for (int i = 0; i < (((int)_currentCount / 15) * 4); i++) 
+			{
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 1:
-			for (int i = 0; i < 6 + (((int)_currentCount / 10)*2); i++) 
+			for (int i = 0; i < 4 + (((int)_currentCount / 15)*6); i++) 
 			{
 				_endlessWave.Add(_enemy1);
 			}
-			for (int i = 0; i < 2 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy4);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 4 + (((int)_currentCount / 15)*4); i++) 
 			{
 				_endlessWave.Add(_enemy2);
+			}
+			for (int i = 0; i < 1 + (int)_currentCount / 15; i++) 
+			{
+				_endlessWave.Add(_enemy3);
+			}
+			for (int i = 0; i < 1 + (((int)_currentCount / 15) * 7); i++) 
+			{
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 2:
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
+			for (int i = 0; i < 5 + (((int)_currentCount / 15)*9); i++) 
+			{
+				_endlessWave.Add(_enemy1);
+			}
+			for (int i = 0; i < 4 + (int)_currentCount / 15; i++) 
+			{
+				_endlessWave.Add(_enemy2);
+			}
+			for (int i = 0; i < 1 + (((int)_currentCount / 15) * 2); i++) 
 			{
 				_endlessWave.Add(_enemy3);
 			}
-			for (int i = 0; i < 4 + (((int)_currentCount / 10)*2); i++) 
+			for (int i = 0; i < 2 + (((int)_currentCount / 15) * 6); i++) 
 			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 4 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy4);
-			}
-			for (int i = 0; i < 4 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy1);
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 3:
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
-			{
-				_endlessWave.Add(_enemy3);
-			}
-			for (int i = 0; i < 6 + (((int)_currentCount / 10)*2); i++) 
+			for (int i = 0; i < 5 + (((int)_currentCount / 15)*5); i++) 
 			{
 				_endlessWave.Add(_enemy1);
 			}
-			for (int i = 0; i < 1 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 4 + (((int)_currentCount / 15) * 2); i++) 
 			{
 				_endlessWave.Add(_enemy2);
 			}
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
+			for (int i = 0; i < 2 + (((int)_currentCount / 15) * 2); i++) 
 			{
 				_endlessWave.Add(_enemy3);
 			}
-			for (int i = 0; i < 6 + (((int)_currentCount / 10)*2); i++) 
+			for (int i = 0; i < 3 + (((int)_currentCount / 15) * 9); i++) 
 			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 1 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 4:
-			for (int i = 0; i < 12 + (((int)_currentCount / 10)*3); i++) 
+			for (int i = 0; i < 5 + (((int)_currentCount / 15)*7); i++) 
 			{
-				_endlessWave.Add(_enemy4);
+				_endlessWave.Add(_enemy1);
 			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 4 + (((int)_currentCount / 15) * 2); i++) 
 			{
 				_endlessWave.Add(_enemy2);
 			}
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
+			for (int i = 0; i < 3 + (((int)_currentCount / 15) * 3); i++) 
 			{
 				_endlessWave.Add(_enemy3);
+			}
+			for (int i = 0; i < 3 + (((int)_currentCount / 15) * 5); i++) 
+			{
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 5:
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
-			{
-				_endlessWave.Add(_enemy3);
-			}
-			for (int i = 0; i < 2 + (((int)_currentCount / 10)*2); i++) 
+			for (int i = 0; i < 8 + (((int)_currentCount / 15)*4); i++) 
 			{
 				_endlessWave.Add(_enemy1);
 			}
-			for (int i = 0; i < 2 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy4);
-			}
-			for (int i = 0; i < 2 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 4 + (int)_currentCount / 15; i++) 
 			{
 				_endlessWave.Add(_enemy2);
 			}
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
+			_endlessWave.Add(_enemy3);
+			for (int i = 0; i < 3 + (((int)_currentCount / 15) * 4); i++) 
 			{
-				_endlessWave.Add(_enemy3);
-			}
-			for (int i = 0; i < 2 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 2 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy4);
-			}
-			for (int i = 0; i < 2 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
-			}
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
-			{
-				_endlessWave.Add(_enemy3);
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 6:
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 8 + (((int)_currentCount / 15)*6); i++) 
 			{
 				_endlessWave.Add(_enemy1);
 			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 5; i++) 
 			{
 				_endlessWave.Add(_enemy2);
 			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 2; i++) 
 			{
-				_endlessWave.Add(_enemy1);
+				_endlessWave.Add(_enemy3);
 			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 3 + (((int)_currentCount / 15) * 3); i++) 
 			{
-				_endlessWave.Add(_enemy2);
-			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
-			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
-			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 7:
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 7 + (((int)_currentCount / 15)*5); i++) 
 			{
 				_endlessWave.Add(_enemy1);
 			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 5 + (int)_currentCount / 15; i++) 
 			{
 				_endlessWave.Add(_enemy2);
 			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy4);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
-			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
-			}
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
+			for (int i = 0; i < 2 + (int)_currentCount / 15; i++) 
 			{
 				_endlessWave.Add(_enemy3);
 			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 6 + (int)_currentCount / 15; i++) 
 			{
-				_endlessWave.Add(_enemy4);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
-			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 2 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 8:
-			for (int i = 0; i < 4 + (((int)_currentCount / 10)*2); i++) 
+			for (int i = 0; i < 7 + (((int)_currentCount / 15)*7); i++) 
 			{
 				_endlessWave.Add(_enemy1);
 			}
-			for (int i = 0; i < 4 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy4);
-			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 6; i++) 
 			{
 				_endlessWave.Add(_enemy2);
 			}
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
+			for (int i = 0; i < 3 + (int)_currentCount / 15; i++) 
 			{
 				_endlessWave.Add(_enemy3);
 			}
-			for (int i = 0; i < 4 + (((int)_currentCount / 10)*2); i++) 
+			for (int i = 0; i < 6; i++) 
 			{
-				_endlessWave.Add(_enemy1);
-			}
-			for (int i = 0; i < 4 + (((int)_currentCount / 10)*2); i++) 
-			{
-				_endlessWave.Add(_enemy4);
-			}
-			for (int i = 0; i < 3 + (int)_currentCount / 10; i++) 
-			{
-				_endlessWave.Add(_enemy2);
-			}
-			for (int i = 0; i < 1 + (int)_currentCount / 20; i++) 
-			{
-				_endlessWave.Add(_enemy3);
+				_endlessWave.Add (_enemy4);
 			}
 			StartCoroutine(SpawnEndless ());
 			break;
 		case 9:
-			for (int i = 0; i < (int)_currentCount / 10; i++) 
+			for (int i = 0; i < 10 + (((int)_currentCount / 15)*6); i++) 
+			{
+				_endlessWave.Add(_enemy1);
+			}
+			for (int i = 0; i < 4; i++) 
+			{
+				_endlessWave.Add(_enemy2);
+			}
+			for (int i = 0; i < 5; i++) 
+			{
+				_endlessWave.Add(_enemy3);
+			}
+			for (int i = 0; i < 5 + (int)_currentCount / 15; i++) 
+			{
+				_endlessWave.Add (_enemy4);
+			}
+			StartCoroutine(SpawnEndless ());
+			break;
+		case 10:
+			for (int i = 0; i < 12 + (((int)_currentCount / 15)*2); i++) 
+			{
+				_endlessWave.Add(_enemy1);
+			}
+			for (int i = 0; i < 5; i++) 
+			{
+				_endlessWave.Add(_enemy2);
+			}
+			for (int i = 0; i < 1 + (int)_currentCount / 15; i++) 
+			{
+				_endlessWave.Add(_enemy3);
+			}
+			for (int i = 0; i < 7 + (((int)_currentCount / 15)*2); i++) 
+			{
+				_endlessWave.Add (_enemy4);
+			}
+			StartCoroutine(SpawnEndless ());
+			break;
+		case 11:
+			for (int i = 0; i < 14 + (((int)_currentCount / 15)*2); i++) 
+			{
+				_endlessWave.Add(_enemy1);
+			}
+			for (int i = 0; i < 4 + (((int)_currentCount / 15) * 2); i++) 
+			{
+				_endlessWave.Add(_enemy2);
+			}
+			for (int i = 0; i < 2 + (int)_currentCount / 15; i++) 
+			{
+				_endlessWave.Add(_enemy3);
+			}
+			for (int i = 0; i < 6 + (int)_currentCount / 15; i++) 
+			{
+				_endlessWave.Add (_enemy4);
+			}
+			StartCoroutine(SpawnEndless ());
+			break;
+		case 12:
+			for (int i = 0; i < 12 + (((int)_currentCount / 15)*4); i++) 
+			{
+				_endlessWave.Add(_enemy1);
+			}
+			for (int i = 0; i < 6 + (((int)_currentCount / 15) * 2); i++) 
+			{
+				_endlessWave.Add(_enemy2);
+			}
+			for (int i = 0; i < 3 + (int)_currentCount / 15; i++) 
+			{
+				_endlessWave.Add(_enemy3);
+			}
+			for (int i = 0; i < 7 + (((int)_currentCount / 15) * 2); i++) 
+			{
+				_endlessWave.Add (_enemy4);
+			}
+			StartCoroutine(SpawnEndless ());
+			break;
+		case 13:
+			for (int i = 0; i < 14 + (((int)_currentCount / 15)*2); i++) 
+			{
+				_endlessWave.Add(_enemy1);
+			}
+			for (int i = 0; i < 6 + (((int)_currentCount / 15) * 2); i++) 
+			{
+				_endlessWave.Add(_enemy2);
+			}
+			for (int i = 0; i < 4 + (int)_currentCount / 15; i++) 
+			{
+				_endlessWave.Add(_enemy3);
+			}
+			for (int i = 0; i < 6 + (((int)_currentCount / 15) * 2); i++) 
+			{
+				_endlessWave.Add (_enemy4);
+			}
+			StartCoroutine(SpawnEndless ());
+			break;
+		case 14:
+			for (int i = 0; i < 1 + (int)_currentCount / 15; i++) 
 			{
 				_endlessWave.Add(_boss);
 			}
-			for (int i = 0; i < 12 + (((int)_currentCount / 10)*4); i++) 
+			for (int i = 0; i < 10 + (((int)_currentCount / 10)*5); i++) 
 			{
 				_endlessWave.Add(_enemy1);
 			}

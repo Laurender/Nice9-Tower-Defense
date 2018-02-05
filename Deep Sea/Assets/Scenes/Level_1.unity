@@ -25267,7 +25267,7 @@ Prefab:
     - target: {fileID: 114292711673997260, guid: e8a680d3b64e5ab46b5fe9e1b064f80a,
         type: 2}
       propertyPath: _roadSouth
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4439430832757838, guid: e8a680d3b64e5ab46b5fe9e1b064f80a, type: 2}
       propertyPath: m_LocalScale.x
