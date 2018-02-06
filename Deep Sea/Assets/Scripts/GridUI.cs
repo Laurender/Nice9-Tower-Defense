@@ -129,7 +129,7 @@ public class GridUI : MonoBehaviour
     {
 
         // Most UI does nothing if the game is over or pause menu is open.
-        if (_gameOver || _pauseMenuOpen) return;
+        if (_gameOver || _pauseMenuOpen || !Transition.IsClosed) return;
 
         
         if (Input.GetMouseButtonDown(0))
