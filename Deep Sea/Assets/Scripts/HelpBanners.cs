@@ -33,13 +33,13 @@ public class HelpBanners : MonoBehaviour {
     {
         banner.SetActive(true);
 
-        for (float y = -400; y < 0; y += 15)
+        for (float y = -400; y < 0; y += 10)
         {
             SetY(y);
             yield return new WaitForSecondsRealtime(.02f);
         }
 
-        for (float y = 0; y > -400; y -= 15)
+        for (float y = 0; y > -400; y -= 10)
         {
             SetY(y);
             yield return new WaitForSecondsRealtime(.02f);
