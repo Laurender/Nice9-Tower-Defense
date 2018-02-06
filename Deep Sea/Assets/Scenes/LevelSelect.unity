@@ -323,7 +323,7 @@ MonoBehaviour:
   _scale: 60
   _minX: -750
   _maxX: -1280
-  _levelLock: 6
+  _levelLock: -1
   _lockedLevelImage: {fileID: 21300000, guid: 8ecd4cf9a3bbed448bf7efc025b1cc4d, type: 3}
   _lockedButtonImage: {fileID: 21300060, guid: f8ad59c0c6b559d409a0d9b864c7489a, type: 3}
   _forceStory: 0

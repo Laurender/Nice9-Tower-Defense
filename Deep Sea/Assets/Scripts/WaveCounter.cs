@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GooglePlayGames;
 
 public class WaveCounter : MonoBehaviour
 {
@@ -114,6 +115,38 @@ public class WaveCounter : MonoBehaviour
 			{
 				_currentCount++;
 				_text.text = "ENDLESS : " + (_currentCount + 1).ToString();
+
+				if (Social.localUser.authenticated) {
+					switch (_currentCount) {
+					case 15:
+						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_survival_of_the_fittest, 100f, (bool success) => {
+							//Debug
+						});
+						return;
+					case 42:
+						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_meaning_of_life, 100f, (bool success) => {
+							//Debug
+						});
+						return;
+					case 66:
+						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_order_66, 100f, (bool success) => {
+							//Debug
+						});
+						return;
+					case 79:
+						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_where_no_man_has_gone_before, 100f, (bool success) => {
+							//Debug
+						});
+						return;
+					case 300:
+						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_this_is_madness, 100f, (bool success) => {
+							//Debug
+						});
+						return;
+					}
+				
+				}
+
 				SendEndless ();
 			}
             else

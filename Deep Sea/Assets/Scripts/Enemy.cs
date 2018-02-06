@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GooglePlayGames;
 
 public class Enemy : MonoBehaviour
 {
@@ -186,6 +187,34 @@ public class Enemy : MonoBehaviour
                 _waveCounter.EnemyDied();
                 BarPanel.Money += _reward;
 				_speed = 0.0f;
+
+				if (Social.localUser.authenticated) {
+					PlayGamesPlatform.Instance.IncrementAchievement (GPGSIds.achievement_baby_fisher, 1, (bool success) => {
+						//Debug.Log ("" + success);
+					});
+					PlayGamesPlatform.Instance.IncrementAchievement (GPGSIds.achievement_fishermans_apprentice, 1, (bool success) => {
+						//Debug.Log ("" + success);
+					});
+					PlayGamesPlatform.Instance.IncrementAchievement (GPGSIds.achievement_professional_fisher, 1, (bool success) => {
+						//Debug.Log ("" + success);
+					});
+					PlayGamesPlatform.Instance.IncrementAchievement (GPGSIds.achievement_defishenator, 1, (bool success) => {
+						//Debug.Log ("" + success);
+					});
+
+					PlayerPrefs.SetInt ("EnemiesKilled", PlayerPrefs.GetInt ("EnemiesKilled") + 1);
+					if (PlayerPrefs.GetInt ("EnemiesKilled") >= 100000) {
+						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_the_overfisher, 100f, (bool success) => {
+							//Debug
+						});
+					}
+
+					if (PlayerPrefs.GetInt ("EnemiesKilled") >= 1000000) {
+						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_extinction, 100f, (bool success) => {
+							//Debug
+						});
+					}
+				}
 
                 StartCoroutine(BeDestroyed());
                 isActive = false;

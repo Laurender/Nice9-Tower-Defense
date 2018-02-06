@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GooglePlayGames;
 
 public class GridUI : MonoBehaviour
 {
@@ -402,6 +403,60 @@ public class GridUI : MonoBehaviour
             _deleteMenu.CleanUp();
         }
 
+		if (Social.localUser.authenticated) {
+
+			switch (LevelManager.CurrentLevel) {
+			case 0:
+				PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_swift_learner, 100f, (bool success) => {
+					//Debug
+				});
+				if (BarPanel.Health == 10) {
+					PlayerPrefs.SetInt ("level1FullHealth", 1);
+				}
+				return;
+			case 1:
+				PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_defender_of_the_outpost, 100f, (bool success) => {
+					//Debug
+				});
+				if (BarPanel.Health == 10) {
+					PlayerPrefs.SetInt ("level2FullHealth", 1);
+				}
+				return;
+			case 2:
+				PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_dinner_in_hell, 100f, (bool success) => {
+					//Debug
+				});
+				if (BarPanel.Health == 10) {
+					PlayerPrefs.SetInt ("level3FullHealth", 1);
+				}
+				return;
+			case 3:
+				PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_take_that_tuna, 100f, (bool success) => {
+					//Debug
+				});
+				if (BarPanel.Health == 10) {
+					PlayerPrefs.SetInt ("level4FullHealth", 1);
+				}
+				return;
+			case 4:
+				PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_hero_of_the_colony, 100f, (bool success) => {
+					//Debug
+				});
+				if (BarPanel.Health == 10) {
+					PlayerPrefs.SetInt ("level5FullHealth", 1);
+				}
+				return;
+			default:
+				return;
+			}
+
+			if (PlayerPrefs.GetInt ("level1FullHealth") == 1 && PlayerPrefs.GetInt ("level2FullHealth") == 1 && PlayerPrefs.GetInt ("level3FullHealth") == 1
+				&& PlayerPrefs.GetInt ("level4FullHealth") == 1 && PlayerPrefs.GetInt ("level5FullHealth") == 1) {
+				PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_i_came_i_saw_i_conquered, 100f, (bool success) => {
+					//Debug
+				});
+			}
+		}
         
         //_levelPassDisplay.SetActive(true);
 

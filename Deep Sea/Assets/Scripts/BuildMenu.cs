@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GooglePlayGames;
 
 public class BuildMenu : MonoBehaviour {
 
@@ -210,7 +211,9 @@ public class BuildMenu : MonoBehaviour {
         BasicTowerBuild(_harpoonPrefab);
         BarPanel.Money -= 60;
  
-      
+		PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_fisher, 100f, (bool success) => {
+			//Debug
+		});
     }
 
     public void BuildHatchTower()
@@ -218,6 +221,9 @@ public class BuildMenu : MonoBehaviour {
         BasicTowerBuild(_hatchPrefab);
         BarPanel.Money -= 80;
  
+		PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_fish_trap, 100f, (bool success) => {
+			//Debug
+		});
     }
 
     public void BuildLaserTower()
@@ -253,6 +259,10 @@ public class BuildMenu : MonoBehaviour {
         _gridUI.ActivateGrid();
 
         BarPanel.Money -= 120;
+
+		PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_sunbath, 100f, (bool success) => {
+			//Debug
+		});
     }
 
     // Use stored state to reset back to normal.
@@ -272,6 +282,9 @@ public class BuildMenu : MonoBehaviour {
         BasicTowerBuild(_teslaPrefab);
         BarPanel.Money -= 120;
 
+		PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_electoconvulsive_therapy, 100f, (bool success) => {
+			//Debug
+		});
     }
 
     private void BasicTowerBuild(GameObject preFab)
