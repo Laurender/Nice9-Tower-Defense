@@ -35,8 +35,14 @@ public class Base : MonoBehaviour
         {
 
             //Destroy(gameObject);
-			_animator.gameObject.SetActive (false);
+			//_animator.gameObject.SetActive (false);
+			_animator.enabled = false;
             BarPanel.Health = 0;
+
+			foreach (Transform child in transform) 
+			{
+				child.gameObject.SetActive (true);
+			}
 
             FindObjectOfType<GridUI>().GameOver();
 

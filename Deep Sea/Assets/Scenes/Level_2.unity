@@ -3135,11 +3135,6 @@ Transform:
   m_Father: {fileID: 1804785668}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &465173556 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1055365611376830, guid: a3cd9d1f89eb8054dbfa09bf80390720,
-    type: 2}
-  m_PrefabInternal: {fileID: 1073408810}
 --- !u!1 &483383833 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1033023613081414, guid: e8a680d3b64e5ab46b5fe9e1b064f80a,
@@ -6393,11 +6388,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114772781395024144, guid: 1baeabeaa315741a98f0d655296244e5,
-        type: 2}
-      propertyPath: _healthBar
-      value: 
-      objectReference: {fileID: 465173556}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1baeabeaa315741a98f0d655296244e5, type: 2}
   m_IsPrefabParent: 0

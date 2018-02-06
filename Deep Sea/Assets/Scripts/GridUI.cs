@@ -358,7 +358,7 @@ public class GridUI : MonoBehaviour
 
         _gameOver = true;
         _isPaused = true;
-        SetSpeed();
+        //SetSpeed();
 
         MusicController.EndSfx();
 
@@ -368,9 +368,18 @@ public class GridUI : MonoBehaviour
             _deleteMenu.CleanUp();
         }
 
-        _gameOverDisplay.SetActive(true);
+        //_gameOverDisplay.SetActive(true);
+
+		StartCoroutine (FinishGameOver ());
 
     }
+
+	IEnumerator FinishGameOver()
+	{
+		yield return new WaitForSeconds (3f);
+		SetSpeed ();
+		_gameOverDisplay.SetActive (true);
+	}
 
     public void LevelPass()
     {
@@ -383,7 +392,7 @@ public class GridUI : MonoBehaviour
 
         _gameOver = true;
         _isPaused = true;
-        SetSpeed();
+        //SetSpeed();
 
         MusicController.EndSfx();
 
@@ -394,9 +403,18 @@ public class GridUI : MonoBehaviour
         }
 
         
-        _levelPassDisplay.SetActive(true);
+        //_levelPassDisplay.SetActive(true);
+
+		StartCoroutine (FinishLevelPass ());
 
     }
+
+	IEnumerator FinishLevelPass()
+	{
+		yield return new WaitForSeconds (3f);
+		SetSpeed ();
+		_levelPassDisplay.SetActive (true);
+	}
 
     public void ReloadScene()
     {
