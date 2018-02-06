@@ -463,7 +463,11 @@ public class WaveCounter : MonoBehaviour
 			(tempReference.GetComponent<Enemy> ()).SetRoute (_routes);
 
 			// Wait until time to spawn next enemy. There will be a redundant wait after last enemy.
-			yield return new WaitForSeconds (0.5f);
+			if (_endlessWave [i] == _boss) {
+				yield return new WaitForSeconds (1f);
+			} else {
+				yield return new WaitForSeconds (0.5f);
+			}
 		}
 	}
 }
