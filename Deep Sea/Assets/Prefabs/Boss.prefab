@@ -161,7 +161,7 @@ MonoBehaviour:
     type: 2}
   damagePrefab: {fileID: 1689129753831996, guid: 89dc7a83690544222a524fe61984f140,
     type: 2}
-  _reward: 13
+  _reward: 120
 --- !u!114 &114408748689349508
 MonoBehaviour:
   m_ObjectHideFlags: 1
