@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 
 public class GooglePlayGamesThing : MonoBehaviour {
 
-	public GameObject achButton;
+	public Button achButton;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder ().Build ();
 
@@ -26,6 +27,8 @@ public class GooglePlayGamesThing : MonoBehaviour {
 		{
 			PlayGamesPlatform.Instance.Authenticate (SignInCallback, true);
 		}
+
+		achButton.enabled = (Social.localUser.authenticated);
 			
 		if (PlayerPrefs.GetInt ("EnemiesKilled") == null) 
 		{
@@ -57,7 +60,7 @@ public class GooglePlayGamesThing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		achButton.SetActive (Social.localUser.authenticated);
+		achButton.enabled = (Social.localUser.authenticated);
 	}
 
 	public void SignInCallback(bool success)

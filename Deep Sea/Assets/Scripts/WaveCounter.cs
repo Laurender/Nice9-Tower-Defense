@@ -122,27 +122,27 @@ public class WaveCounter : MonoBehaviour
 						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_survival_of_the_fittest, 100f, (bool success) => {
 							//Debug
 						});
-						return;
+						break;
 					case 42:
 						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_meaning_of_life, 100f, (bool success) => {
 							//Debug
 						});
-						return;
+						break;
 					case 66:
 						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_order_66, 100f, (bool success) => {
 							//Debug
 						});
-						return;
+						break;
 					case 79:
 						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_where_no_man_has_gone_before, 100f, (bool success) => {
 							//Debug
 						});
-						return;
+						break;
 					case 300:
 						PlayGamesPlatform.Instance.ReportProgress (GPGSIds.achievement_this_is_madness, 100f, (bool success) => {
 							//Debug
 						});
-						return;
+						break;
 					}
 				
 				}
